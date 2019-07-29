@@ -1,0 +1,1599 @@
+# -------------------- { Variables } --------------------
+variables:
+    Dummy: {type: playerstring, default-value: "Empty"}
+    Sound: {type: playerstring, default-value: "Empty"}
+    Pitch: {type: player}
+    Volume: {type: player}
+    SoundFound: {type: player}
+
+
+
+# -------------------- { Spells } --------------------
+# Soundboard Main Menu
+sb:
+    <<: &menu
+     spell-class: ".MenuSpell"
+     helper-spell: true
+     tags: [NotSilenceable]
+     delay: 1
+    always-granted: true
+    title: "&9Soundboard"
+    variable-mods-cast: [Pitch =1, Volume =1]
+    incantations: ["/soundboard","/sounds","/sb"]
+    modifiers: ["!variablestringequals Dummy:Empty cast sb-clearstring-dummy","!variablestringequals Sound:Empty cast sb-clearstring-sound"]
+    options:
+      Ambient: {slot: 0,item: "coal_ore|&6Ambient",spell: sb-ambient}
+      Block: {slot: 1,item: "stone|&6Block",spell: sb-block}
+      Enchant: {slot: 2,item: "enchanted_book|&6Enchant",spell: sb-enchant}
+      Entity: {slot: 3,item: "monster_egg:0|&6Entity",spell: sb-entity}
+      Item: {slot: 4,item: "diamond_axe|&6Item",spell: sb-item}
+      Music: {slot: 5,item: "jukebox|&6Music",spell: sb-music}
+      Weather: {slot: 6,item: "snow_ball|&6Weather",spell: sb-weather}
+      UI: {slot: 7,item: "name_tag|&6UI",spell: sb-ui}
+
+
+
+# Ambient Sounds
+sb-ambient:
+    <<: *menu
+    title: "&9Ambient Sounds"
+    options:
+      Cave: {slot: 0,item: "coal_ore|&6Cave|ambient.cave",spell: sb-parse-ambient-cave}
+      Back: {slot: 8,item: "book|&6Back",spell: sb}
+
+
+
+# Block Sounds
+sb-block:
+    <<: *menu
+    title: "&9Block Sounds"
+    options:
+      Anvil: {slot: 0,item: "anvil|&6Anvil Sounds",spell: sb-block-anvil}
+      BrewingStand: {slot: 1,item: "brewing_stand_item|&6Brewing Stand Brew Sound|block.brewing_stand.brew",spell: sb-parse-block-brewingstand-brew}
+      Chest: {slot: 2,item: "chest|&6Chest Sounds",spell: sb-block-chest}
+      ChorusFlower: {slot: 3,item: "chorus_flower|&6Chorus Flower Sounds",spell: sb-block-chorusflower}
+      Comparator: {slot: 4,item: "redstone_comparator|&6Comparator Click Sound|block.comparator.click",spell: sb-parse-block-comparator}
+      EnchantmentTable: {slot: 5,item: "enchantment_table|&6Enchantment Table Enchant Sound|block.enchantment_table.use",spell: sb-parse-block-enchant}
+      EndPortal: {slot: 6,item: "ender_portal_frame|&6End Portal Sounds",spell: sb-block-endportal}
+      FenceGate: {slot: 7,item: "fence_gate|&6Fence Gate Sounds",spell: sb-block-fencegate}
+      Fire: {slot: 8,item: "blaze_powder|&6Fire Sounds",spell: sb-block-fire}
+      Furnace: {slot: 9,item: "furnace|&6Furnace Crackle Sound|block.furnace.fire_crackle",spell: sb-parse-block-furnace}
+      GlassBreak: {slot: 10,item: "glass|&6Glass Break Sound|block.glass.break",spell: sb-parse-block-glass-break}
+      IronDoor/Trapdoor: {slot: 11,item: "iron_door|&6Iron Door And Trapdoor Sounds",spell: sb-block-iron}
+      Ladder: {slot: 12,item: "ladder|&6Ladder Sounds",spell: sb-block-ladder}
+      Lava: {slot: 13,item: "lava_bucket|&6Lava Sound|block.lava.ambient",spell: sb-parse-block-lava}
+      Notes: {slot: 14,item: "note_block|&6Note Sounds",spell: sb-block-notes}
+      Piston: {slot: 15,item: "piston_base|&6Piston Sounds",spell: sb-block-piston}
+      Portal: {slot: 16,item: "obsidian|&6Portal Sounds",spell: sb-block-portal}
+      RedstoneTorchBurnout: {slot: 17,item: "redstone_torch_on|&6Redstone Torch Sound|block.redstone_torch.burnout",spell: sb-parse-block-redstonetorch-burnout}
+      Shulker: {slot: 18,item: "shulker_shell|&6Shulker Box Sounds",spell: sb-block-shulkerbox}
+      Water: {slot: 19,item: "water_bucket|&6Water Sound|block.water.ambient",spell: sb-parse-block-water}
+      WoodDoor/Trapdoor: {slot: 20,item: "wood_door|&6Wood Door And Trapdoor Sounds",spell: sb-block-wood}
+      Cloth: {slot: 27,item: "wool|&6Cloth Sounds|Wool, Cactus, Cake, Carpet|and Fire",spell: sb-block-cloth}
+      Grass: {slot: 28,item: "grass|&6Grass Sounds|Grass Block, Sponge Wet|Sponge, Leaves, Tall Grass, Fern,|Dead Bush, Flowers, Brown Mushroom|Red Mushroom, TNT, Wheat, Sugar|Canes, Vines, Mycelium,|Lily Pad, Carrots, Potatoes and Hay Bale",spell: sb-block-grass}
+      Gravel: {slot: 29,item: "gravel|&6Gravel Sounds|Dirt, Coarse Dirt, Podzol, Gravel,|Farmland and Clay",spell: sb-block-gravel}
+      Sand: {slot: 30,item: "sand|&6Sand Sounds|Sand, Red Sand, Soul Sand|and Concrete Powder",spell: sb-block-sand}
+      Snow: {slot: 31,item: "snow_block|&6Snow Sounds|Snow Block",spell: sb-block-snow}
+      Stone: {slot: 32,item: "stone|&6Stone Sounds|Stone, Ores, Sandstone, Rails, Bricks,|Obsidian, Stone Bricks, Iron Bars, Nether|Bricks, Enchantment Table, Cauldron,|Portal, Ender Chest, Command Block,|Beacon, Anvil, Barrier, Prismarine, Terracotta,|Sandstone, Magma Block and Concrete",spell: sb-block-stone}
+      Wood: {slot: 33,item: "log|&6Wood Sounds|Plank, Log, Bed, Bookshelf, Pumpkin|Banner and Fence",spell: sb-block-woods}
+      Glass: {slot: 34,item: "glass|&6Glass Sounds|Glass, Ice, Glowstone, Nether|Portal, Sea Lantern and Packed Ice",spell: sb-block-glass}
+      Slime: {slot: 35,item: "slime_block|&6Slime Block Sounds",spell: sb-block-slime}
+      Back: {slot: 40,item: "book|&6Back",spell: sb}
+
+sb-block-anvil:
+    <<: *menu
+    title: "&9Anvil Sounds"
+    options:
+      Destory: {slot: 0,item: "anvil|&6Destroy Sound|block.anvil.destroy",spell: sb-parse-block-anvil-destroy}
+      Land/Place: {slot: 1,item: "anvil|&6Land/Place Sound|block.anvil.land",spell: sb-parse-block-anvil-land}
+      Use: {slot: 2,item: "anvil|&6Use Sound|block.anvil.use",spell: sb-parse-block-anvil-use}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-chest:
+    <<: *menu
+    title: "&9Chest Sounds"
+    options:
+      Close: {slot: 0,item: "chest|&6Close Sound|block.chest.close",spell: sb-parse-block-chest-close}
+      Open: {slot: 1,item: "chest|&6Open Sound|block.chest.open",spell: sb-parse-block-chest-open}
+      ECClose: {slot: 2,item: "ender_chest|&6Close Sound|block.enderchest.close",spell: sb-parse-block-enderchest-close}
+      ECOpen: {slot: 3,item: "ender_chest|&6Open Sound|block.enderchest.open",spell: sb-parse-block-enderchest-open}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-chorusflower:
+    <<: *menu
+    title: "&9Chorus Flower Sounds"
+    options:
+      Death: {slot: 0,item: "chorus_flower|&6Death Sound|block.chorus_flower.death",spell: sb-parse-block-chorusflower-death}
+      Grow: {slot: 1,item: "chorus_flower|&6Grow Sound|block.chorus_flower.grow",spell: sb-parse-block-chorusflower-grow}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-endportal:
+    <<: *menu
+    title: "&9End Portal Sounds"
+    options:
+      Close: {slot: 0,item: "ender_portal_frame|&6Spawn Sound|block.end_portal.spawn",spell: sb-parse-block-endportal-spawn}
+      Open: {slot: 1,item: "ender_portal_frame|&6Fill Sound|block.end_portal_frame.fill",spell: sb-parse-block-endportal-fill}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-fencegate:
+    <<: *menu
+    title: "&9Fence Gate Sounds"
+    options:
+      Close: {slot: 0,item: "fence_gate|&6Close Sound|block.fence_gate.close",spell: sb-parse-block-fencegate-close}
+      Open: {slot: 1,item: "fence_gate|&6Open Sound|block.fence_gate.open",spell: sb-parse-block-fencegate-close}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-fire:
+    <<: *menu
+    title: "&9Fire Sounds"
+    options:
+      Ambient: {slot: 0,item: "blaze_powder|&6Ambient Sound|block.fire.ambient",spell: sb-parse-block-fire-ambient}
+      Extinguish: {slot: 1,item: "blaze_powder|&6Extinguish Sound|block.fire.extinguish",spell: sb-parse-block-fire-extinguish}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-iron:
+    <<: *menu
+    title: "&9Iron Door and Trapdoor Sounds"
+    options:
+      DClose: {slot: 0,item: "iron_door|&6Close Sound|block.iron_door.close",spell: sb-parse-block-irondoor-close}
+      DOpen: {slot: 1,item: "iron_door|&6Open Sound|block.iron_door.open",spell: sb-parse-block-irondoor-open}
+      TClose: {slot: 2,item: "iron_trapdoor|&6Close Sound|block.iron_trapdoor.close",spell: sb-parse-block-irontrapdoor-close}
+      TOpen: {slot: 3,item: "iron_trapdoor|&6Open Sound|block.iron_trapdoor.open",spell: sb-parse-block-irontrapdoor-open}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-ladder:
+    <<: *menu
+    title: "&9Ladder Sounds"
+    options:
+      Fall: {slot: 0,item: "ladder|&6Fall Sound|block.ladder.fall",spell: sb-parse-block-ladder-fall}
+      Hit: {slot: 1,item: "ladder|&6Hit Sound|block.ladder.hit",spell: sb-parse-block-ladder-hit}
+      Place: {slot: 2,item: "ladder|&6Place Sound|block.ladder.place",spell: sb-parse-block-ladder-place}
+      Step: {slot: 3,item: "ladder|&6Step Sound|block.ladder.step",spell: sb-parse-block-ladder-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-notes:
+    <<: *menu
+    title: "&9Note Sounds"
+    options:
+      Basedrum: {slot: 0,item: "note_block|&6Note Basedrum|block.note.basedrum",spell: sb-parse-block-note-basedrum}
+      Bass: {slot: 1,item: "note_block|&6Note Bass|block.note.bass",spell: sb-parse-block-note-bass}
+      Bell: {slot: 2,item: "note_block|&6Note Bell|block.note.bell",spell: sb-parse-block-note-bell}
+      Chime: {slot: 3,item: "note_block|&6Note Chime|block.note.chime",spell: sb-parse-block-note-chime}
+      Flute: {slot: 4,item: "note_block|&6Note Flute|block.note.flute",spell: sb-parse-block-note-flute}
+      Guitar: {slot: 5,item: "note_block|&6Note Guitar|block.note.guitar",spell: sb-parse-block-note-guitar}
+      Harp: {slot: 6,item: "note_block|&6Note Harp|block.note.harp",spell: sb-parse-block-note-harp}
+      Hat: {slot: 7,item: "note_block|&6Note Hat|block.note.hat",spell: sb-parse-block-note-hat}
+      Pling: {slot: 8,item: "note_block|&6Note Pling|block.note.pling",spell: sb-parse-block-note-pling}
+      Snare: {slot: 9,item: "note_block|&6Note Snare|block.note.snare",spell: sb-parse-block-note-snare}
+      Xylophone: {slot: 10,item: "note_block|&6Note Xylophone|block.note.xylophone",spell: sb-parse-block-note-xylophone}
+      Back: {slot: 17,item: "book|&6Back",spell: sb-block}
+
+sb-block-piston:
+    <<: *menu
+    title: "&9Piston Sounds"
+    options:
+      Contract: {slot: 0,item: "piston_base|&6Piston Contract|block.piston.contract",spell: sb-parse-block-piston-contract}
+      Extent: {slot: 1,item: "piston_base|&6Piston Extent|block.piston.extend",spell: sb-parse-block-piston-extend}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-portal:
+    spell-class: ".MenuSpell"
+    helper-spell: true
+    tags: [NotSilenceable]
+    title: "&9Portal Sounds"
+    delay: 1
+    options:
+      Ambient: {slot: 0,item: "obsidian|&6Portal Ambient|block.portal.ambient",spell: sb-parse-block-portal-ambient}
+      Travel: {slot: 1,item: "obsidian|&6Portal Travel|block.portal.travel",spell: sb-parse-block-portal-travel}
+      Trigger: {slot: 2,item: "obsidian|&6Portal Trigger|block.portal.trigger",spell: sb-parse-block-portal-trigger}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-shulkerbox:
+    <<: *menu
+    title: "&9Shulker Box Sounds"
+    options:
+      Close: {slot: 0,item: "shulker_shell|&6Close|block.shulker_box.close",spell: sb-parse-block-shulkerbox-close}
+      Open: {slot: 1,item: "shulker_shell|&6Open|block.shulker_box.open",spell: sb-parse-block-shulkerbox-open}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-wood:
+    <<: *menu
+    title: "&9Wood Door and Trapdoor Sounds"
+    options:
+      DClose: {slot: 0,item: "wood_door|&6Close Sound|block.wooden_door.close",spell: sb-parse-block-wooddoor-close}
+      DOpen: {slot: 1,item: "wood_door|&6Open Sound|block.wooden_door.open",spell: sb-parse-block-wooddoor-open}
+      TClose: {slot: 2,item: "trap_door|&6Close Sound|block.wooden_trapdoor.close",spell: sb-parse-block-woodtrapdoor-close}
+      TOpen: {slot: 3,item: "trap_door|&6Open Sound|block.wooden_trapdoor.open",spell: sb-parse-block-woodtrapdoor-open}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-cloth:
+    <<: *menu
+    title: "&9Cloth Sounds"
+    options:
+      Break: {slot: 0,item: "wool|&6Break|block.cloth.break",spell: sb-parse-block-cloth-break}
+      Fall: {slot: 1,item: "wool|&6Fall|block.cloth.fall",spell: sb-parse-block-cloth-fall}
+      Hit: {slot: 2,item: "wool|&6Hit|block.cloth.hit",spell: sb-parse-block-cloth-hit}
+      Place: {slot: 3,item: "wool|&6Place|block.cloth.place",spell: sb-parse-block-cloth-place}
+      Step: {slot: 4,item: "wool|&6Step|block.cloth.step",spell: sb-parse-block-cloth-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-grass:
+    <<: *menu
+    title: "&9Grass Sounds"
+    options:
+      Break: {slot: 0,item: "grass|&6Break|block.grass.break",spell: sb-parse-block-grass-break}
+      Fall: {slot: 1,item: "grass|&6Fall|block.grass.fall",spell: sb-parse-block-grass-fall}
+      Hit: {slot: 2,item: "grass|&6Hit|block.grass.hit",spell: sb-parse-block-grass-hit}
+      Place: {slot: 3,item: "grass|&6Place|block.grass.place",spell: sb-parse-block-grass-place}
+      Step: {slot: 4,item: "grass|&6Step|block.grass.step",spell: sb-parse-block-grass-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-gravel:
+    <<: *menu
+    title: "&9Gravel Sounds"
+    options:
+      Break: {slot: 0,item: "gravel|&6Break|block.gravel.break",spell: sb-parse-block-gravel-break}
+      Fall: {slot: 1,item: "gravel|&6Fall|block.gravel.fall",spell: sb-parse-block-gravel-fall}
+      Hit: {slot: 2,item: "gravel|&6Hit|block.gravel.hit",spell: sb-parse-block-gravel-hit}
+      Place: {slot: 3,item: "gravel|&6Place|block.gravel.place",spell: sb-parse-block-gravel-place}
+      Step: {slot: 4,item: "gravel|&6Step|block.gravel.step",spell: sb-parse-block-gravel-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-snow:
+    <<: *menu
+    title: "&9Snow Sounds"
+    options:
+      Break: {slot: 0,item: "snow_block|&6Break|block.snow.break",spell: sb-parse-block-snow-break}
+      Fall: {slot: 1,item: "snow_block|&6Fall|block.snow.fall",spell: sb-parse-block-snow-fall}
+      Hit: {slot: 2,item: "snow_block|&6Hit|block.snow.hit",spell: sb-parse-block-snow-hit}
+      Place: {slot: 3,item: "snow_block|&6Place|block.snow.place",spell: sb-parse-block-snow-place}
+      Step: {slot: 4,item: "snow_block|&6Step|block.snow.step",spell: sb-parse-block-snow-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-stone:
+    <<: *menu
+    title: "&9Stone Sounds"
+    options:
+      Break: {slot: 0,item: "stone|&6Break|block.stone.break",spell: sb-parse-block-stone-break}
+      Fall: {slot: 1,item: "stone|&6Fall|block.stone.fall",spell: sb-parse-block-stone-fall}
+      Hit: {slot: 2,item: "stone|&6Hit|block.stone.hit",spell: sb-parse-block-stone-hit}
+      Place: {slot: 3,item: "stone|&6Place|block.stone.place",spell: sb-parse-block-stone-place}
+      Step: {slot: 4,item: "stone|&6Step|block.stone.step",spell: sb-parse-block-stone-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+sb-block-woods:
+    <<: *menu
+    title: "&9Wood Sounds"
+    options:
+      Break: {slot: 0,item: "wood|&6Break|block.wood.break",spell: sb-parse-block-wood-break}
+      Fall: {slot: 1,item: "wood|&6Fall|block.wood.fall",spell: sb-parse-block-wood-fall}
+      Hit: {slot: 2,item: "wood|&6Hit|block.wood.hit",spell: sb-parse-block-wood-hit}
+      Place: {slot: 3,item: "wood|&6Place|block.wood.place",spell: sb-parse-block-wood-place}
+      Step: {slot: 4,item: "wood|&6Step|block.wood.step",spell: sb-parse-block-wood-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-slime:
+    <<: *menu
+    title: "&9Slime Sounds"
+    options:
+      Break: {slot: 0,item: "slime_block|&6Break|block.slime.break",spell: sb-parse-block-slime-break}
+      Fall: {slot: 1,item: "slime_block|&6Fall|block.slime.fall",spell: sb-parse-block-slime-fall}
+      Hit: {slot: 2,item: "slime_block|&6Hit|block.slime.hit",spell: sb-parse-block-slime-hit}
+      Place: {slot: 3,item: "slime_block|&6Place|block.slime.place",spell: sb-parse-block-slime-place}
+      Step: {slot: 4,item: "slime_block|&6Step|block.slime.step",spell: sb-parse-block-slime-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-sand:
+    <<: *menu
+    title: "&9Sand Sounds"
+    options:
+      Break: {slot: 0,item: "sand|&6Break|block.sand.break",spell: sb-parse-block-sand-break}
+      Fall: {slot: 1,item: "sand|&6Fall|block.sand.fall",spell: sb-parse-block-sand-fall}
+      Hit: {slot: 2,item: "sand|&6Hit|block.sand.hit",spell: sb-parse-block-sand-hit}
+      Place: {slot: 3,item: "sand|&6Place|block.sand.place",spell: sb-parse-block-sand-place}
+      Step: {slot: 4,item: "sand|&6Step|block.sand.step",spell: sb-parse-block-sand-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+sb-block-glass:
+    <<: *menu
+    title: "&9Glass Sounds"
+    options:
+      Break: {slot: 0,item: "glass|&6Break|block.glass.break",spell: sb-parse-block-glass-break}
+      Fall: {slot: 1,item: "glass|&6Fall|block.glass.fall",spell: sb-parse-block-glass-fall}
+      Hit: {slot: 2,item: "glass|&6Hit|block.glass.hit",spell: sb-parse-block-glass-hit}
+      Place: {slot: 3,item: "glass|&6Place|block.glass.place",spell: sb-parse-block-glass-place}
+      Step: {slot: 4,item: "glass|&6Step|block.glass.step",spell: sb-parse-block-glass-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-block}
+
+
+
+# Enchantment Sound
+sb-enchant:
+    <<: *menu
+    title: "&9Enchantment Sounds"
+    options:
+      Thorns: {slot: 0,item: "enchanted_book|&6Thorns|enchant.thorns.hit",spell: sb-parse-enchant-thorns}
+      Back: {slot: 8,item: "book|&6Back",spell: sb}
+
+
+
+# Entity Sounds
+sb-entity:
+    <<: *menu
+    title: "&9Entity Sounds"
+    options:
+      ArmorStand: {slot: 0,item: "armor_stand|&6Armor Stand Sounds",spell: sb-entity-armorstand}
+      Arrow: {slot: 1,item: "arrow|&6Arrow Sounds",spell: sb-entity-arrow}
+      Bat: {slot: 2,item: "monster_egg:65|&6Bat Sounds",spell: sb-entity-bat}
+      Blaze: {slot: 3,item: "monster_egg:61|&6Blaze Sounds",spell: sb-entity-blaze}
+      Boat: {slot: 4,item: "boat|&6Boat Sounds",spell: sb-entity-boat}
+      Cat: {slot: 5,item: "monster_egg:98|&6Cat Sounds",spell: sb-entity-cat}
+      Chicken: {slot: 6,item: "monster_egg:93|&6Chicken Sounds",spell: sb-entity-chicken}
+      Cow: {slot: 7,item: "monster_egg:92|&6Cow Sounds",spell: sb-entity-cow}
+      Creeper: {slot: 8,item: "monster_egg:50|&6Creeper Sounds",spell: sb-entity-creeper}
+      Donkey: {slot: 9,item: "monster_egg:31|&6Donkey Sounds",spell: sb-entity-donkey}
+      EnderDragon: {slot: 10,item: "skull_item:5|&6Ender Dragon Sounds",spell: sb-entity-enderdragon}
+      EnderEye/EnderPearl: {slot: 11,item: "eye_of_ender|&6Ender Eye + Ender Pearl Sounds",spell: sb-entity-endereyeandenderpearl}
+      Enderman: {slot: 12,item: "monster_egg:58|&6Enderman Sounds",spell: sb-entity-enderman}
+      Endermite/Silverfish: {slot: 13,item: "monster_egg:67|&6Endermite and Silverfish Sounds",spell: sb-entity-endermiteandsilverfish}
+      Evoker/Fangs/Illusioner: {slot: 14,item: "totem|&6Evoker+Illusioner Sounds+Fang Sound",spell: sb-entity-evoker}
+      ExperienceBottle/ExperienceOrb: {slot: 15,item: "exp_bottle|&6Experience Bottle + Experience Orb Sounds",spell: sb-entity-experiencebottleandorb}
+      Firework: {slot: 16,item: "firework|&6Firework Sounds",spell: sb-entity-firework}
+      FishingBobber: {slot: 17,item: "fishing_rod|&6Fishing Bobber Sounds",spell: sb-entity-fishingbobber}
+      Generic: {slot: 18,item: "bookshelf|&6Generic Sounds",spell: sb-entity-generic}
+      Ghast: {slot: 19,item: "monster_egg:312|&6Ghast Sounds",spell: sb-entity-ghast}
+      Guardians: {slot: 20,item: "monster_egg:68|&6Guardian and Elder Guardian Sounds",spell: sb-entity-guardian}
+      Horse: {slot: 21,item: "monster_egg:100|&6Horse Sounds",spell: sb-entity-horse}
+      Husk: {slot: 22,item: "monster_egg:23|&6Husk Sounds",spell: sb-entity-husk}
+      IronGolem: {slot: 23,item: "monster_egg:0|&6Iron Golem Sounds",spell: sb-entity-irongolem}
+      ItemFrame: {slot: 24,item: "paper|&6Item and Item Frame Sounds",spell: sb-entity-itemframe}
+      LeashKnot: {slot: 25,item: "leash|&6Leash Knot Sounds",spell: sb-entity-leash}
+      LightningBolt: {slot: 26,item: "end_rod|&6Lightning Bolt Sounds",spell: sb-entity-lightning}
+      Llama: {slot: 27,item: "monster_egg:103|&6Llama Sounds",spell: sb-entity-llama}
+      MagmaCube: {slot: 28,item: "monster_egg:318|&6Magma Cube and Slime Sounds",spell: sb-entity-magmacube}
+      Minecart: {slot: 29,item: "minecart|&6Minecart Sounds",spell: sb-entity-minecart}
+      Painting: {slot: 30,item: "painting|&6Painting Sounds",spell: sb-entity-painting}
+      Parrot: {slot: 31,item: "monster_egg:105|&6Parrot Sounds",spell: sb-entity-parrot}
+      Pig: {slot: 32,item: "monster_egg:90|&6Pig Sounds",spell: sb-entity-pig}
+      Player: {slot: 33,item: "skull_item:3|&6Player Sounds",spell: sb-entity-player}
+      PolarBear: {slot: 34,item: "monster_egg:312|&6Polar Bear Sounds",spell: sb-entity-polarbear}
+      Rabbit: {slot: 35,item: "monster_egg:101|&6Rabbit Sounds",spell: sb-entity-rabbit}
+      Sheep: {slot: 36,item: "monster_egg:91|&6Sheep Sounds",spell: sb-entity-sheep}
+      Shulker: {slot: 37,item: "monster_egg:69|&6Shulker Sounds",spell: sb-entity-shulker}
+      Skeleton: {slot: 38,item: "monster_egg:51|&6Skeleton Sounds",spell: sb-entity-skeleton}
+      SnowGolem: {slot: 39,item: "snow_ball|&6Snow Golem Sounds",spell: sb-entity-snowgolem}
+      Spider: {slot: 40,item: "monster_egg:52|&6Spider Sounds",spell: sb-entity-spider}
+      Squid: {slot: 41,item: "monster_egg:94|&6Squid Sounds",spell: sb-entity-squid}
+      Stray: {slot: 42,item: "monster_egg:6|&6Stray Sounds",spell: sb-entity-stray}
+      Vex: {slot: 43,item: "monster_egg:35|&6Vex Sounds",spell: sb-entity-vex}
+      Villager: {slot: 44,item: "monster_egg:120|&6Villager Sounds",spell: sb-entity-villager}
+      Vindicator: {slot: 45,item: "iron_axe|&6Vindicator Sounds",spell: sb-entity-vindicator}
+      Witch: {slot: 46,item: "monster_egg:66|&6Witch Sounds",spell: sb-entity-witch}
+      Wither: {slot: 47,item: "nether_star|&6Wither Sounds",spell: sb-entity-wither}
+      WitherSkeleton: {slot: 48,item: "skull_item:1|&6Wither Skeleton Sounds",spell: sb-entity-witherskeleton}
+      Wolf: {slot: 49,item: "monster_egg:95|&6Wolf Sounds",spell: sb-entity-wolf}
+      Zombie: {slot: 50,item: "monster_egg:54|&6Zombie Sounds",spell: sb-entity-zombie}
+      Back: {slot: 53,item: "book|&6Back",spell: sb}
+
+sb-entity-armorstand:
+    <<: *menu
+    title: "&9Armor Stand Sounds"
+    options:
+      Break: {slot: 0,item: "armor_stand|&6Armor Stand Break Sound|entity.armorstand.break",spell: sb-parse-entity-armorstand-break}
+      Fall: {slot: 1,item: "armor_stand|&6Armor Stand Fall Sound|entity.armorstand.fall",spell: sb-parse-entity-armorstand-fall}
+      Hit: {slot: 2,item: "armor_stand|&6Armor Stand Hit Sound|entity.armorstand.hit",spell: sb-parse-entity-armorstand-hit}
+      Place: {slot: 3,item: "armor_stand|&6Armor Stand Place Sound|entity.armorstand.place",spell: sb-parse-entity-armorstand-place}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-arrow:
+    <<: *menu
+    title: "&9Arrow Sounds"
+    options:
+      Hit: {slot: 0,item: "arrow|&6Arrow Hit Sound|entity.arrow.hit",spell: sb-parse-entity-arrow-hit}
+      HitPlayer: {slot: 1,item: "arrow|&6Arrow Hit Player Sound|entity.arrow.hit_player",spell: sb-parse-entity-arrow-hitplayer}
+      Shoot: {slot: 2,item: "arrow|&6Arrow Shoot Sound|entity.arrow.shoot",spell: sb-parse-entity-arrow-shoot}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-bat:
+    <<: *menu
+    title: "&9Bat Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:65|&6Bat Ambient Sound|entity.bat.ambient",spell: sb-parse-entity-bat-ambient}
+      Death: {slot: 1,item: "monster_egg:65|&6Bat Death Sound|entity.bat.death",spell: sb-parse-entity-bat-death}
+      Hurt: {slot: 2,item: "monster_egg:65|&6Bat Hurt Sound|entity.bat.hurt",spell: sb-parse-entity-bat-hurt}
+      Loop: {slot: 3,item: "monster_egg:65|&6Bat Loop Sound|entity.bat.loop",spell: sb-parse-entity-bat-loop}
+      TakeOff: {slot: 4,item: "monster_egg:65|&6Bat Take Off Sound|entity.bat.takeoff",spell: sb-parse-entity-bat-takeoff}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-blaze:
+    <<: *menu
+    title: "&9Blaze Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:61|&6Blaze Ambient Sound|entity.blaze.ambient",spell: sb-parse-entity-blaze-ambient}
+      Burn: {slot: 1,item: "monster_egg:61|&6Blaze Burn Sound|entity.blaze.blaze",spell: sb-parse-entity-blaze-burn}
+      Death: {slot: 2,item: "monster_egg:61|&6Blaze Death Sound|entity.blaze.death",spell: sb-parse-entity-blaze-death}
+      Hurt: {slot: 3,item: "monster_egg:61|&6Blaze Hurt Sound|entity.blaze.hurt",spell: sb-parse-entity-blaze-hurt}
+      Shoot: {slot: 4,item: "monster_egg:61|&6Blaze Shoot Sound|entity.blaze.shoot",spell: sb-parse-entity-blaze-shoot}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-boat:
+    <<: *menu
+    title: "&9Boat Sounds"
+    options:
+      PaddleLand: {slot: 0,item: "boat|&6Boat Paddle Land Sound|entity.boat.paddle_land",spell: sb-parse-entity-boat-paddleland}
+      PaddleWater: {slot: 1,item: "boat|&6Boat Paddle Water Sound|entity.boat.paddle_water",spell: sb-parse-entity-boat-paddlewater}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-cat:
+    <<: *menu
+    title: "&9Cat Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:98|&6Cat Ambient Sound|entity.cat.ambient",spell: sb-parse-entity-cat-ambient}
+      Death: {slot: 1,item: "monster_egg:98|&6Cat Death Sound|entity.cat.death",spell: sb-parse-entity-cat-death}
+      Hiss: {slot: 2,item: "monster_egg:98|&6Cat Hiss Sound|entity.cat.hiss",spell: sb-parse-entity-cat-hiss}
+      Hurt: {slot: 3,item: "monster_egg:98|&6Cat Hurt Sound|entity.cat.hurt",spell: sb-parse-entity-cat-hurt}
+      Purr: {slot: 4,item: "monster_egg:98|&6Cat Purr Sound|entity.cat.purr",spell: sb-parse-entity-cat-purr}
+      Purreow: {slot: 5,item: "monster_egg:98|&6Cat Purreow Sound|entity.cat.purreow",spell: sb-parse-entity-cat-purreow}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-chicken:
+    <<: *menu
+    title: "&9Chicken Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:93|&6Chicken Ambient Sound|entity.chicken.ambient",spell: sb-parse-entity-chicken-ambient}
+      Death: {slot: 1,item: "monster_egg:93|&6Chicken Death Sound|entity.chicken.death",spell: sb-parse-entity-chicken-death}
+      Egg: {slot: 2,item: "monster_egg:93|&6Chicken Egg Sound|entity.chicken.egg",spell: sb-parse-entity-chicken-egg}
+      Hurt: {slot: 3,item: "monster_egg:93|&6Chicken Hurt Sound|entity.chicken.hurt",spell: sb-parse-entity-chicken-hurt}
+      Step: {slot: 4,item: "monster_egg:93|&6Chicken Step Sound|entity.chicken.step",spell: sb-parse-entity-chicken-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-cow:
+    <<: *menu
+    title: "&9Cow Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:92|&6Cow Ambient Sound|entity.cow.ambient",spell: sb-parse-entity-cow-ambient}
+      Death: {slot: 1,item: "monster_egg:92|&6Cow Death Sound|entity.cow.death",spell: sb-parse-entity-cow-death}
+      Hurt: {slot: 2,item: "monster_egg:92|&6Cow Hurt Sound|entity.cow.hurt",spell: sb-parse-entity-cow-hurt}
+      Milk: {slot: 3,item: "monster_egg:92|&6Cow Milk Sound|entity.cow.milk",spell: sb-parse-entity-cow-milk}
+      Step: {slot: 4,item: "monster_egg:92|&6Cow Step Sound|entity.cow.step",spell: sb-parse-entity-cow-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-creeper:
+    <<: *menu
+    title: "&9Creeper Sounds"
+    options:
+      Death: {slot: 0,item: "monster_egg:50|&6Creeper Death Sound|entity.creeper.death",spell: sb-parse-entity-creeper-death}
+      Hurt: {slot: 1,item: "monster_egg:50|&6Creeper Hurt Sound|entity.creeper.hurt",spell: sb-parse-entity-creeper-hurt}
+      Primed: {slot: 2,item: "monster_egg:50|&6Creeper Primed Sound|entity.creeper.primed",spell: sb-parse-entity-creeper-primed}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-donkey:
+    <<: *menu
+    title: "&9Donkey Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:31|&6Donkey Ambient Sound|entity.donkey.ambient|entity.mule.ambient",spell: sb-parse-entity-donkey-ambient}
+      Angry: {slot: 1,item: "monster_egg:31|&6Donkey Angry Sound|entity.donkey.angry",spell: sb-parse-entity-donkey-angry}
+      Chest: {slot: 2,item: "monster_egg:31|&6Donkey Chest Sound|entity.donkey.chest",spell: sb-parse-entity-donkey-chest}
+      Death: {slot: 3,item: "monster_egg:31|&6Donkey Death Sound|entity.donkey.death|entity.mule.death",spell: sb-parse-entity-donkey-death}
+      Hurt: {slot: 4,item: "monster_egg:31|&6Donkey Hurt Sound|entity.donkey.hurt|entity.mule.hurt",spell: sb-parse-entity-donkey-hurt}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-enderdragon:
+    <<: *menu
+    title: "&9Ender Dragon Sounds"
+    options:
+      Ambient: {slot: 0,item: "skull_item:5|&6Ender Dragon Ambient Sound|entity.enderdragon.ambient",spell: sb-parse-entity-enderdragon-ambient}
+      Death: {slot: 1,item: "skull_item:5|&6Ender Dragon Death Sound|entity.enderdragon.death",spell: sb-parse-entity-enderdragon-death}
+      Flap: {slot: 2,item: "skull_item:5|&6Ender Dragon Flap Sound|entity.enderdragon.flap",spell: sb-parse-entity-enderdragon-flap}
+      Growl: {slot: 3,item: "skull_item:5|&6Ender Dragon Growl Sound|entity.enderdragon.growl",spell: sb-parse-entity-enderdragon-growl}
+      Hurt: {slot: 4,item: "skull_item:5|&6Ender Dragon Hurt Sound|entity.enderdragon.hurt",spell: sb-parse-entity-enderdragon-hurt}
+      Shoot: {slot: 5,item: "skull_item:5|&6Ender Dragon Shoot Sound|entity.enderdragon.shoot",spell: sb-parse-entity-enderdragon-shoot}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-endereyeandenderpearl:
+    <<: *menu
+    title: "&9Ender Eye + Ender Pearl Sounds"
+    options:
+      Death: {slot: 0,item: "eye_of_ender|&6Ender Eye Death Sound|entity.endereye.death",spell: sb-parse-entity-endereye-death}
+      Launch: {slot: 1,item: "eye_of_ender|&6Ender Eye Launch Sound|entity.endereye.launch",spell: sb-parse-entity-endereye-launch}
+      Throw: {slot: 2,item: "ender_pearl|&6Ender Pearl Throw Sound|entity.enderpearl.throw",spell: sb-parse-entity-enderpearl-throw}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-enderman:
+    <<: *menu
+    title: "&9Enderman Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:58|&6Enderman Ambient Sound|entity.endermen.ambient",spell: sb-parse-entity-enderman-ambient}
+      Death: {slot: 1,item: "monster_egg:58|&6Enderman Death Sound|entity.endermen.death",spell: sb-parse-entity-enderman-death}
+      Hurt: {slot: 2,item: "monster_egg:58|&6Enderman Hurt Sound|entity.endermen.hurt",spell: sb-parse-entity-enderman-hurt}
+      Scream: {slot: 3,item: "monster_egg:58|&6Enderman Scream Sound|entity.endermen.scream",spell: sb-parse-entity-enderman-scream}
+      Stare: {slot: 4,item: "monster_egg:58|&6Enderman Stare Sound|entity.endermen.stare",spell: sb-parse-entity-enderman-stare}
+      Teleport: {slot: 5,item: "monster_egg:58|&6Enderman Teleport Sound|entity.endermen.teleport",spell: sb-parse-entity-enderman-teleport}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-endermiteandsilverfish:
+    <<: *menu
+    title: "&9Endermite and Silverfish Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:67|&6Endermite and Silverfish Ambient Sound|entity.silverfish.ambient",spell: sb-parse-entity-endermiteandsilverfish-ambient}
+      Death: {slot: 1,item: "monster_egg:67|&6Endermite and Silverfish Death Sound|entity.silverfish.death",spell: sb-parse-entity-endermiteandsilverfish-death}
+      Hurt: {slot: 2,item: "monster_egg:67|&6Endermite and Silverfish Hurt Sound|entity.silverfish.hurt",spell: sb-parse-entity-endermiteandsilverfish-hurt}
+      Step: {slot: 3,item: "monster_egg:67|&6Endermite and Silverfish Step Sound|entity.silverfish.step",spell: sb-parse-entity-endermiteandsilverfish-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-evoker:
+    <<: *menu
+    title: "&9Evoker Sounds"
+    options:
+      Ambient: {slot: 0,item: "totem|&6Evoker Ambient Sound|entity.evocation_illager.ambient",spell: sb-parse-entity-evoker-ambient}
+      CastSpell: {slot: 1,item: "totem|&6Evoker Cast Spell Sound|entity.evocation_illager.cast_spell",spell: sb-parse-entity-evoker-castspell}
+      Death: {slot: 2,item: "totem|&6Evoker Death Sound|entity.evocation_illager.death",spell: sb-parse-entity-evoker-death}
+      Hurt: {slot: 3,item: "totem|&6Evoker Hurt Sound|entity.evocation_illager.hurt",spell: sb-parse-entity-evoker-hurt}
+      PrepareAttack: {slot: 4,item: "totem|&6Evoker Prepare Attack Sound|entity.evocation_illager.prepare_attack",spell: sb-parse-entity-evoker-prepareattack}
+      PrepareSummon: {slot: 5,item: "totem|&6Evoker Prepare Summon Sound|entity.evocation_illager.prepare_summon",spell: sb-parse-entity-evoker-preparesummon}
+      PrepareWololo: {slot: 6,item: "totem|&6Evoker Prepare Wololo Sound|entity.evocation_illager.prepare_wololo",spell: sb-parse-entity-evoker-preparewololo}
+      FangsAttack: {slot: 7,item: "totem|&6Evoker Fang Sound|entity.evocation_fangs.attack",spell: sb-parse-entity-evokerfangs-attack}
+      IAmbient: {slot: 8,item: "ink_sack:4|&6Illusioner Ambient Sound|entity.illusion_illager.ambient",spell: sb-parse-entity-illusioner-ambient}
+      IDeath: {slot: 9,item: "ink_sack:4|&6Illusioner Death Sound|entity.illusion_illager.death",spell: sb-parse-entity-illusioner-death}
+      IHurt: {slot: 10,item: "ink_sack:4|&6Illusioner Hurt Sound|entity.illusion_illager.hurt",spell: sb-parse-entity-illusioner-hurt}
+      IMirrorMove: {slot: 11,item: "ink_sack:4|&6Illusioner Mirror Move Sound|entity.illusion_illager.mirror_move",spell: sb-parse-entity-illusioner-mirrormove}
+      IPrepareBlindness: {slot: 12,item: "ink_sack:4|&6Illusioner Prepare Blindness Sound|entity.illusion_illager.prepare_blindness",spell: sb-parse-entity-illusioner-prepareblindness}
+      IPrepareMirror: {slot: 13,item: "ink_sack:4|&6Illusioner Prepare Mirror Sound|entity.illusion_illager.prepare_mirror",spell: sb-parse-entity-illusioner-preparemirror}
+      Back: {slot: 17,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-experiencebottleandorb:
+    <<: *menu
+    title: "&9Experience Bottle And Orb Sounds"
+    options:
+      Throw: {slot: 0,item: "exp_bottle|&6Experience Bottle Throw Sound|entity.experience_bottle.throw",spell: sb-parse-entity-experiencebottle-throw}
+      Pickup: {slot: 1,item: "exp_bottle|&6Experience Orb Pickup Sound|entity.experience_orb.pickup",spell: sb-parse-entity-experienceorb-pickup}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-firework:
+    <<: *menu
+    title: "&9Firework Sounds"
+    options:
+      Blast: {slot: 0,item: "firework|&6Firework Blast Sound|entity.firework.blast",spell: sb-parse-entity-firework-blast}
+      BlastFar: {slot: 1,item: "firework|&6Firework Blast Far Sound|entity.firework.blast_far",spell: sb-parse-entity-firework-blastfar}
+      LargeBlast: {slot: 2,item: "firework|&6Firework Large Blast Sound|entity.firework.large_blast",spell: sb-parse-entity-firework-largeblast}
+      LargeBlastFar: {slot: 3,item: "firework|&6Firework Large Blast Far Sound|entity.firework.large_blast_far",spell: sb-parse-entity-firework-largeblastfar}
+      Launch: {slot: 4,item: "firework|&6Firework Launch Sound|entity.firework.launch",spell: sb-parse-entity-firework-launch}
+      Twinkle: {slot: 5,item: "firework|&6Firework Twinkle Sound|entity.firework.twinkle",spell: sb-parse-entity-firework-twinkle}
+      TwinkleFar: {slot: 6,item: "firework|&6Firework Twinkle Far Sound|entity.firework.twinkle_far",spell: sb-parse-entity-firework-twinklefar}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-fishingbobber:
+    <<: *menu
+    title: "&9Fishing Bobber Sounds"
+    options:
+      Retrieve: {slot: 0,item: "fishing_rod|&6Fishing Bobber Retrieve Sound|entity.bobber.retrieve",spell: sb-parse-entity-fishingbobber-retrieve}
+      Splash: {slot: 1,item: "fishing_rod|&6Fishing Bobber Splash Sound|entity.bobber.splash",spell: sb-parse-entity-fishingbobber-splash}
+      Throw: {slot: 2,item: "fishing_rod|&6Fishing Bobber Throw Sound|entity.bobber.throw",spell: sb-parse-entity-fishingbobber-throw}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-generic:
+    <<: *menu
+    title: "&9Generic Sounds"
+    options:
+      BigFall: {slot: 0,item: "bookshelf|&6Generic Big Fall Sound|entity.generic.big_fall",spell: sb-parse-entity-generic-bigfall}
+      Burn: {slot: 1,item: "bookshelf|&6Generic Burn Sound|entity.generic.burn",spell: sb-parse-entity-generic-burn}
+      Death: {slot: 2,item: "bookshelf|&6Generic Death Sound|entity.generic.death",spell: sb-parse-entity-generic-death}
+      Drink: {slot: 3,item: "bookshelf|&6Generic Drink Sound|entity.generic.drink",spell: sb-parse-entity-generic-drink}
+      Eat: {slot: 4,item: "bookshelf|&6Generic Eat Sound|entity.generic.eat",spell: sb-parse-entity-generic-eat}
+      Explode: {slot: 5,item: "bookshelf|&6Generic Explode Sound|entity.generic.explode",spell: sb-parse-entity-generic-explode}
+      ExtinguishFire: {slot: 6,item: "bookshelf|&6Generic Extinguish Fire Sound|entity.generic.extinguish_fire",spell: sb-parse-entity-generic-extinguishfire}
+      Hurt: {slot: 7,item: "bookshelf|&6Generic Hurt Sound|entity.generic.hurt",spell: sb-parse-entity-generic-hurt}
+      SmallFall: {slot: 8,item: "bookshelf|&6Generic Small Fall Sound|entity.generic.small_fall",spell: sb-parse-entity-generic-smallfall}
+      Swim: {slot: 9,item: "bookshelf|&6Generic Swim Sound|entity.generic.swim",spell: sb-parse-entity-generic-swim}
+      Back: {slot: 17,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-ghast:
+    <<: *menu
+    title: "&9Ghast Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:312|&6Ghast Ambient Sound|entity.ghast.ambient",spell: sb-parse-entity-ghast-ambient}
+      Death: {slot: 1,item: "monster_egg:312|&6Ghast Death Sound|entity.ghast.death",spell: sb-parse-entity-ghast-death}
+      Hurt: {slot: 2,item: "monster_egg:312|&6Ghast Hurt Sound|entity.ghast.hurt",spell: sb-parse-entity-ghast-hurt}
+      Scream: {slot: 3,item: "monster_egg:312|&6Ghast Scream Sound|entity.generic.scream",spell: sb-parse-entity-ghast-scream}
+      Shoot: {slot: 4,item: "monster_egg:312|&6Ghast Shoot Sound|entity.ghast.shoot",spell: sb-parse-entity-ghast-shoot}
+      Warn: {slot: 5,item: "monster_egg:312|&6Ghast Warn Sound|entity.ghast.warn",spell: sb-parse-entity-ghast-warn}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-guardian:
+    <<: *menu
+    title: "&9Guardian Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:68|&6Guardian Ambient Sound|entity.guardian.ambient",spell: sb-parse-entity-guardian-ambient}
+      AmbientLand: {slot: 1,item: "monster_egg:68|&6Guardian Ambient Land Sound|entity.guardian.ambient_land",spell: sb-parse-entity-guardian-ambientland}
+      Death: {slot: 2,item: "monster_egg:68|&6Guardian Death Sound|entity.guardian.death",spell: sb-parse-entity-guardian-death}
+      DeathLand: {slot: 3,item: "monster_egg:68|&6Guardian Death Land Sound|entity.guardian.death_land",spell: sb-parse-entity-guardian-deathland}
+      Flop: {slot: 4,item: "monster_egg:68|&6Guardian Flop Sound|entity.guardian.flop",spell: sb-parse-entity-guardian-flop}
+      Hurt: {slot: 5,item: "monster_egg:68|&6Guardian Hurt Sound|entity.guardian.hurt",spell: sb-parse-entity-guardian-hurt}
+      HurtLand: {slot: 6,item: "monster_egg:68|&6Guardian Hurt Land Sound|entity.guardian.hurt_land",spell: sb-parse-entity-guardian-hurtland}
+      EGAmbient: {slot: 7,item: "prismarine_crystals|&6Elder Guardian Ambient Sound|entity.elder_guardian.ambient",spell: sb-parse-entity-elderguardian-ambient}
+      EGAmbientLand: {slot: 8,item: "prismarine_crystals|&6Elder Guardian Ambient Land Sound|entity.elder_guardian.ambient_land",spell: sb-parse-entity-elderguardian-ambientland}
+      EGCurse: {slot: 9,item: "prismarine_crystals|&6Elder Guardian Curse Sound|entity.elderguardian.curse",spell: sb-parse-entity-elderguardian-curse}
+      EGDeath: {slot: 10,item: "prismarine_crystals|&6Elder Guardian Death Sound|entity.elder_guardian.death",spell: sb-parse-entity-elderguardian-death}
+      EGDeathLand: {slot: 11,item: "prismarine_crystals|&6Elder Guardian Death Land Sound|entity.elder_guardian.death_land",spell: sb-parse-entity-elderguardian-deathland}
+      EGHurt: {slot: 12,item: "prismarine_crystals|&6Elder Guardian Hurt Sound|entity.elder_guardian.hurt",spell: sb-parse-entity-elderguardian-hurt}
+      EGHurtLand: {slot: 13,item: "prismarine_crystals|&6Elder Guardian Hurt Land Sound|entity.elder_guardian.hurt_land",spell: sb-parse-entity-elderguardian-hurtland}
+      Back: {slot: 17,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-horse:
+    <<: *menu
+    title: "&9Horse Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:100|&6Horse Ambient Sound|entity.horse.ambient",spell: sb-parse-entity-horse-ambient}
+      Angry: {slot: 1,item: "monster_egg:100|&6Horse Angry Sound|entity.horse.angry",spell: sb-parse-entity-horse-angry}
+      Armor: {slot: 2,item: "monster_egg:100|&6Horse Armor Sound|entity.horse.armor",spell: sb-parse-entity-horse-armor}
+      Breathe: {slot: 3,item: "monster_egg:100|&6Horse Breathe Sound|entity.horse.breathe",spell: sb-parse-entity-horse-breathe}
+      Death: {slot: 4,item: "monster_egg:100|&6Horse Death Sound|entity.horse.death",spell: sb-parse-entity-horse-death}
+      Eat: {slot: 5,item: "monster_egg:100|&6Horse Eat Sound|entity.horse.eat",spell: sb-parse-entity-horse-eat}
+      Gallop: {slot: 6,item: "monster_egg:100|&6Horse Gallop Sound|entity.horse.gallop",spell: sb-parse-entity-horse-gallop}
+      Hurt: {slot: 7,item: "monster_egg:100|&6Horse Hurt Sound|entity.horse.hurt",spell: sb-parse-entity-horse-hurt}
+      Jump: {slot: 8,item: "monster_egg:100|&6Horse Jump Sound|entity.horse.jump",spell: sb-parse-entity-horse-jump}
+      Land: {slot: 9,item: "monster_egg:100|&6Horse Land Sound|entity.horse.land",spell: sb-parse-entity-horse-land}
+      Saddle: {slot: 10,item: "monster_egg:100|&6Horse Saddle Sound|entity.horse.saddle|entity.pig.saddle",spell: sb-parse-entity-horse-saddle}
+      Step: {slot: 11,item: "monster_egg:100|&6Horse Step Sound|entity.horse.step",spell: sb-parse-entity-horse-step}
+      StepWood: {slot: 12,item: "monster_egg:100|&6Horse Step Wood Sound|entity.horse.step_wood",spell: sb-parse-entity-horse-stepwood}
+      SAmbient: {slot: 13,item: "monster_egg:23|&6Skeleton Horse Ambient Sound|entity.skeleton_horse.ambient",spell: sb-parse-entity-skeletonhorse-ambient}
+      SAmbientWater: {slot: 14,item: "monster_egg:23|&6Skeleton Horse Ambient Water Sound|entity.skeleton_horse.ambient_water",spell: sb-parse-entity-skeletonhorse-ambientwater}
+      SDeath: {slot: 15,item: "monster_egg:23|&6Skeleton Horse Death Sound|entity.skeleton_horse.death",spell: sb-parse-entity-skeletonhorse-death}
+      SGallopWater: {slot: 16,item: "monster_egg:23|&6Skeleton Horse Gallop Water Sound|entity.skeleton_horse.gallop_water",spell: sb-parse-entity-skeletonhorse-gallop}
+      SHurt: {slot: 17,item: "monster_egg:23|&6Skeleton Horse Hurt Sound|entity.skeleton_horse.hurt",spell: sb-parse-entity-skeletonhorse-hurt}
+      SJumpWater: {slot: 18,item: "monster_egg:23|&6Skeleton Horse Jump Water Sound|entity.skeleton_horse.jump_water",spell: sb-parse-entity-skeletonhorse-jumpwater}
+      SStepWater: {slot: 19,item: "monster_egg:23|&6Skeleton Horse Step Water Sound|entity.skeleton_horse.step_water",spell: sb-parse-entity-skeletonhorse-stepwater}
+      SSwim: {slot: 20,item: "monster_egg:23|&6Skeleton Horse Swim Sound|entity.skeleton_horse.swim",spell: sb-parse-entity-skeletonhorse-swim}
+      ZAmbient: {slot: 21,item: "monster_egg:55|&6Zombie Horse Ambient Sound|entity.zombie_horse.ambient",spell: sb-parse-entity-zombiehorse-ambient}
+      ZDeath: {slot: 22,item: "monster_egg:55|&6Zombie Horse Death Sound|entity.zombie_horse.death",spell: sb-parse-entity-zombiehorse-death}
+      ZHurt: {slot: 23,item: "monster_egg:55|&6Zombie Horse Hurt Sound|entity.zombie_horse.hurt",spell: sb-parse-entity-zombiehorse-hurt}
+      Back: {slot: 26,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-husk:
+    <<: *menu
+    title: "&9Husk Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:23|&6Husk Ambient Sound|entity.husk.ambient",spell: sb-parse-entity-husk-ambient}
+      Death: {slot: 1,item: "monster_egg:23|&6Husk Death Sound|entity.husk.death",spell: sb-parse-entity-husk-death}
+      Hurt: {slot: 2,item: "monster_egg:23|&6Husk Hurt Sound|entity.husk.hurt",spell: sb-parse-entity-husk-hurt}
+      Step: {slot: 3,item: "monster_egg:23|&6Husk Step Sound|entity.husk.step",spell: sb-parse-entity-husk-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-irongolem:
+    <<: *menu
+    title: "&9Iron Golem Sounds"
+    options:
+      Attack: {slot: 0,item: "monster_egg:1|&6Iron Golem Ambient Sound|entity.irongolem.attack",spell: sb-parse-entity-irongolem-attack}
+      Death: {slot: 1,item: "monster_egg:1|&6Iron Golem Death Sound|entity.irongolem.death",spell: sb-parse-entity-irongolem-death}
+      Hurt: {slot: 2,item: "monster_egg:1|&6Iron Golem Hurt Sound|entity.irongolem.hurt",spell: sb-parse-entity-irongolem-hurt}
+      Step: {slot: 3,item: "monster_egg:1|&6Iron Golem Step Sound|entity.irongolem.step",spell: sb-parse-entity-irongolem-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-itemframe:
+    <<: *menu
+    title: "&9Item and Item Frame Sounds"
+    options:
+      Break: {slot: 0,item: "paper|&6Item Break Sound|entity.item.break",spell: sb-parse-entity-item-break}
+      Pickup: {slot: 1,item: "paper|&6Item Pickup Sound|entity.item.pickup",spell: sb-parse-entity-item-pickup}
+      FAddItem: {slot: 2,item: "item_frame|&6Item Frame Add Item Sound|entity.itemframe.add_item",spell: sb-parse-entity-itemframe-additem}
+      FBreak: {slot: 3,item: "item_frame|&6Item Frame Break Sound|entity.itemframe.break",spell: sb-parse-entity-itemframe-break}
+      FPlace: {slot: 4,item: "item_frame|&6Item Frame Place Sound|entity.itemframe.place",spell: sb-parse-entity-itemframe-place}
+      FRemoveItem: {slot: 5,item: "item_frame|&6Item Frame Remove Item Sound|entity.itemframe.remove_item",spell: sb-parse-entity-itemframe-removeitem}
+      FRotateItem: {slot: 6,item: "item_frame|&6Item Frame Rotate Item Sound|entity.item_frame.rotate_item",spell: sb-parse-entity-itemframe-rotateitem}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-leash:
+    spell-class: ".MenuSpell"
+    helper-spell: true
+    tags: [NotSilenceable]
+    title: "&9Leash Knot Sounds"
+    delay: 1
+    options:
+      Break: {slot: 0,item: "leash|&6Leash Knot Break Sound|entity.leashknot.break",spell: sb-parse-entity-leashknot-break}
+      Place: {slot: 1,item: "leash|&6Leash Knot Place Sound|entity.leashknot.place",spell: sb-parse-entity-leashknot-place}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-lightning:
+    <<: *menu
+    title: "&9Lightning Bolt Sounds"
+    options:
+      Impact: {slot: 0,item: "end_rod|&6Lightning Bolt Impact Sound|entity.lightning.impact",spell: sb-parse-entity-lightningbolt-impact}
+      Thunder: {slot: 1,item: "end_rod|&6Lightning Bolt Thunder Sound|entity.lightning.thunder",spell: sb-parse-entity-lightningbolt-thunder}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-llama:
+    <<: *menu
+    title: "&9Llama Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:103|&6Llama Ambient Sound|entity.llama.ambient",spell: sb-parse-entity-llama-ambient}
+      Angry: {slot: 1,item: "monster_egg:103|&6Llama Angry Sound|entity.llama.angry",spell: sb-parse-entity-llama-angry}
+      Death: {slot: 2,item: "monster_egg:103|&6Llama Death Sound|entity.llama.death",spell: sb-parse-entity-llama-death}
+      Eat: {slot: 3,item: "monster_egg:103|&6Llama Eat Sound|entity.llama.eat",spell: sb-parse-entity-llama-eat}
+      Hurt: {slot: 4,item: "monster_egg:103|&6Llama Hurt Sound|entity.llama.hurt",spell: sb-parse-entity-llama-hurt}
+      Spit: {slot: 5,item: "monster_egg:103|&6Llama Spit Sound|entity.llama.spit",spell: sb-parse-entity-llama-spit}
+      Step: {slot: 6,item: "monster_egg:103|&6Llama Step Sound|entity.llama.step",spell: sb-parse-entity-llama-step}
+      Swag: {slot: 7,item: "monster_egg:103|&6Llama Swag Sound|entity.llama.swag",spell: sb-parse-entity-llama-swag}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-magmacube:
+    <<: *menu
+    title: "&9Magma Cube and Slime Sounds"
+    options:
+      Death: {slot: 0,item: "monster_egg:55|&6Slime Death Sound|entity.slime.death|entity.magmacube.death",spell: sb-parse-entity-slime-death}
+      Hurt: {slot: 1,item: "monster_egg:55|&6Slime Hurt Sound|entity.slime.hurt|entity.magmacube.hurt",spell: sb-parse-entity-slime-hurt}
+      Jump: {slot: 2,item: "monster_egg:318|&6Magma Cube Jump Sound|entity.magmacube.jump",spell: sb-parse-entity-magmacube-jump}
+      Squish: {slot: 3,item: "monster_egg:318|&6Magma Cube Squish Sound|entity.magmacube.squish",spell: sb-parse-entity-magmacube-squish}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-minecart:
+    <<: *menu
+    title: "&9Minecart Sounds"
+    options:
+      Inside: {slot: 0,item: "minecart|&6Minecart Inside Sound|entity.minecart.insinde",spell: sb-parse-entity-minecart-inside}
+      Riding: {slot: 1,item: "minecart|&6Minecart Riding Sound|entity.minecart.riding",spell: sb-parse-entity-minecart-riding}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-painting:
+    <<: *menu
+    title: "&9Painting Sounds"
+    options:
+      Break: {slot: 0,item: "painting|&6Painting Place Sound|entity.painting.break",spell: sb-parse-entity-painting-break}
+      Place: {slot: 1,item: "painting|&6Painting Break Sound|entity.painting.place",spell: sb-parse-entity-painting-place}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-parrot:
+    <<: *menu
+    title: "&9Parrot Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:105|&6Parrot Ambient Sound|entity.parrot.ambient",spell: sb-parse-entity-parrot-ambient}
+      Death: {slot: 1,item: "monster_egg:105|&6Parrot Death Sound|entity.parrot.death",spell: sb-parse-entity-parrot-death}
+      Eat: {slot: 2,item: "monster_egg:105|&6Parrot Eat Sound|entity.parrot.eat",spell: sb-parse-entity-parrot-eat}
+      Fly: {slot: 3,item: "monster_egg:105|&6Parrot Fly Sound|entity.parrot.fly",spell: sb-parse-entity-parrot-fly}
+      Hurt: {slot: 4,item: "monster_egg:105|&6Parrot Hurt Sound|entity.parrot.hurt",spell: sb-parse-entity-parrot-hurt}
+      Step: {slot: 5,item: "monster_egg:105|&6Parrot Step Sound|entity.parrot.step",spell: sb-parse-entity-parrot-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-pig:
+    <<: *menu
+    title: "&9Pig Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:90|&6Pig Ambient Sound|entity.pig.ambient",spell: sb-parse-entity-pig-ambient}
+      Death: {slot: 1,item: "monster_egg:90|&6Pig Death Sound|entity.pig.death",spell: sb-parse-entity-pig-death}
+      Hurt: {slot: 2,item: "monster_egg:90|&6Pig Hurt Sound|entity.pig.hurt",spell: sb-parse-entity-pig-hurt}
+      Step: {slot: 3,item: "monster_egg:90|&6Pig Step Sound|entity.pig.step",spell: sb-parse-entity-pig-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-player:
+    <<: *menu
+    title: "&9Player Sounds"
+    options:
+      AttackCrit: {slot: 0,item: "skull_item:3|&6Player Attack Crit Sound|entity.player.attack.crit",spell: sb-parse-entity-player-attackcrit}
+      AttackKnockback: {slot: 1,item: "skull_item:3|&6Player Attack Knockback Sound|entity.player.attack.knockback",spell: sb-parse-entity-player-attackknockback}
+      AttackNoDamage: {slot: 2,item: "skull_item:3|&6Player Attack No Damage Sound|entity.player.attack.nodamage",spell: sb-parse-entity-player-attacknodamage}
+      AttackStrong: {slot: 3,item: "skull_item:3|&6Player Attack Strong Sound|entity.player.attack.strong",spell: sb-parse-entity-player-attackstrong}
+      AttackSweep: {slot: 4,item: "skull_item:3|&6Player Attack Sweep Sound|entity.player.attack.sweep",spell: sb-parse-entity-player-attacksweep}
+      AttackWeak: {slot: 5,item: "skull_item:3|&6Player Attack Weak Sound|entity.player.attack.weak",spell: sb-parse-entity-player-attackweak}
+      BigFall: {slot: 6,item: "skull_item:3|&6Player Big Fall Sound|entity.player.big_fall",spell: sb-parse-entity-player-bigfall}
+      Breath: {slot: 7,item: "skull_item:3|&6Player Breath Sound|entity.player.breath",spell: sb-parse-entity-player-breath}
+      Burp: {slot: 8,item: "skull_item:3|&6Player Burp Sound|entity.player.burp",spell: sb-parse-entity-player-burp}
+      Death: {slot: 9,item: "skull_item:3|&6Player Death Sound|entity.player.death",spell: sb-parse-entity-player-death}
+      Hurt: {slot: 10,item: "skull_item:3|&6Player Hurt Sound|entity.player.hurt",spell: sb-parse-entity-player-hurt}
+      HurtDrown: {slot: 11,item: "skull_item:3|&6Player Hurt Drown Sound|entity.player.hurt_drown",spell: sb-parse-entity-player-hurtdrown}
+      HurtOnFire: {slot: 12,item: "skull_item:3|&6Player Hurt On Fire Sound|entity.player.hurt_on_fire",spell: sb-parse-entity-player-hurtonfire}
+      LevelUp: {slot: 13,item: "skull_item:3|&6Player Level Up Sound|entity.player.levelup",spell: sb-parse-entity-player-levelup}
+      SmallFall: {slot: 14,item: "skull_item:3|&6Player Small Fall Sound|entity.player.small_fall",spell: sb-parse-entity-player-smallfall}
+      Splash: {slot: 15,item: "skull_item:3|&6Player Splash Sound|entity.player.splash",spell: sb-parse-entity-player-splash}
+      Swim: {slot: 16,item: "skull_item:3|&6Player Swim Sound|entity.player.swim",spell: sb-parse-entity-player-swim}
+      Back: {slot: 17,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-polarbear:
+    <<: *menu
+    title: "&9Polar Bear Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:312|&6Polar Bear Ambient Sound|entity.polar_bear.ambient",spell: sb-parse-entity-polarbear-ambient}
+      AmbientBaby: {slot: 1,item: "monster_egg:312|&6Polar Bear Ambient Baby Sound|entity.polar_bear.ambient_baby",spell: sb-parse-entity-polarbear-ambientbaby}
+      Death: {slot: 2,item: "monster_egg:312|&6Polar Bear Death Sound|entity.polar_bear.death",spell: sb-parse-entity-polarbear-death}
+      Hurt: {slot: 3,item: "monster_egg:312|&6Polar Bear Hurt Sound|entity.polar_bear.hurt",spell: sb-parse-entity-polarbear-hurt}
+      Step: {slot: 4,item: "monster_egg:312|&6Polar Bear Step Sound|entity.polar_bear.step",spell: sb-parse-entity-polarbear-step}
+      Warning: {slot: 5,item: "monster_egg:312|&6Polar Bear Warning Sound|entity.polar_bear.warning",spell: sb-parse-entity-polarbear-warning}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-rabbit:
+    <<: *menu
+    title: "&9Rabbit Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:101|&6Rabbit Ambient Sound|entity.rabbit.ambient",spell: sb-parse-entity-rabbit-ambient}
+      Attack: {slot: 1,item: "monster_egg:101|&6Rabbit Attack Sound|entity.rabbit.attack",spell: sb-parse-entity-rabbit-attack}
+      Death: {slot: 2,item: "monster_egg:101|&6Rabbit Death Sound|entity.rabbit.death",spell: sb-parse-entity-rabbit-death}
+      Hurt: {slot: 3,item: "monster_egg:101|&6Rabbit Hurt Sound|entity.rabbit.hurt",spell: sb-parse-entity-rabbit-hurt}
+      Jump: {slot: 4,item: "monster_egg:101|&6Rabbit Jump Sound|entity.rabbit.jump",spell: sb-parse-entity-rabbit-jump}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-sheep:
+    <<: *menu
+    title: "&9Sheep Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:91|&6Sheep Ambient Sound|entity.sheep.ambient",spell: sb-parse-entity-sheep-ambient}
+      Death: {slot: 1,item: "monster_egg:91|&6Sheep Death Sound|entity.sheep.death",spell: sb-parse-entity-sheep-death}
+      Hurt: {slot: 2,item: "monster_egg:91|&6Sheep Hurt Sound|entity.sheep.hurt",spell: sb-parse-entity-sheep-hurt}
+      Shear: {slot: 3,item: "monster_egg:91|&6Sheep Shear Sound|entity.sheep.shear",spell: sb-parse-entity-sheep-shear}
+      Step: {slot: 4,item: "monster_egg:91|&6Sheep Step Sound|entity.sheep.step",spell: sb-parse-entity-sheep-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-shulker:
+    <<: *menu
+    title: "&9Shulker Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:69|&6Shulker Ambient Sound|entity.shulker.ambient",spell: sb-parse-entity-shulker-ambient}
+      Close: {slot: 1,item: "monster_egg:69|&6Shulker Close Sound|entity.shulker.close",spell: sb-parse-entity-shulker-close}
+      Death: {slot: 2,item: "monster_egg:69|&6Shulker Death Sound|entity.shulker.death",spell: sb-parse-entity-shulker-death}
+      Hurt: {slot: 3,item: "monster_egg:69|&6Shulker Hurt Sound|entity.shulker.hurt",spell: sb-parse-entity-shulker-hurt}
+      HurtClosed: {slot: 4,item: "monster_egg:69|&6Shulker Hurt Closed Sound|entity.shulker.hurt_closed",spell: sb-parse-entity-shulker-hurtclosed}
+      Shoot: {slot: 5,item: "monster_egg:69|&6Shulker Shoot Sound|entity.shulker.shoot",spell: sb-parse-entity-shulker-shoot}
+      SBHit: {slot: 6,item: "chorus_fruit_popped|&6Shulker Bullet Hit Sound|entity.shulker_bullet.hit",spell: sb-parse-entity-shulkerbullet-hit}
+      SBHurt: {slot: 7,item: "chorus_fruit_popped|&6Shulker Bullet Hurt Sound|entity.shulker_bullet.hurt",spell: sb-parse-entity-shulkerbullet-hurt}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-skeleton:
+    <<: *menu
+    title: "&9Skeleton Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:51|&6Skeleton Ambient Sound|entity.skeleton.ambient",spell: sb-parse-entity-skeleton-ambient}
+      Death: {slot: 1,item: "monster_egg:51|&6Skeleton Death Sound|entity.skeleton.death",spell: sb-parse-entity-skeleton-death}
+      Hurt: {slot: 2,item: "monster_egg:51|&6Skeleton Hurt Sound|entity.skeleton.hurt",spell: sb-parse-entity-skeleton-hurt}
+      Shoot: {slot: 3,item: "monster_egg:51|&6Skeleton Shoot Sound|entity.skeleton.shoot",spell: sb-parse-entity-skeleton-shoot}
+      Step: {slot: 4,item: "monster_egg:51|&6Skeleton Step Sound|entity.skeleton.step",spell: sb-parse-entity-skeleton-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-snowgolem:
+    <<: *menu
+    title: "&9Snow Golem Sounds"
+    options:
+      Ambient: {slot: 0,item: "snow_ball|&6Snow Golem Ambient Sound|entity.snowman.ambient",spell: sb-parse-entity-snowgolem-ambient}
+      Death: {slot: 1,item: "snow_ball|&6Snow Golem Death Sound|entity.snowman.death",spell: sb-parse-entity-snowgolem-death}
+      Hurt: {slot: 2,item: "snow_ball|&6Snow Golem Hurt Sound|entity.snowman.hurt",spell: sb-parse-entity-snowgolem-hurt}
+      Shoot: {slot: 3,item: "snow_ball|&6Snow Golem Shoot Sound|entity.snowman.shoot",spell: sb-parse-entity-snowgolem-shoot}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-spider:
+    <<: *menu
+    title: "&9Spider Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:52|&6Spider Ambient Sound|entity.spider.ambient",spell: sb-parse-entity-spider-ambient}
+      Death: {slot: ,item: "monster_egg:52|&6Spider Death Sound|entity.spider.death",spell: sb-parse-entity-spider-death}
+      Hurt: {slot: 2,item: "monster_egg:52|&6Spider Hurt Sound|entity.spider.hurt",spell: sb-parse-entity-spider-hurt}
+      Step: {slot: 3,item: "monster_egg:52|&6Spider Step Sound|entity.spider.step",spell: sb-parse-entity-spider-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-squid:
+    <<: *menu
+    title: "&9Squid Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:94|&6Squid Ambient Sound|entity.squid.ambient",spell: sb-parse-entity-squid-ambient}
+      Death: {slot: 1,item: "monster_egg:94|&6Squid Death Sound|entity.squid.death",spell: sb-parse-entity-squid-death}
+      Hurt: {slot: 2,item: "monster_egg:94|&6Squid Hurt Sound|entity.squid.hurt",spell: sb-parse-entity-squid-hurt}
+      Squirt: {slot: 3,item: "monster_egg:94|&6Squid Squirt Sound|entity.squid.squirt",spell: sb-parse-entity-squid-squirt}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-stray:
+    <<: *menu
+    title: "&9Stray Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:6|&6Stray Ambient Sound|entity.stray.ambient",spell: sb-parse-entity-stray-ambient}
+      Death: {slot: 1,item: "monster_egg:6|&6Stray Death Sound|entity.stray.death",spell: sb-parse-entity-stray-death}
+      Hurt: {slot: 2,item: "monster_egg:6|&6Stray Hurt Sound|entity.stray.hurt",spell: sb-parse-entity-stray-hurt}
+      Step: {slot: 3,item: "monster_egg:6|&6Stray Step Sound|entity.stray.step",spell: sb-parse-entity-stray-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-vex:
+    <<: *menu
+    title: "&9Vex Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:35|&6Vex Ambient Sound|entity.vex.ambient",spell: sb-parse-entity-vex-ambient}
+      Charge: {slot: 1,item: "monster_egg:35|&6Vex Charge Sound|entity.vex.charge",spell: sb-parse-entity-vex-charge}
+      Death: {slot: 2,item: "monster_egg:35|&6Vex Death Sound|entity.vex.death",spell: sb-parse-entity-vex-death}
+      Hurt: {slot: 3,item: "monster_egg:35|&6Vex Hurt Sound|entity.vex.hurt",spell: sb-parse-entity-vex-hurt}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-villager:
+    <<: *menu
+    title: "&9Villager Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:120|&6Villager Ambient Sound|entity.villager.ambient",spell: sb-parse-entity-villager-ambient}
+      Death: {slot: 1,item: "monster_egg:120|&6Villager Death Sound|entity.villager.death",spell: sb-parse-entity-villager-death}
+      Hurt: {slot: 2,item: "monster_egg:120|&6Villager Hurt Sound|entity.villager.hurt",spell: sb-parse-entity-villager-hurt}
+      No: {slot: 3,item: "monster_egg:120|&6Villager No Sound|entity.villager.no",spell: sb-parse-entity-villager-no}
+      Trade: {slot: 4,item: "monster_egg:120|&6Villager Trade Sound|entity.villager.trade",spell: sb-parse-entity-villager-trade}
+      Yes: {slot: 5,item: "monster_egg:120|&6Villager Yes Sound|entity.villager.yes",spell: sb-parse-entity-villager-yes}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-vindicator:
+    <<: *menu
+    title: "&9Vindicator Sounds"
+    options:
+      Ambient: {slot: 0,item: "iron_axe|&6Vindicator Ambient Sound|entity.vindication_illager.ambient",spell: sb-parse-entity-vindicator-ambient}
+      Death: {slot: 1,item: "iron_axe|&6Villager Death Sound|entity.vindication_illager.death",spell: sb-parse-entity-vindicator-death}
+      Hurt: {slot: 2,item: "iron_axe|&6Villager Hurt Sound|entity.vindication_illager.hurt",spell: sb-parse-entity-vindicator-hurt}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-witch:
+    <<: *menu
+    title: "&9Witch Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:66|&6Witch Ambient Sound|entity.witch.ambient",spell: sb-parse-entity-witch-ambient}
+      Death: {slot: 1,item: "monster_egg:66|&6Witch Death Sound|entity.witch.death",spell: sb-parse-entity-witch-death}
+      Drink: {slot: 2,item: "monster_egg:66|&6Witch Drink Sound|entity.witch.drink",spell: sb-parse-entity-witch-drink}
+      Hurt: {slot: 3,item: "monster_egg:66|&6Witch Hurt Sound|entity.witch.hurt",spell: sb-parse-entity-witch-hurt}
+      Throw: {slot: 4,item: "monster_egg:66|&6Witch Throw Sound|entity.witch.throw",spell: sb-parse-entity-witch-throw}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-wither:
+    <<: *menu
+    title: "&9Wither Sounds"
+    options:
+      Ambient: {slot: 0,item: "nether_star|&6Wither Ambient Sound|entity.wither.ambient",spell: sb-parse-entity-wither-ambient}
+      Death: {slot: 1,item: "nether_star|&6Wither Death Sound|entity.wither.death",spell: sb-parse-entity-wither-death}
+      Hurt: {slot: 2,item: "nether_star|&6Wither Hurt Sound|entity.wither.hurt",spell: sb-parse-entity-wither-hurt}
+      Shoot: {slot: 3,item: "nether_star|&6Wither Shoot Sound|entity.wither.shoot",spell: sb-parse-entity-wither-shoot}
+      Spawn: {slot: 4,item: "nether_star|&6Wither Spawn Sound|entity.wither.spawn",spell: sb-parse-entity-wither-spawn}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-witherskeleton:
+    <<: *menu
+    title: "&9Wither Skeleton Sounds"
+    options:
+      Ambient: {slot: 0,item: "skull_item:1|&6Wither Skeleton Ambient Sound|entity.wither_skeleton.ambient",spell: sb-parse-entity-witherskeleton-ambient}
+      Death: {slot: 1,item: "skull_item:1|&6Wither Skeleton Death Sound|entity.wither_skeleton.death",spell: sb-parse-entity-witherskeleton-death}
+      Hurt: {slot: 2,item: "skull_item:1|&6Wither Skeleton Hurt Sound|entity.wither_skeleton.hurt",spell: sb-parse-entity-witherskeleton-hurt}
+      Step: {slot: 3,item: "skull_item:1|&6Wither Skeleton Step Sound|entity.wither_skeleton.step",spell: sb-parse-entity-witherskeleton-step}
+      Back: {slot: 8,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-wolf:
+    <<: *menu
+    title: "&9Wolf Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:95|&6Wolf Ambient Sound|entity.wolf.ambient",spell: sb-parse-entity-wolf-ambient}
+      Death: {slot: 1,item: "monster_egg:95|&6Wolf Death Sound|entity.wolf.death",spell: sb-parse-entity-wolf-death}
+      Growl: {slot: 2,item: "monster_egg:95|&6Wolf Growl Sound|entity.wolf.growl",spell: sb-parse-entity-wolf-growl}
+      Howl: {slot: 3,item: "monster_egg:95|&6Wolf Howl Sound|entity.wolf.howl",spell: sb-parse-entity-wolf-howl}
+      Hurt: {slot: 4,item: "monster_egg:95|&6Wolf Hurt Sound|entity.wolf.hurt",spell: sb-parse-entity-wolf-hurt}
+      Pant: {slot: 5,item: "monster_egg:95|&6Wolf Pant Sound|entity.wolf.pant",spell: sb-parse-entity-wolf-pant}
+      Shake: {slot: 6,item: "monster_egg:95|&6Wolf Shake Sound|entity.wolf.shake",spell: sb-parse-entity-wolf-shake}
+      Step: {slot: 7,item: "monster_egg:95|&6Wolf Step Sound|entity.wolf.step",spell: sb-parse-entity-wolf-step}
+      Whine: {slot: 8,item: "monster_egg:95|&6Wolf Whine Sound|entity.wolf.whine",spell: sb-parse-entity-wolf-whine}
+      Back: {slot: 17,item: "book|&6Back",spell: sb-entity}
+
+sb-entity-zombie:
+    <<: *menu
+    title: "&9Zombie Sounds"
+    options:
+      Ambient: {slot: 0,item: "monster_egg:54|&6Zombie Ambient Sound|entity.zombie.ambient",spell: sb-parse-entity-zombie-ambient}
+      AttackIronDoor: {slot: 1,item: "monster_egg:54|&6Zombie Attack Iron Door Sound|entity.zombie.attack_iron_door",spell: sb-parse-entity-zombie-attackirondoor}
+      AttackWoodenDoor: {slot: 2,item: "monster_egg:54|&6Zombie Attack Wooden Door Sound|entity.zombie.attack_door_wood",spell: sb-parse-entity-zombie-attackwoodendoor}
+      Death: {slot: 3,item: "monster_egg:54|&6Zombie Death Sound|entity.zombie.death",spell: sb-parse-entity-zombie-death}
+      Hurt: {slot: 4,item: "monster_egg:54|&6Zombie Hurt Sound|entity.zombie.hurt",spell: sb-parse-entity-zombie-hurt}
+      Infect: {slot: 5,item: "monster_egg:54|&6Zombie Infect Sound|entity.zombie.infect",spell: sb-parse-entity-zombie-infect}
+      Step: {slot: 6,item: "monster_egg:54|&6Zombie Step Sound|entity.zombie.step",spell: sb-parse-entity-zombie-step}
+      ZPAmbient: {slot: 7,item: "monster_egg:313|&6Zombie Pig Man Ambient Sound|entity.zombie_pig.ambient",spell: sb-parse-entity-zombiepigman-ambient}
+      ZPAngry: {slot: 8,item: "monster_egg:313|&6Zombie Pig Man Angry Sound|entity.zombie_pig.angry",spell: sb-parse-entity-zombiepigman-angry}
+      ZPDeath: {slot: 9,item: "monster_egg:313|&6Zombie Pig Man Death Sound|entity.zombie_pig.death",spell: sb-parse-entity-zombiepigman-death}
+      ZPHurt: {slot: 10,item: "monster_egg:313|&6Zombie Pig Man Hurt Sound|entity.zombie_pig.hurt",spell: sb-parse-entity-zombiepigman-hurt}
+      ZVAmbient: {slot: 11,item: "skull_item:2|&6Zombie Villager Ambient Sound|entity.zombie_villager.ambient",spell: sb-parse-entity-zombievillager-ambient}
+      ZVConverted: {slot: 12,item: "skull_item:2|&6Zombie Villager Converted Sound|entity.zombie_villager.converted",spell: sb-parse-entity-zombievillager-converted}
+      ZVCure: {slot: 13,item: "skull_item:2|&6Zombie Villager Cure Sound|entity.zombie_villager.cure",spell: sb-parse-entity-zombievillager-cure}
+      ZVDeath: {slot: 14,item: "skull_item:2|&6Zombie Villager Death Sound|entity.zombie_villager.death",spell: sb-parse-entity-zombievillager-death}
+      ZVHurt: {slot: 15,item: "skull_item:2|&6Zombie Villager Hurt Sound|entity.zombie_villager.hurt",spell: sb-parse-entity-zombievillager-hurt}
+      ZVStep: {slot: 16,item: "skull_item:2|&6Zombie Villager Step Sound|entity.zombie_villager.step",spell: sb-parse-entity-zombievillager-step}
+      Back: {slot: 17,item: "book|&6Back",spell: sb-entity}
+
+
+
+# Item Sounds
+sb-item:
+    <<: *menu
+    title: "&9Item Sounds"
+    options:
+      EquipChain: {slot: 0,item: "chainmail_chestplate|&6Equip Chain Chestplate Sound|item.armor.equip_chain",spell: sb-parse-item-equip-chain}
+      EquipDiamond: {slot: 1,item: "diamond_chestplate|&6Equip Diamond Chestplate Sound|item.armor.equip_chain",spell: sb-parse-item-equip-diamond}
+      EquipElytra: {slot: 2,item: "elytra|&6Equip Elytra Sound|item.armor.equip_elytra",spell: sb-parse-item-equip-elytra}
+      EquipGeneric: {slot: 3,item: "leather_helmet#9d9d97|&6Equip Generic Sound|item.armor.equip_generic",spell: sb-parse-item-equip-generic}
+      EquipGold: {slot: 4,item: "gold_chestplate|&6Equip Gold Chestplate Sound|item.armor.equip_gold",spell: sb-parse-item-equip-gold}
+      EquipIron: {slot: 5,item: "iron_chestplate|&6Equip Iron Chestplate Sound|item.armor.equip_iron",spell: sb-parse-item-equip-iron}
+      EquipLeather: {slot: 6,item: "leather_chestplate|&6Equip Leather Chestplate Sound|item.armor.equip_leather",spell: sb-parse-item-equip-leather}
+      BottleEmpty: {slot: 7,item: "glass_bottle|&6Bottle Empty Sound|item.bottle.empty",spell: sb-parse-item-bottle-empty}
+      BottleFill: {slot: 8,item: "potion:0|&6Bottle Fill Water Sound|item.bottle.fill",spell: sb-parse-item-bottle-fill-water}
+      BottleFillDragonBreath: {slot: 9,item: "dragons_breath|&6Bottle Fill Dragons Breath Sound|item.bottle.fill_dragonbreath",spell: sb-parse-item-bottle-fill-dragon}
+      BucketEmpty: {slot: 10,item: "bucket|&6Bucket Empty Sound|item.bucket.empty",spell: sb-parse-item-bucket-empty}
+      BucketFillWater: {slot: 11,item: "water_bucket|&6Bucket Fill Water Sound|item.bucket.fill",spell: sb-parse-item-bucket-fill-water}
+      BucketFillLava: {slot: 12,item: "lava_bucket|&6Bucket Fill Lava Sound|item.bucket.fill_lava",spell: sb-parse-item-bucket-fill-lava}
+      ElytraUse: {slot: 13,item: "elytra|&6Elytra Fly Sound|item.elytra.flying",spell: sb-parse-item-elytra-flying}
+      IgniteFire: {slot: 14,item: "flint_and_steel|&6Fire Ignite Sound|item.flintandsteel.use",spell: sb-parse-item-ignitefire}
+      Till: {slot: 15,item: "wood_hoe|&6Till Soil Sound|item.hoe.till",spell: sb-parse-item-hoe-use}
+      ShieldBlock: {slot: 16,item: "shield|&6Shield Block Sound|item.shield.block",spell: sb-parse-item-shield-block}
+      ShovelFlatten: {slot: 17,item: "wood_spade|&6Shovel Flatten Sound|item.shovel.flatten",spell: sb-parse-item-shovel-flatten}
+      TotemUse: {slot: 18,item: "totem|&6Totem Use Sound|item.totem.use",spell: sb-parse-item-totem}
+      Back: {slot: 26,item: "book|&6Back",spell: sb}
+
+
+
+# Music
+sb-music:
+    <<: *menu
+    title: "&9Music"
+    options:
+      Creative: {slot: 0,item: "jukebox|&6Creative Music|music.creative",spell: sb-parse-music-creative}
+      Credits: {slot: 1,item: "jukebox|&6Credits Music|music.credits",spell: sb-parse-music-credits}
+      Dragon: {slot: 2,item: "jukebox|&6Dragon Music|music.dragon",spell: sb-parse-music-dragon}
+      End: {slot: 3,item: "jukebox|&6End Music|music.end",spell: sb-parse-music-end}
+      Game: {slot: 4,item: "jukebox|&6Game Music|music.game",spell: sb-parse-music-game}
+      Menu: {slot: 5,item: "jukebox|&6Menu Music|music.menu",spell: sb-parse-music-menu}
+      Nether: {slot: 6,item: "jukebox|&6Nether Music|music.nether",spell: sb-parse-music-nether}
+      Disc11: {slot: 7,item: "record_11|&6Disc 11|record.11",spell: sb-parse-music-disc-11}
+      Disc13: {slot: 8,item: "gold_record|&6Disc 13|record.13",spell: sb-parse-music-disc-13}
+      DiscBlocks: {slot: 9,item: "record_3|&6Disc Blocks|record.blocks",spell: sb-parse-music-disc-blocks}
+      DiscCat: {slot: 10,item: "green_record|&6Disc Cat|record.cat",spell: sb-parse-music-disc-cat}
+      DiscChirp: {slot: 11,item: "record_4|&6Disc Chirp|record.chirp",spell: sb-parse-music-disc-chirp}
+      DiscFar: {slot: 12,item: "record_5|&6Disc Far|record.far",spell: sb-parse-music-disc-far}
+      DiscMall: {slot: 13,item: "record_6|&6Disc Mall|record.mall",spell: sb-parse-music-disc-mall}
+      DiscMellohi: {slot: 14,item: "record_7|&6Disc Mellohi|record.mellohi",spell: sb-parse-music-disc-mellohi}
+      DiscStal: {slot: 15,item: "record_8|&6Disc Stal|record.stal",spell: sb-parse-music-disc-stal}
+      DiscStrad: {slot: 16,item: "record_9|&6Disc Strad|record.strad",spell: sb-parse-music-disc-strad}
+      DiscWait: {slot: 17,item: "record_12|&6Disc Wait|record.wait",spell: sb-parse-music-disc-wait}
+      DiscWard: {slot: 18,item: "record_10|&6Disc Ward|record.ward",spell: sb-parse-music-disc-ward}
+      Back: {slot: 26,item: "book|&6Back",spell: sb}
+
+
+
+# Weather
+sb-weather:
+    <<: *menu
+    title: "&9Weather Sounds"
+    options:
+      Rain: {slot: 0,item: "snow_ball|&6Rain|weather.rain",spell: sb-parse-weather-rain}
+      RainAbove: {slot: 1,item: "snow_ball|&6Rain Above|weather.rain.above",spell: sb-parse-weather-rain-above}
+      Back: {slot: 8,item: "book|&6Back",spell: sb}
+
+
+
+# UI Toast Sounds
+sb-ui:
+    <<: *menu
+    title: "&9UI Sounds"
+    options:
+      ToastChallengeComplete: {slot: 0,item: "name_tag|&6Challenge Complete Sound|ui.toast.challenge_complete",spell: sb-parse-ui-challenge}
+      ToastIn: {slot: 1,item: "name_tag|&6Toast In Sound|ui.toast.in",spell: sb-parse-ui-in}
+      ToastOut: {slot: 2,item: "name_tag|&6Toast Out Sound|ui.toast.out",spell: sb-parse-ui-out}
+      Back: {slot: 8,item: "book|&6Back",spell: sb}
+
+
+
+# Menu detection
+sb-trigger:
+    spell-class: ".PassiveSpell"
+    always-granted: true
+    tags: [NotSilenceable]
+    triggers: [spellcasted]
+    variable-mods-cast: [SoundFound =0]
+    modifiers: ["variableequals SoundFound:1 require"]
+    spells: [sb-open,sb-configure]
+
+
+
+# Sound Editing
+sb-open: &command
+    spell-class: ".ExternalCommandSpell"
+    helper-spell: true
+    tags: [NotSilenceable]
+    execute-on-console-instead: true
+    do-variable-replacement: true
+    command-to-execute: ['minecraft:tellraw %a [{"text":"To open the Soundboard again ","color":"aqua"},{"text":"[","color":"dark_aqua"},{"text":"Click Here","color":"aqua","clickEvent":{"action":"run_command","value":"/c sb-configure"}},{"text":"]","color":"dark_aqua"}]']
+
+sb-configure:
+    <<: *menu
+    title: "&9Modify Pitch or Volume & Play"
+    options:
+      Pitch1: {slot: 0,item: "wool:5|&6Increase Pitch by .5|&eCurrent Pitch: &6%var:Pitch:2%",spell: sb-pitch-add1,stay-open: true,modifiers: ["variablemorethan Pitch:1.5 deny"]}
+      PitchFail1: {slot: 0,item: "wool:7|&8Pitch is over 1.5|&eCurrent Pitch: &6%var:Pitch:2%",spell: Dummy,stay-open: true,modifiers: ["variablemorethan Pitch:1.5 require"]}
+      Pitch2: {slot: 9,item: "wool:5|&6Increase Pitch by .1|&eCurrent Pitch: &6%var:Pitch:2%",spell: sb-pitch-add2,stay-open: true,modifiers: ["variablemorethan Pitch:1.9 deny"]}
+      PitchFail2: {slot: 9,item: "wool:7|&8Pitch is over 1.9|&eCurrent Pitch: &6%var:Pitch:2%",spell: Dummy,stay-open: true,modifiers: ["variablemorethan Pitch:1.9 require"]}
+      Pitch3: {slot: 18,item: "wool:5|&6Increase Pitch by .05|&eCurrent Pitch: &6%var:Pitch:2%",spell: sb-pitch-add3,stay-open: true,modifiers: ["variablemorethan Pitch:1.95 deny"]}
+      PitchFail3: {slot: 18,item: "wool:7|&cMax Pitch|&eCurrent Pitch: &6%var:Pitch:2%",spell: Dummy,stay-open: true,modifiers: ["variablemorethan Pitch:1.95 require"]}
+      Pitch4: {slot: 1,item: "wool:14|&6Decrease Pitch by .5|&eCurrent Pitch: &6%var:Pitch:2%",spell: sb-pitch-dec1,stay-open: true,modifiers: ["variablelessthan Pitch:0.5 deny"]}
+      PitchFail4: {slot: 1,item: "wool:7|&8Pitch is below .5|&eCurrent Pitch: &6%var:Pitch:2%",spell: Dummy,stay-open: true,modifiers: ["variablelessthan Pitch:.5 require"]}
+      Pitch5: {slot: 10,item: "wool:14|&6Decrease Pitch by .1|&eCurrent Pitch: &6%var:Pitch:2%",spell: sb-pitch-dec2,stay-open: true,modifiers: ["variablelessthan Pitch:0.1 deny"]}
+      PitchFail5: {slot: 10,item: "wool:7|&8Pitch is below .1|&eCurrent Pitch: &6%var:Pitch:2%",spell: Dummy,stay-open: true,modifiers: ["variablelessthan Pitch:.1 require"]}
+      Pitch6: {slot: 19,item: "wool:14|&6Decrease Pitch by .05|&eCurrent Pitch: &6%var:Pitch:2%",spell: sb-pitch-dec3,stay-open: true,modifiers: ["variablelessthan Pitch:0.05 deny"]}
+      PitchFail6: {slot: 19,item: "wool:7|&cMin Pitch|&eCurrent Pitch: &6%var:Pitch:2%",spell: Dummy,stay-open: true,modifiers: ["variableequals Pitch:0 require"]}
+      Volume1: {slot: 8,item: "wool:5|&6Increase Volume by 100|&eCurrent Volume: &6%var:Volume:2%",spell: sb-volume-add1,stay-open: true}
+      Volume2: {slot: 17,item: "wool:5|&6Increase Volume by 1|&eCurrent Volume: &6%var:Volume:2%",spell: sb-volume-add2,stay-open: true}
+      Volume3: {slot: 26,item: "wool:5|&6Increase Volume by .5|&eCurrent Volume: &6%var:Volume:2%",spell: sb-volume-add3,stay-open: true}
+      Volume4: {slot: 7,item: "wool:14|&6Decrease Volume by 100|&eCurrent Volume: &6%var:Volume:2%",spell: sb-volume-dec1,stay-open: true,modifiers: ["variablelessthan Volume:100 deny"]}
+      VolumeFail1: {slot: 7,item: "wool:7|&8Volume is below 1.5|&eCurrent Volume: &6%var:Volume:2%",spell: Dummy,stay-open: true,modifiers: ["variablelessthan Volume:100 require"]}
+      Volume5: {slot: 16,item: "wool:14|&6Decrease Volume by 1|&eCurrent Volume: &6%var:Volume:2%",spell: sb-volume-dec2,stay-open: true,modifiers: ["variablelessthan Volume:1 deny"]}
+      VolumeFail2: {slot: 16,item: "wool:7|&8Volume is below 1.9|&eCurrent Volume: &6%var:Volume:2%",spell: Dummy,stay-open: true,modifiers: ["variablelessthan Volume:1 require"]}
+      Volume6: {slot: 25,item: "wool:14|&6Decrease Volume by .5|&eCurrent Volume: &6%var:Volume:2%",spell: sb-volume-dec3,stay-open: true,modifiers: ["variablelessthan Volume:0.5 deny"]}
+      VolumeFail3: {slot: 25,item: "wool:7|&cMin Volume|&eCurrent Volume: &6%var:Volume:2%",spell: Dummy,stay-open: true,modifiers: ["variablelessthan Volume:0.5 require"]}
+      PlaySound: {slot: 12,item: "enchanted_book|&6Play|&ePitch: &6%var:Pitch:1%|&eVolume: &6%var:Volume:1%",spell: sb-play,stay-open: true}
+      StopSound: {slot: 13,item: "barrier|&6Stop Sound",spell: sb-stop,stay-open: true}
+      Show: {slot: 14,item: "paper|&6Show Configuration In Chat",spell: sb-show}
+      Back: {slot: 22,item: "book|&6Back",spell: sb}
+
+sb-pitch-add1: &config
+    spell-class: ".instant.DummySpell"
+    helper-spell: true
+    tags: [NotSilenceable]
+    variable-mods-cast: [Pitch +0.5]
+sb-pitch-add2: {<<: *config,variable-mods-cast: [Pitch +0.1]}
+sb-pitch-add3: {<<: *config,variable-mods-cast: [Pitch +0.05]}
+sb-pitch-dec1: {<<: *config,variable-mods-cast: [Pitch -0.5]}
+sb-pitch-dec2: {<<: *config,variable-mods-cast: [Pitch -0.1]}
+sb-pitch-dec3: {<<: *config,variable-mods-cast: [Pitch -0.05]}
+sb-volume-add1: {<<: *config,variable-mods-cast: [Volume +100]}
+sb-volume-add2: {<<: *config,variable-mods-cast: [Volume +1]}
+sb-volume-add3: {<<: *config,variable-mods-cast: [Volume +0.5]}
+sb-volume-dec1: {<<: *config,variable-mods-cast: [Volume -100]}
+sb-volume-dec2: {<<: *config,variable-mods-cast: [Volume -1]}
+sb-volume-dec3: {<<: *config,variable-mods-cast: [Volume -0.5]}
+
+sb-show: {<<: *command,command-to-execute: ['minecraft:tellraw %a [{"text":"To show the sound configuration ","color":"aqua"},{"text":"[","color":"dark_aqua"},{"text":"Click Here","color":"aqua","clickEvent":{"action":"suggest_command","value":"sound: %var:Sound% pitch: %var:Pitch:2% volume: %var:Volume:2%"},"hoverEvent":{"action":"show_text","value":{"text":"Click to show","color":"aqua"}}},{"text":"]","color":"dark_aqua"}]']}
+sb-play: {<<: *command,command-to-execute: ["minecraft:execute %a ~ ~ ~ minecraft:playsound %var:Sound% master @s ~ ~ ~ %var:Volume:2% %var:Pitch:2%"]}
+sb-stop: {<<: *command,command-to-execute: ["minecraft:stopsound %a master %var:Sound%"]}
+
+
+
+# Sound Parsing
+sb-clearstring-sound: &clear
+    spell-class: ".targeted.ParseSpell"
+    helper-spell: true
+    tags: [NotSilenceable]
+    target-self: true
+    variable-to-parse: Dummy
+    expected-value: "Empty"
+    parse-to-variable: Sound
+    parse-to: "Empty"
+sb-clearstring-dummy: {<<: *clear, expected-value: "", parse-to-variable: Dummy}
+
+sb-parse-ambient-cave: &choose {<<: *clear, parse-to: "ambient.cave", variable-mods-cast: [SoundFound =1]}
+sb-parse-enchant-thorns: {<<: *choose, parse-to: "enchant.thorns.hit"}
+sb-parse-block-anvil-destroy: {<<: *choose, parse-to: "block.anvil.destroy"}
+sb-parse-block-anvil-land: {<<: *choose, parse-to: "block.anvil.land"}
+sb-parse-block-anvil-use: {<<: *choose, parse-to: "block.anvil.use"}
+sb-parse-block-brewingstand-brew: {<<: *choose, parse-to: "block.brewing_stand.brew"}
+sb-parse-block-chest-close: {<<: *choose, parse-to: "block.chest.close"}
+sb-parse-block-chest-open: {<<: *choose, parse-to: "block.chest.open"}
+sb-parse-block-chorusflower-death: {<<: *choose, parse-to: "block.chorus_flower.death"}
+sb-parse-block-chorusflower-grow: {<<: *choose, parse-to: "block.chorus_flower.grow"}
+sb-parse-block-comparator: {<<: *choose, parse-to: "block.comparator.click"}
+sb-parse-block-enchant: {<<: *choose, parse-to: "block.enchantment_table.use"}
+sb-parse-block-endportal-spawn: {<<: *choose, parse-to: "block.end_portal.spawn"}
+sb-parse-block-endportal-fill: {<<: *choose, parse-to: "block.end_portal_frame.fill"}
+sb-parse-block-enderchest-close: {<<: *choose, parse-to: "block.enderchest.close"}
+sb-parse-block-enderchest-open: {<<: *choose, parse-to: "block.enderchest.open"}
+sb-parse-block-fencegate-close: {<<: *choose, parse-to: "block.fence_gate.close"}
+sb-parse-block-fencegate-open: {<<: *choose, parse-to: "block.fence_gate.open"}
+sb-parse-block-fire-ambient: {<<: *choose, parse-to: "block.fire.ambient"}
+sb-parse-block-fire-extinguish: {<<: *choose, parse-to: "block.fire.extinguish"}
+sb-parse-block-furnace: {<<: *choose, parse-to: "block.furnace.fire_crackle"}
+sb-parse-block-glass-break: {<<: *choose, parse-to: "block.glass.break"}
+sb-parse-block-irondoor-close: {<<: *choose, parse-to: "block.iron_door.close"}
+sb-parse-block-irondoor-open: {<<: *choose, parse-to: "block.iron_door.open"}
+sb-parse-block-irontrapdoor-close: {<<: *choose, parse-to: "block.iron_trapdoor.close"}
+sb-parse-block-irontrapdoor-open: {<<: *choose, parse-to: "block.iron_trapdoor.open"}
+sb-parse-block-ladder-fall: {<<: *choose, parse-to: "block.ladder.fall"}
+sb-parse-block-ladder-hit: {<<: *choose, parse-to: "block.ladder.hit"}
+sb-parse-block-ladder-place: {<<: *choose, parse-to: "block.ladder.place"}
+sb-parse-block-ladder-step: {<<: *choose, parse-to: "block.ladder.step"}
+sb-parse-block-lava: {<<: *choose, parse-to: "block.lava.ambient"}
+sb-parse-block-note-basedrum: {<<: *choose, parse-to: "block.note.basedrum"}
+sb-parse-block-note-bass: {<<: *choose, parse-to: "block.note.bass"}
+sb-parse-block-note-bell: {<<: *choose, parse-to: "block.note.bell"}
+sb-parse-block-note-chime: {<<: *choose, parse-to: "block.note.chime"}
+sb-parse-block-note-flute: {<<: *choose, parse-to: "block.note.flute"}
+sb-parse-block-note-guitar: {<<: *choose, parse-to: "block.note.guitar"}
+sb-parse-block-note-harp: {<<: *choose, parse-to: "block.note.harp"}
+sb-parse-block-note-hat: {<<: *choose, parse-to: "block.note.hat"}
+sb-parse-block-note-pling: {<<: *choose, parse-to: "block.note.pling"}
+sb-parse-block-note-snare: {<<: *choose, parse-to: "block.note.snare"}
+sb-parse-block-note-xylophone: {<<: *choose, parse-to: "block.note.xylophone"}
+sb-parse-block-piston-contract: {<<: *choose, parse-to: "block.piston.contract"}
+sb-parse-block-piston-extend: {<<: *choose, parse-to: "block.piston.extend"}
+sb-parse-block-portal-ambient: {<<: *choose, parse-to: "block.portal.ambient"}
+sb-parse-block-portal-travel: {<<: *choose, parse-to: "block.portal.travel"}
+sb-parse-block-portal-trigger: {<<: *choose, parse-to: "block.portal.trigger"}
+sb-parse-block-redstonetorch-burnout: {<<: *choose, parse-to: "block.redstone_torch.burnout"}
+sb-parse-block-shulkerbox-close: {<<: *choose, parse-to: "block.shulker_box.close"}
+sb-parse-block-shulkerbox-open: {<<: *choose, parse-to: "block.shulker_box.open"}
+sb-parse-block-water: {<<: *choose, parse-to: "block.water.ambient"}
+sb-parse-block-wooddoor-close: {<<: *choose, parse-to: "block.wooden_door.close"}
+sb-parse-block-wooddoor-open: {<<: *choose, parse-to: "block.wooden_door.open"}
+sb-parse-block-woodtrapdoor-close: {<<: *choose, parse-to: "block.wooden_trapdoor.close"}
+sb-parse-block-woodtrapdoor-open: {<<: *choose, parse-to: "block.wooden_trapdoor.open"}
+sb-parse-block-grass-break: {<<: *choose, parse-to: "block.grass.break"}
+sb-parse-block-grass-fall: {<<: *choose, parse-to: "block.grass.fall"}
+sb-parse-block-grass-hit: {<<: *choose, parse-to: "block.grass.hit"}
+sb-parse-block-grass-place: {<<: *choose, parse-to: "block.grass.place"}
+sb-parse-block-grass-step: {<<: *choose, parse-to: "block.grass.step"}
+sb-parse-block-gravel-break: {<<: *choose, parse-to: "block.gravel.break"}
+sb-parse-block-gravel-fall: {<<: *choose, parse-to: "block.gravel.fall"}
+sb-parse-block-gravel-hit: {<<: *choose, parse-to: "block.gravel.hit"}
+sb-parse-block-gravel-place: {<<: *choose, parse-to: "block.gravel.place"}
+sb-parse-block-gravel-step: {<<: *choose, parse-to: "block.gravel.step"}
+sb-parse-block-snow-break: {<<: *choose, parse-to: "block.snow.break"}
+sb-parse-block-snow-fall: {<<: *choose, parse-to: "block.snow.fall"}
+sb-parse-block-snow-hit: {<<: *choose, parse-to: "block.snow.hit"}
+sb-parse-block-snow-place: {<<: *choose, parse-to: "block.snow.place"}
+sb-parse-block-snow-step: {<<: *choose, parse-to: "block.snow.step"}
+sb-parse-block-cloth-break: {<<: *choose, parse-to: "block.cloth.break"}
+sb-parse-block-cloth-fall: {<<: *choose, parse-to: "block.cloth.fall"}
+sb-parse-block-cloth-hit: {<<: *choose, parse-to: "block.cloth.hit"}
+sb-parse-block-cloth-place: {<<: *choose, parse-to: "block.cloth.place"}
+sb-parse-block-cloth-step: {<<: *choose, parse-to: "block.cloth.step"}
+sb-parse-block-stone-break: {<<: *choose, parse-to: "block.stone.break"}
+sb-parse-block-stone-fall: {<<: *choose, parse-to: "block.stone.fall"}
+sb-parse-block-stone-hit: {<<: *choose, parse-to: "block.stone.hit"}
+sb-parse-block-stone-place: {<<: *choose, parse-to: "block.stone.place"}
+sb-parse-block-stone-step: {<<: *choose, parse-to: "block.stone.step"}
+sb-parse-block-wood-break: {<<: *choose, parse-to: "block.wood.break"}
+sb-parse-block-wood-fall: {<<: *choose, parse-to: "block.wood.fall"}
+sb-parse-block-wood-hit: {<<: *choose, parse-to: "block.wood.hit"}
+sb-parse-block-wood-place: {<<: *choose, parse-to: "block.wood.place"}
+sb-parse-block-wood-step: {<<: *choose, parse-to: "block.wood.step"}
+sb-parse-block-slime-break: {<<: *choose, parse-to: "block.slime.break"}
+sb-parse-block-slime-fall: {<<: *choose, parse-to: "block.slime.fall"}
+sb-parse-block-slime-hit: {<<: *choose, parse-to: "block.slime.hit"}
+sb-parse-block-slime-place: {<<: *choose, parse-to: "block.slime.place"}
+sb-parse-block-slime-step: {<<: *choose, parse-to: "block.slime.step"}
+sb-parse-block-sand-break: {<<: *choose, parse-to: "block.sand.break"}
+sb-parse-block-sand-fall: {<<: *choose, parse-to: "block.sand.fall"}
+sb-parse-block-sand-hit: {<<: *choose, parse-to: "block.sand.hit"}
+sb-parse-block-sand-place: {<<: *choose, parse-to: "block.sand.place"}
+sb-parse-block-sand-step: {<<: *choose, parse-to: "block.sand.step"}
+sb-parse-block-glass-break: {<<: *choose, parse-to: "block.glass.break"}
+sb-parse-block-glass-fall: {<<: *choose, parse-to: "block.glass.fall"}
+sb-parse-block-glass-hit: {<<: *choose, parse-to: "block.glass.hit"}
+sb-parse-block-glass-place: {<<: *choose, parse-to: "block.glass.place"}
+sb-parse-block-glass-step: {<<: *choose, parse-to: "block.glass.step"}
+sb-parse-entity-armorstand-break: {<<: *choose, parse-to: "entity.armorstand.break"}
+sb-parse-entity-armorstand-fall: {<<: *choose, parse-to: "entity.armorstand.fall"}
+sb-parse-entity-armorstand-hit: {<<: *choose, parse-to: "entity.armorstand.hit"}
+sb-parse-entity-armorstand-place: {<<: *choose, parse-to: "entity.armorstand.place"}
+sb-parse-entity-arrow-hit: {<<: *choose, parse-to: "entity.arrow.hit"}
+sb-parse-entity-arrow-hitplayer: {<<: *choose, parse-to: "entity.arrow.hit_player"}
+sb-parse-entity-arrow-shoot: {<<: *choose, parse-to: "entity.arrow.shoot"}
+sb-parse-entity-bat-ambient: {<<: *choose, parse-to: "entity.bat.ambient"}
+sb-parse-entity-bat-death: {<<: *choose, parse-to: "entity.bat.death"}
+sb-parse-entity-bat-hurt: {<<: *choose, parse-to: "entity.bat.hurt"}
+sb-parse-entity-bat-loop: {<<: *choose, parse-to: "entity.bat.loop"}
+sb-parse-entity-bat-takeoff: {<<: *choose, parse-to: "entity.bat.takeoff"}
+sb-parse-entity-blaze-ambient: {<<: *choose, parse-to: "entity.blaze.ambient"}
+sb-parse-entity-blaze-burn: {<<: *choose, parse-to: "entity.blaze.burn"}
+sb-parse-entity-blaze-death: {<<: *choose, parse-to: "entity.blaze.death"}
+sb-parse-entity-blaze-hurt: {<<: *choose, parse-to: "entity.blaze.hurt"}
+sb-parse-entity-blaze-shoot: {<<: *choose, parse-to: "entity.blaze.shoot"}
+sb-parse-entity-boat-paddleland: {<<: *choose, parse-to: "entity.boat.paddle_water"}
+sb-parse-entity-boat-paddlewater: {<<: *choose, parse-to: "entity.boat.paddle_water"}
+sb-parse-entity-cat-ambient: {<<: *choose, parse-to: "entity.cat.ambient"}
+sb-parse-entity-cat-death: {<<: *choose, parse-to: "entity.cat.death"}
+sb-parse-entity-cat-hiss: {<<: *choose, parse-to: "entity.cat.hiss"}
+sb-parse-entity-cat-hurt: {<<: *choose, parse-to: "entity.cat.hurt"}
+sb-parse-entity-cat-purr: {<<: *choose, parse-to: "entity.cat.purr"}
+sb-parse-entity-cat-purreow: {<<: *choose, parse-to: "entity.cat.purreow"}
+sb-parse-entity-chicken-ambient: {<<: *choose, parse-to: "entity.chicken.ambient"}
+sb-parse-entity-chicken-death: {<<: *choose, parse-to: "entity.chicken.death"}
+sb-parse-entity-chicken-egg: {<<: *choose, parse-to: "entity.chicken.egg"}
+sb-parse-entity-chicken-hurt: {<<: *choose, parse-to: "entity.chicken.hurt"}
+sb-parse-entity-chicken-step: {<<: *choose, parse-to: "entity.chicken.step"}
+sb-parse-entity-cow-ambient: {<<: *choose, parse-to: "entity.cow.ambient"}
+sb-parse-entity-cow-death: {<<: *choose, parse-to: "entity.cow.death"}
+sb-parse-entity-cow-hurt: {<<: *choose, parse-to: "entity.cow.hurt"}
+sb-parse-entity-cow-milk: {<<: *choose, parse-to: "entity.cow.milk"}
+sb-parse-entity-cow-step: {<<: *choose, parse-to: "entity.cow.step"}
+sb-parse-entity-creeper-death: {<<: *choose, parse-to: "entity.creeper.death"}
+sb-parse-entity-creeper-hurt: {<<: *choose, parse-to: "entity.creeper.hurt"}
+sb-parse-entity-creeper-primed: {<<: *choose, parse-to: "entity.creeper.primed"}
+sb-parse-entity-donkey-ambient: {<<: *choose, parse-to: "entity.donkey.ambient"}
+sb-parse-entity-donkey-angry: {<<: *choose, parse-to: "entity.donkey.angry"}
+sb-parse-entity-donkey-chest: {<<: *choose, parse-to: "entity.donkey.chest"}
+sb-parse-entity-donkey-hurt: {<<: *choose, parse-to: "entity.donkey.hurt"}
+sb-parse-entity-donkey-death: {<<: *choose, parse-to: "entity.donkey.death"}
+sb-parse-entity-elderguardian-ambient: {<<: *choose, parse-to: "entity.elder_guardian.ambient"}
+sb-parse-entity-elderguardian-ambientland: {<<: *choose, parse-to: "entity.elder_guardian.ambient_land"}
+sb-parse-entity-elderguardian-curse: {<<: *choose, parse-to: "entity.elder_guardian.curse"}
+sb-parse-entity-elderguardian-death: {<<: *choose, parse-to: "entity.elder_guardian.death"}
+sb-parse-entity-elderguardian-deathland: {<<: *choose, parse-to: "entity.elder_guardian.death_land"}
+sb-parse-entity-elderguardian-hurt: {<<: *choose, parse-to: "entity.elder_guardian.hurt"}
+sb-parse-entity-elderguardian-hurtland: {<<: *choose, parse-to: "entity.elder_guardian.hurt_land"}
+sb-parse-entity-enderdragon-ambient: {<<: *choose, parse-to: "entity.enderdragon.ambient"}
+sb-parse-entity-enderdragon-death: {<<: *choose, parse-to: "entity.enderdragon.death"}
+sb-parse-entity-enderdragon-flap: {<<: *choose, parse-to: "entity.enderdragon.flap"}
+sb-parse-entity-enderdragon-growl: {<<: *choose, parse-to: "entity.enderdragon.growl"}
+sb-parse-entity-enderdragon-hurt: {<<: *choose, parse-to: "entity.enderdragon.hurt"}
+sb-parse-entity-enderdragon-shoot: {<<: *choose, parse-to: "entity.enderdragon.shoot"}
+sb-parse-entity-endereye-death: {<<: *choose, parse-to: "entity.endereye.death"}
+sb-parse-entity-endereye-launch: {<<: *choose, parse-to: "entity.endereye.launch"}
+sb-parse-entity-enderpearl-throw: {<<: *choose, parse-to: "entity.enderpearl.throw"}
+sb-parse-entity-enderman-ambient: {<<: *choose, parse-to: "entity.endermen.ambient"}
+sb-parse-entity-enderman-death: {<<: *choose, parse-to: "entity.endermen.death"}
+sb-parse-entity-enderman-hurt: {<<: *choose, parse-to: "entity.endermen.hurt"}
+sb-parse-entity-enderman-scream: {<<: *choose, parse-to: "entity.endermen.scream"}
+sb-parse-entity-enderman-stare: {<<: *choose, parse-to: "entity.endermen.stare"}
+sb-parse-entity-enderman-teleport: {<<: *choose, parse-to: "entity.endermen.teleport"}
+sb-parse-entity-endermiteandsilverfish-ambient: {<<: *choose, parse-to: "entity.silverfish.ambient"}
+sb-parse-entity-endermiteandsilverfish-death: {<<: *choose, parse-to: "entity.silverfish.death"}
+sb-parse-entity-endermiteandsilverfish-hurt: {<<: *choose, parse-to: "entity.silverfish.hurt"}
+sb-parse-entity-endermiteandsilverfish-step: {<<: *choose, parse-to: "entity.silverfish.step"}
+sb-parse-entity-evoker-ambient: {<<: *choose, parse-to: "entity.evocation_illager.ambient"}
+sb-parse-entity-evoker-castspell: {<<: *choose, parse-to: "entity.evocation_illager.cast_spell"}
+sb-parse-entity-evoker-death: {<<: *choose, parse-to: "entity.evocation_illager.death"}
+sb-parse-entity-evoker-hurt: {<<: *choose, parse-to: "entity.evocation_illager.hurt"}
+sb-parse-entity-evoker-prepareattack: {<<: *choose, parse-to: "entity.evocation_illager.prepare_attack"}
+sb-parse-entity-evoker-preparesummon: {<<: *choose, parse-to: "entity.evocation_illager.prepare_summon"}
+sb-parse-entity-evoker-preparewololo: {<<: *choose, parse-to: "entity.evocation_illager.prepare_wololo"}
+sb-parse-entity-evokerfangs-attack: {<<: *choose, parse-to: "entity.evocation_fangs.attack"}
+sb-parse-entity-experiencebottle-throw: {<<: *choose, parse-to: "entity.experience_bottle.throw"}
+sb-parse-entity-experienceorb-pickup: {<<: *choose, parse-to: "entity.experience_orb.pickup"}
+sb-parse-entity-firework-blast: {<<: *choose, parse-to: "entity.firework.blast"}
+sb-parse-entity-firework-blastfar: {<<: *choose, parse-to: "entity.firework.blast_far"}
+sb-parse-entity-firework-largeblast: {<<: *choose, parse-to: "entity.firework.large_blast"}
+sb-parse-entity-firework-largeblastfar: {<<: *choose, parse-to: "entity.firework.large_blast_far"}
+sb-parse-entity-firework-launch: {<<: *choose, parse-to: "entity.firework.launch"}
+sb-parse-entity-firework-twinkle: {<<: *choose, parse-to: "entity.firework.twinkle"}
+sb-parse-entity-firework-twinklefar: {<<: *choose, parse-to: "entity.firework.twinkle_far"}
+sb-parse-entity-fishingbobber-retrieve: {<<: *choose, parse-to: "entity.bobber.retrieve"}
+sb-parse-entity-fishingbobber-splash: {<<: *choose, parse-to: "entity.bobber.splash"}
+sb-parse-entity-fishingbobber-throw: {<<: *choose, parse-to: "entity.bobber.throw"}
+sb-parse-entity-generic-bigfall: {<<: *choose, parse-to: "entity.generic.big_fall"}
+sb-parse-entity-generic-burn: {<<: *choose, parse-to: "entity.generic.burn"}
+sb-parse-entity-generic-death: {<<: *choose, parse-to: "entity.generic.death"}
+sb-parse-entity-generic-drink: {<<: *choose, parse-to: "entity.generic.drink"}
+sb-parse-entity-generic-eat: {<<: *choose, parse-to: "entity.generic.eat"}
+sb-parse-entity-generic-explode: {<<: *choose, parse-to: "entity.generic.explode"}
+sb-parse-entity-generic-extinguishfire: {<<: *choose, parse-to: "entity.generic.extinguish_fire"}
+sb-parse-entity-generic-hurt: {<<: *choose, parse-to: "entity.generic.hurt"}
+sb-parse-entity-generic-smallfall: {<<: *choose, parse-to: "entity.generic.small_fall"}
+sb-parse-entity-generic-swim: {<<: *choose, parse-to: "entity.generic.swim"}
+sb-parse-entity-ghast-ambient: {<<: *choose, parse-to: "entity.ghast.ambient"}
+sb-parse-entity-ghast-death: {<<: *choose, parse-to: "entity.ghast.death"}
+sb-parse-entity-ghast-hurt: {<<: *choose, parse-to: "entity.ghast.hurt"}
+sb-parse-entity-ghast-scream: {<<: *choose, parse-to: "entity.ghast.scream"}
+sb-parse-entity-ghast-shoot: {<<: *choose, parse-to: "entity.ghast.shoot"}
+sb-parse-entity-ghast-warn: {<<: *choose, parse-to: "entity.ghast.warn"}
+sb-parse-entity-guardian-ambient: {<<: *choose, parse-to: "entity.guardian.ambient"}
+sb-parse-entity-guardian-ambientland: {<<: *choose, parse-to: "entity.guardian.ambient_land"}
+sb-parse-entity-guardian-death: {<<: *choose, parse-to: "entity.guardian.death"}
+sb-parse-entity-guardian-deathland: {<<: *choose, parse-to: "entity.guardian.death_land"}
+sb-parse-entity-guardian-flop: {<<: *choose, parse-to: "entity.guardian.flop"}
+sb-parse-entity-guardian-hurt: {<<: *choose, parse-to: "entity.guardian.hurt"}
+sb-parse-entity-guardian-hurtland: {<<: *choose, parse-to: "entity.guardian.hurt_land"}
+sb-parse-entity-horse-ambient: {<<: *choose, parse-to: "entity.horse.ambient"}
+sb-parse-entity-horse-angry: {<<: *choose, parse-to: "entity.horse.angry"}
+sb-parse-entity-horse-armor: {<<: *choose, parse-to: "entity.horse.armor"}
+sb-parse-entity-horse-breathe: {<<: *choose, parse-to: "entity.horse.breathe"}
+sb-parse-entity-horse-death: {<<: *choose, parse-to: "entity.horse.death"}
+sb-parse-entity-horse-eat: {<<: *choose, parse-to: "entity.horse.eat"}
+sb-parse-entity-horse-gallop: {<<: *choose, parse-to: "entity.horse.gallop"}
+sb-parse-entity-horse-hurt: {<<: *choose, parse-to: "entity.horse.hurt"}
+sb-parse-entity-horse-jump: {<<: *choose, parse-to: "entity.horse.jump"}
+sb-parse-entity-horse-land: {<<: *choose, parse-to: "entity.horse.land"}
+sb-parse-entity-horse-saddle: {<<: *choose, parse-to: "entity.horse.saddle"}
+sb-parse-entity-horse-step: {<<: *choose, parse-to: "entity.horse.step"}
+sb-parse-entity-horse-stepwood: {<<: *choose, parse-to: "entity.horse.step_wood"}
+sb-parse-entity-husk-ambient: {<<: *choose, parse-to: "entity.husk.ambient"}
+sb-parse-entity-husk-death: {<<: *choose, parse-to: "entity.husk.death"}
+sb-parse-entity-husk-hurt: {<<: *choose, parse-to: "entity.husk.hurt"}
+sb-parse-entity-husk-step: {<<: *choose, parse-to: "entity.husk.step"}
+sb-parse-entity-illusioner-ambient: {<<: *choose, parse-to: "entity.illusion_illager.ambient"}
+sb-parse-entity-illusioner-death: {<<: *choose, parse-to: "entity.illusion_illager.death"}
+sb-parse-entity-illusioner-hurt: {<<: *choose, parse-to: "entity.illusion_illager.hurt"}
+sb-parse-entity-illusioner-mirrormove: {<<: *choose, parse-to: "entity.illusion_illager.mirror_move"}
+sb-parse-entity-illusioner-prepareblindness: {<<: *choose, parse-to: "entity.illusion_illager.prepare_blindness"}
+sb-parse-entity-illusioner-preparemirror: {<<: *choose, parse-to: "entity.illusion_illager.prepare_mirror"}
+sb-parse-entity-irongolem-attack: {<<: *choose, parse-to: "entity.irongolem.attack"}
+sb-parse-entity-irongolem-death: {<<: *choose, parse-to: "entity.irongolem.death"}
+sb-parse-entity-irongolem-hurt: {<<: *choose, parse-to: "entity.irongolem.hurt"}
+sb-parse-entity-irongolem-step: {<<: *choose, parse-to: "entity.irongolem.step"}
+sb-parse-entity-item-break: {<<: *choose, parse-to: "entity.item.break"}
+sb-parse-entity-item-pickup: {<<: *choose, parse-to: "entity.item.pickup"}
+sb-parse-entity-itemframe-additem: {<<: *choose, parse-to: "entity.itemframe.add_item"}
+sb-parse-entity-itemframe-break: {<<: *choose, parse-to: "entity.itemframe.break"}
+sb-parse-entity-itemframe-place: {<<: *choose, parse-to: "entity.itemframe.place"}
+sb-parse-entity-itemframe-removeitem: {<<: *choose, parse-to: "entity.itemframe.remove_item"}
+sb-parse-entity-itemframe-rotateitem: {<<: *choose, parse-to: "entity.itemframe.rotate_item"}
+sb-parse-entity-leashknot-break: {<<: *choose, parse-to: "entity.leashknot.break"}
+sb-parse-entity-leashknot-place: {<<: *choose, parse-to: "entity.leashknot.place"}
+sb-parse-entity-lightningbolt-impact: {<<: *choose, parse-to: "entity.lightning.impact"}
+sb-parse-entity-lightningbolt-thunder: {<<: *choose, parse-to: "entity.lightning.thunder"}
+sb-parse-entity-llama-ambient: {<<: *choose, parse-to: "entity.llama.ambient"}
+sb-parse-entity-llama-angry: {<<: *choose, parse-to: "entity.llama.angry"}
+sb-parse-entity-llama-eat: {<<: *choose, parse-to: "entity.llama.eat"}
+sb-parse-entity-llama-death: {<<: *choose, parse-to: "entity.llama.death"}
+sb-parse-entity-llama-hurt: {<<: *choose, parse-to: "entity.llama.hurt"}
+sb-parse-entity-llama-spit: {<<: *choose, parse-to: "entity.llama.spit"}
+sb-parse-entity-llama-step: {<<: *choose, parse-to: "entity.llama.step"}
+sb-parse-entity-llama-swag: {<<: *choose, parse-to: "entity.llama.swag"}
+sb-parse-entity-slime-death: {<<: *choose, parse-to: "entity.slime.death"}
+sb-parse-entity-slime-hurt: {<<: *choose, parse-to: "entity.slime.hurt"}
+sb-parse-entity-magmacube-jump: {<<: *choose, parse-to: "entity.magmacube.jump"}
+sb-parse-entity-magmacube-squish: {<<: *choose, parse-to: "entity.magmacube.squish"}
+sb-parse-entity-minecart-inside: {<<: *choose, parse-to: "entity.minecart.inside"}
+sb-parse-entity-minecart-riding: {<<: *choose, parse-to: "entity.minecart.riding"}
+sb-parse-entity-painting-break: {<<: *choose, parse-to: "entity.painting.break"}
+sb-parse-entity-painting-place: {<<: *choose, parse-to: "entity.painting.place"}
+sb-parse-entity-parrot-ambient: {<<: *choose, parse-to: "entity.parrot.ambient"}
+sb-parse-entity-parrot-death: {<<: *choose, parse-to: "entity.parrot.death"}
+sb-parse-entity-parrot-eat: {<<: *choose, parse-to: "entity.parrot.eat"}
+sb-parse-entity-parrot-fly: {<<: *choose, parse-to: "entity.parrot.fly"}
+sb-parse-entity-parrot-hurt: {<<: *choose, parse-to: "entity.parrot.hurt"}
+sb-parse-entity-parrot-step: {<<: *choose, parse-to: "entity.parrot.step"}
+sb-parse-entity-pig-ambient: {<<: *choose, parse-to: "entity.pig.ambient"}
+sb-parse-entity-pig-death: {<<: *choose, parse-to: "entity.pig.death"}
+sb-parse-entity-pig-hurt: {<<: *choose, parse-to: "entity.pig.hurt"}
+sb-parse-entity-pig-step: {<<: *choose, parse-to: "entity.pig.step"}
+sb-parse-entity-player-attackcrit: {<<: *choose, parse-to: "entity.player.attack.crit"}
+sb-parse-entity-player-attackknockback: {<<: *choose, parse-to: "entity.player.attack.knockback"}
+sb-parse-entity-player-attacknodamage: {<<: *choose, parse-to: "entity.player.attack.nodamage"}
+sb-parse-entity-player-attackstrong: {<<: *choose, parse-to: "entity.player.attack.strong"}
+sb-parse-entity-player-attacksweep: {<<: *choose, parse-to: "entity.player.attack.sweep"}
+sb-parse-entity-player-attackweak: {<<: *choose, parse-to: "entity.player.attack.weak"}
+sb-parse-entity-player-bigfall: {<<: *choose, parse-to: "entity.player.big_fall"}
+sb-parse-entity-player-breath: {<<: *choose, parse-to: "entity.player.breath"}
+sb-parse-entity-player-burp: {<<: *choose, parse-to: "entity.player.burp"}
+sb-parse-entity-player-death: {<<: *choose, parse-to: "entity.player.death"}
+sb-parse-entity-player-hurt: {<<: *choose, parse-to: "entity.player.hurt"}
+sb-parse-entity-player-hurtdrown: {<<: *choose, parse-to: "entity.player.hurt_drown"}
+sb-parse-entity-player-hurtonfire: {<<: *choose, parse-to: "entity.player.hurt_on_fire"}
+sb-parse-entity-player-levelup: {<<: *choose, parse-to: "entity.player.levelup"}
+sb-parse-entity-player-smallfall: {<<: *choose, parse-to: "entity.player.small_fall"}
+sb-parse-entity-player-splash: {<<: *choose, parse-to: "entity.player.splash"}
+sb-parse-entity-player-swim: {<<: *choose, parse-to: "entity.player.swim"}
+sb-parse-entity-polarbear-ambient: {<<: *choose, parse-to: "entity.polar_bear.ambient"}
+sb-parse-entity-polarbear-ambientbaby: {<<: *choose, parse-to: "entity.polar_bear.ambient_baby"}
+sb-parse-entity-polarbear-death: {<<: *choose, parse-to: "entity.polar_bear.death"}
+sb-parse-entity-polarbear-hurt: {<<: *choose, parse-to: "entity.polar_bear.hurt"}
+sb-parse-entity-polarbear-step: {<<: *choose, parse-to: "entity.polar_bear.step"}
+sb-parse-entity-polarbear-warning: {<<: *choose, parse-to: "entity.polar_bear.warning"}
+sb-parse-entity-rabbit-ambient: {<<: *choose, parse-to: "entity.rabbit.ambient"}
+sb-parse-entity-rabbit-attack: {<<: *choose, parse-to: "entity.rabbit.attack"}
+sb-parse-entity-rabbit-death: {<<: *choose, parse-to: "entity.rabbit.death"}
+sb-parse-entity-rabbit-hurt: {<<: *choose, parse-to: "entity.rabbit.hurt"}
+sb-parse-entity-rabbit-jump: {<<: *choose, parse-to: "entity.rabbit.jump"}
+sb-parse-entity-sheep-ambient: {<<: *choose, parse-to: "entity.sheep.ambient"}
+sb-parse-entity-sheep-death: {<<: *choose, parse-to: "entity.sheep.death"}
+sb-parse-entity-sheep-hurt: {<<: *choose, parse-to: "entity.sheep.hurt"}
+sb-parse-entity-sheep-shear: {<<: *choose, parse-to: "entity.sheep.shear"}
+sb-parse-entity-sheep-step: {<<: *choose, parse-to: "entity.sheep.step"}
+sb-parse-entity-shulker-ambient: {<<: *choose, parse-to: "entity.shulker.ambient"}
+sb-parse-entity-shulker-close: {<<: *choose, parse-to: "entity.shulker.close"}
+sb-parse-entity-shulker-death: {<<: *choose, parse-to: "entity.shulker.death"}
+sb-parse-entity-shulker-hurt: {<<: *choose, parse-to: "entity.shulker.hurt"}
+sb-parse-entity-shulker-hurtclosed: {<<: *choose, parse-to: "entity.shulker.hurt_closed"}
+sb-parse-entity-shulker-shoot: {<<: *choose, parse-to: "entity.shulker.shoot"}
+sb-parse-entity-shulkerbullet-hit: {<<: *choose, parse-to: "entity.shulker_bullet.hit"}
+sb-parse-entity-shulkerbullet-hurt: {<<: *choose, parse-to: "entity.shulker_bullet.hurt"}
+sb-parse-entity-skeleton-ambient: {<<: *choose, parse-to: "entity.skeleton.ambient"}
+sb-parse-entity-skeleton-death: {<<: *choose, parse-to: "entity.skeleton.death"}
+sb-parse-entity-skeleton-hurt: {<<: *choose, parse-to: "entity.skeleton.hurt"}
+sb-parse-entity-skeleton-shoot: {<<: *choose, parse-to: "entity.skeleton.shoot"}
+sb-parse-entity-skeleton-step: {<<: *choose, parse-to: "entity.skeleton.step"}
+sb-parse-entity-skeletonhorse-ambient: {<<: *choose, parse-to: "entity.skeleton_horse.ambient"}
+sb-parse-entity-skeletonhorse-ambientwater: {<<: *choose, parse-to: "entity.skeleton_horse.ambient_water"}
+sb-parse-entity-skeletonhorse-death: {<<: *choose, parse-to: "entity.skeleton_horse.death"}
+sb-parse-entity-skeletonhorse-gallop: {<<: *choose, parse-to: "entity.skeleton_horse.gallop"}
+sb-parse-entity-skeletonhorse-hurt: {<<: *choose, parse-to: "entity.skeleton_horse.hurt"}
+sb-parse-entity-skeletonhorse-jumpwater: {<<: *choose, parse-to: "entity.skeleton_horse.jump_water"}
+sb-parse-entity-skeletonhorse-stepwater: {<<: *choose, parse-to: "entity.skeleton_horse.step_water"}
+sb-parse-entity-skeletonhorse-swim: {<<: *choose, parse-to: "entity.skeleton_horse.swim"}
+sb-parse-entity-snowgolem-ambient: {<<: *choose, parse-to: "entity.snowman.ambient"}
+sb-parse-entity-snowgolem-death: {<<: *choose, parse-to: "entity.snowman.death"}
+sb-parse-entity-snowgolem-hurt: {<<: *choose, parse-to: "entity.snowman.hurt"}
+sb-parse-entity-snowgolem-shoot: {<<: *choose, parse-to: "entity.snowman.shoot"}
+sb-parse-entity-spider-ambient: {<<: *choose, parse-to: "entity.spider.ambient"}
+sb-parse-entity-spider-death: {<<: *choose, parse-to: "entity.spider.death"}
+sb-parse-entity-spider-hurt: {<<: *choose, parse-to: "entity.spider.hurt"}
+sb-parse-entity-spider-step: {<<: *choose, parse-to: "entity.spider.step"}
+sb-parse-entity-squid-ambient: {<<: *choose, parse-to: "entity.squid.ambient"}
+sb-parse-entity-squid-death: {<<: *choose, parse-to: "entity.squid.death"}
+sb-parse-entity-squid-hurt: {<<: *choose, parse-to: "entity.squid.hurt"}
+sb-parse-entity-squid-squirt: {<<: *choose, parse-to: "entity.squid.squirt"}
+sb-parse-entity-stray-ambient: {<<: *choose, parse-to: "entity.stray.ambient"}
+sb-parse-entity-stray-death: {<<: *choose, parse-to: "entity.stray.death"}
+sb-parse-entity-stray-hurt: {<<: *choose, parse-to: "entity.stray.hurt"}
+sb-parse-entity-stray-step: {<<: *choose, parse-to: "entity.stray.step"}
+sb-parse-entity-vex-ambient: {<<: *choose, parse-to: "entity.vex.ambient"}
+sb-parse-entity-vex-charge: {<<: *choose, parse-to: "entity.vex.charge"}
+sb-parse-entity-vex-death: {<<: *choose, parse-to: "entity.vex.death"}
+sb-parse-entity-vex-hurt: {<<: *choose, parse-to: "entity.vex.hurt"}
+sb-parse-entity-villager-ambient: {<<: *choose, parse-to: "entity.villager.ambient"}
+sb-parse-entity-villager-death: {<<: *choose, parse-to: "entity.villager.death"}
+sb-parse-entity-villager-hurt: {<<: *choose, parse-to: "entity.villager.hurt"}
+sb-parse-entity-villager-no: {<<: *choose, parse-to: "entity.villager.no"}
+sb-parse-entity-villager-trade: {<<: *choose, parse-to: "entity.villager.trade"}
+sb-parse-entity-villager-yes: {<<: *choose, parse-to: "entity.villager.yes"}
+sb-parse-entity-vindicator-ambient: {<<: *choose, parse-to: "entity.vindication_illager.ambient"}
+sb-parse-entity-vindicator-death: {<<: *choose, parse-to: "entity.vindication_illager.death"}
+sb-parse-entity-vindicator-hurt: {<<: *choose, parse-to: "entity.vindication_illager.hurt"}
+sb-parse-entity-witch-ambient: {<<: *choose, parse-to: "entity.witch.ambient"}
+sb-parse-entity-witch-death: {<<: *choose, parse-to: "entity.witch.death"}
+sb-parse-entity-witch-drink: {<<: *choose, parse-to: "entity.witch.drink"}
+sb-parse-entity-witch-hurt: {<<: *choose, parse-to: "entity.witch.hurt"}
+sb-parse-entity-witch-throw: {<<: *choose, parse-to: "entity.witch.throw"}
+sb-parse-entity-wither-ambient: {<<: *choose, parse-to: "entity.wither.ambient"}
+sb-parse-entity-wither-death: {<<: *choose, parse-to: "entity.wither.death"}
+sb-parse-entity-wither-hurt: {<<: *choose, parse-to: "entity.wither.hurt"}
+sb-parse-entity-wither-shoot: {<<: *choose, parse-to: "entity.wither.shoot"}
+sb-parse-entity-wither-spawn: {<<: *choose, parse-to: "entity.wither.spawn"}
+sb-parse-entity-witherskeleton-ambient: {<<: *choose, parse-to: "entity.wither_skeleton.ambient"}
+sb-parse-entity-witherskeleton-death: {<<: *choose, parse-to: "entity.wither_skeleton.death"}
+sb-parse-entity-witherskeleton-hurt: {<<: *choose, parse-to: "entity.wither_skeleton.hurt"}
+sb-parse-entity-witherskeleton-step: {<<: *choose, parse-to: "entity.wither_skeleton.step"}
+sb-parse-entity-wolf-ambient: {<<: *choose, parse-to: "entity.wolf.ambient"}
+sb-parse-entity-wolf-death: {<<: *choose, parse-to: "entity.wolf.death"}
+sb-parse-entity-wolf-growl: {<<: *choose, parse-to: "entity.wolf.growl"}
+sb-parse-entity-wolf-howl: {<<: *choose, parse-to: "entity.wolf.howl"}
+sb-parse-entity-wolf-hurt: {<<: *choose, parse-to: "entity.wolf.hurt"}
+sb-parse-entity-wolf-pant: {<<: *choose, parse-to: "entity.wolf.pant"}
+sb-parse-entity-wolf-shake: {<<: *choose, parse-to: "entity.wolf.shake"}
+sb-parse-entity-wolf-step: {<<: *choose, parse-to: "entity.wolf.step"}
+sb-parse-entity-wolf-whine: {<<: *choose, parse-to: "entity.wolf.whine"}
+sb-parse-entity-zombie-ambient: {<<: *choose, parse-to: "entity.zombie.ambient"}
+sb-parse-entity-zombie-attackirondoor: {<<: *choose, parse-to: "entity.zombie.attack_iron_door"}
+sb-parse-entity-zombie-attackwoodendoor: {<<: *choose, parse-to: "entity.zombie.attack_door_wood"}
+sb-parse-entity-zombie-death: {<<: *choose, parse-to: "entity.zombie.death"}
+sb-parse-entity-zombie-hurt: {<<: *choose, parse-to: "entity.zombie.hurt"}
+sb-parse-entity-zombie-infect: {<<: *choose, parse-to: "entity.zombie.infect"}
+sb-parse-entity-zombie-step: {<<: *choose, parse-to: "entity.zombie.step"}
+sb-parse-entity-zombiehorse-ambient: {<<: *choose, parse-to: "entity.zombie_horse.ambient"}
+sb-parse-entity-zombiehorse-death: {<<: *choose, parse-to: "entity.zombie_horse.death"}
+sb-parse-entity-zombiehorse-hurt: {<<: *choose, parse-to: "entity.zombie_horse.hurt"}
+sb-parse-entity-zombiepigman-ambient: {<<: *choose, parse-to: "entity.zombie_pig.ambient"}
+sb-parse-entity-zombiepigman-angry: {<<: *choose, parse-to: "entity.zombie_pig.angry"}
+sb-parse-entity-zombiepigman-death: {<<: *choose, parse-to: "entity.zombie_pig.death"}
+sb-parse-entity-zombiepigman-hurt: {<<: *choose, parse-to: "entity.zombie_pig.hurt"}
+sb-parse-entity-zombievillager-ambient: {<<: *choose, parse-to: "entity.zombie_villager.ambient"}
+sb-parse-entity-zombievillager-converted: {<<: *choose, parse-to: "entity.zombie_villager.converted"}
+sb-parse-entity-zombievillager-cure: {<<: *choose, parse-to: "entity.zombie_villager.cure"}
+sb-parse-entity-zombievillager-death: {<<: *choose, parse-to: "entity.zombie_villager.death"}
+sb-parse-entity-zombievillager-hurt: {<<: *choose, parse-to: "entity.zombie_villager.hurt"}
+sb-parse-entity-zombievillager-step: {<<: *choose, parse-to: "entity.zombie_villager.step"}
+sb-parse-item-equip-chain: {<<: *choose, parse-to: "item.armor.equip_chain"}
+sb-parse-item-equip-diamond: {<<: *choose, parse-to: "item.armor.equip_diamond"}
+sb-parse-item-equip-elytra: {<<: *choose, parse-to: "item.armor.equip_elytra"}
+sb-parse-item-equip-generic: {<<: *choose, parse-to: "item.armor.equip_generic"}
+sb-parse-item-equip-gold: {<<: *choose, parse-to: "item.armor.equip_gold"}
+sb-parse-item-equip-iron: {<<: *choose, parse-to: "item.armor.equip_iron"}
+sb-parse-item-equip-leather: {<<: *choose, parse-to: "item.armor.equip_leather"}
+sb-parse-item-bottle-empty: {<<: *choose, parse-to: "item.bottle.empty"}
+sb-parse-item-bottle-fill-water: {<<: *choose, parse-to: "item.bottle.fill"}
+sb-parse-item-bottle-fill-dragon: {<<: *choose, parse-to: "item.bottle.fill_dragonbreath"}
+sb-parse-item-bucket-empty: {<<: *choose, parse-to: "item.bucket.empty"}
+sb-parse-item-bucket-fill-water: {<<: *choose, parse-to: "item.bucket.fill"}
+sb-parse-item-bucket-fill-lava: {<<: *choose, parse-to: "item.bucket.fill_lava"}
+sb-parse-item-elytra-flying: {<<: *choose, parse-to: "item.elytra.flying"}
+sb-parse-item-ignitefire: {<<: *choose, parse-to: "item.flintandsteel.use"}
+sb-parse-item-hoe-use: {<<: *choose, parse-to: "item.hoe.till"}
+sb-parse-item-shield-block: {<<: *choose, parse-to: "item.shield.block"}
+sb-parse-item-shovel-flatten: {<<: *choose, parse-to: "item.shovel.flatten"}
+sb-parse-item-totem: {<<: *choose, parse-to: "item.totem.use"}
+sb-parse-music-creative: {<<: *choose, parse-to: "music.creative"}
+sb-parse-music-credits: {<<: *choose, parse-to: "music.credits"}
+sb-parse-music-dragon: {<<: *choose, parse-to: "music.dragon"}
+sb-parse-music-end: {<<: *choose, parse-to: "music.end"}
+sb-parse-music-game: {<<: *choose, parse-to: "music.game"}
+sb-parse-music-menu: {<<: *choose, parse-to: "music.menu"}
+sb-parse-music-nether: {<<: *choose, parse-to: "music.nether"}
+sb-parse-music-disc-11: {<<: *choose, parse-to: "record.11"}
+sb-parse-music-disc-13: {<<: *choose, parse-to: "record.13"}
+sb-parse-music-disc-blocks: {<<: *choose, parse-to: "record.blocks"}
+sb-parse-music-disc-cat: {<<: *choose, parse-to: "record.cat"}
+sb-parse-music-disc-chirp: {<<: *choose, parse-to: "record.chirp"}
+sb-parse-music-disc-far: {<<: *choose, parse-to: "record.far"}
+sb-parse-music-disc-mall: {<<: *choose, parse-to: "record.mall"}
+sb-parse-music-disc-mellohi: {<<: *choose, parse-to: "record.mellohi"}
+sb-parse-music-disc-stal: {<<: *choose, parse-to: "record.stal"}
+sb-parse-music-disc-strad: {<<: *choose, parse-to: "record.strad"}
+sb-parse-music-disc-wait: {<<: *choose, parse-to: "record.wait"}
+sb-parse-music-disc-ward: {<<: *choose, parse-to: "record.ward"}
+sb-parse-weather-rain: {<<: *choose, parse-to: "weather.rain"}
+sb-parse-weather-rain-above: {<<: *choose, parse-to: "weather.rain.above"}
+sb-parse-ui-challenge: {<<: *choose, parse-to: "ui.toast.challenge_complete"}
+sb-parse-ui-in: {<<: *choose, parse-to: "ui.toast.in"}
+sb-parse-ui-out: {<<: *choose, parse-to: "ui.toast.out"}
