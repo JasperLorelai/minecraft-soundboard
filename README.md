@@ -1,6 +1,6 @@
 # Minecraft Soundboard
 ## How To Setup:
-This configuration file requires the plugin [**MagicSpells**](https://github.com/TheComputerGeek2/MagicSpells/releases) to run. Note that the 1.0 version of the Soundboard only includes sounds up to 1.12.2. That Minecraft version is only supported by **MagicSpells versions below 4.0, which require [EffectLib](https://dev.bukkit.org/projects/effectlib/files) as well**. The 1.0 version works on Minecraft versions 1.8.x-1.12.2, but you obviously can't play 1.12.x sounds on versions below. **Soundboard versions above 1.0 support MagicSpells 4.0+**.
+This configuration file requires the plugin [**MagicSpells**](https://github.com/TheComputerGeek2/MagicSpells/releases) to run. Note that the 1.0.0 version of the Soundboard only includes sounds up to 1.12.2. That Minecraft version is only supported by **MagicSpells versions below 4.0, which require [EffectLib](https://dev.bukkit.org/projects/effectlib/files) as well**. The 1.0.0 version works on Minecraft versions 1.8.x-1.12.2, but you obviously can't play 1.12.x sounds on versions below. **Soundboard versions above 1.0.0 support MagicSpells 4.0+**.
 
 Download the configuration file [**here**](https://github.com/JasperLorelai/minecraft-soundboard/releases) and place the file in your MagicSpells plugin folder, then reload the plugin. To open use one of following commands: **/soundboard**, **/sounds** or **/sb**. To grant other players access to the commannd, give them the permission **magicspells.cast.\***
 
