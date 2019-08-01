@@ -19,7 +19,7 @@ sb:
     title: "&9Soundboard"
     variable-mods-cast: [Pitch =1, Volume =1]
     incantations: ["/soundboard","/sounds","/sb"]
-    modifiers: ["!variablestringequals Dummy:Empty string Dummy Empty","!variablestringequals Sound:Empty string Sound Empty","chance 100 string Menu Main"]
+    modifiers: ["!variablestringequals Sound:Empty string Sound Empty","chance 100 string Menu Main"]
     options:
       Ambient: {slot: 0, item: "coal_ore|&6Ambient", spell: sb-ambient}
       Block: {slot: 1, item: "stone|&6Block", spell: sb-block}
