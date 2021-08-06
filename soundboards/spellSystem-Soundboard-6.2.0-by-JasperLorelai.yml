@@ -1332,7 +1332,7 @@ sb-ambient-basalt_deltas:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Basalt_deltas Sounds"
+  title: "&9Basalt Deltas Sounds"
   options:
     Sound_Additions:
       spell: sound-ambient-basalt_deltas-additions
@@ -1371,7 +1371,7 @@ sb-ambient-crimson_forest:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Crimson_forest Sounds"
+  title: "&9Crimson Forest Sounds"
   options:
     Sound_Additions:
       spell: sound-ambient-crimson_forest-additions
@@ -1410,7 +1410,7 @@ sb-ambient-nether_wastes:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Nether_wastes Sounds"
+  title: "&9Nether Wastes Sounds"
   options:
     Sound_Additions:
       spell: sound-ambient-nether_wastes-additions
@@ -1449,7 +1449,7 @@ sb-ambient-soul_sand_valley:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Soul_sand_valley Sounds"
+  title: "&9Soul Sand Valley Sounds"
   options:
     Sound_Additions:
       spell: sound-ambient-soul_sand_valley-additions
@@ -1593,7 +1593,7 @@ sb-ambient-warped_forest:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Warped_forest Sounds"
+  title: "&9Warped Forest Sounds"
   options:
     Sound_Additions:
       spell: sound-ambient-warped_forest-additions
@@ -2214,7 +2214,7 @@ sb-block-ancient_debris:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Ancient_debris Sounds"
+  title: "&9Ancient Debris Sounds"
   options:
     Sound_Break:
       spell: sound-block-ancient_debris-break
@@ -2403,7 +2403,7 @@ sb-block-bamboo_sapling:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Bamboo_sapling Sounds"
+  title: "&9Bamboo Sapling Sounds"
   options:
     Sound_Break:
       spell: sound-block-bamboo_sapling-break
@@ -2684,7 +2684,7 @@ sb-block-bone_block:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Bone_block Sounds"
+  title: "&9Bone Block Sounds"
   options:
     Sound_Break:
       spell: sound-block-bone_block-break
@@ -2739,7 +2739,7 @@ sb-block-brewing_stand:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Brewing_stand Sounds"
+  title: "&9Brewing Stand Sounds"
   options:
     Sound_Brew:
       spell: sound-block-brewing_stand-brew
@@ -2762,7 +2762,7 @@ sb-block-bubble_column:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Bubble_column Sounds"
+  title: "&9Bubble Column Sounds"
   options:
     Sound_BubblePop:
       spell: sound-block-bubble_column-bubble_pop
@@ -2934,7 +2934,7 @@ sb-block-chorus_flower:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Chorus_flower Sounds"
+  title: "&9Chorus Flower Sounds"
   options:
     Sound_Death:
       spell: sound-block-chorus_flower-death
@@ -3132,7 +3132,7 @@ sb-block-coral_block:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Coral_block Sounds"
+  title: "&9Coral Block Sounds"
   options:
     Sound_Break:
       spell: sound-block-coral_block-break
@@ -3249,7 +3249,7 @@ sb-block-enchantment_table:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Enchantment_table Sounds"
+  title: "&9Enchantment Table Sounds"
   options:
     Sound_Use:
       spell: sound-block-enchantment_table-use
@@ -3272,7 +3272,7 @@ sb-block-end_gateway:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9End_gateway Sounds"
+  title: "&9End Gateway Sounds"
   options:
     Sound_Spawn:
       spell: sound-block-end_gateway-spawn
@@ -3295,7 +3295,7 @@ sb-block-end_portal:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9End_portal Sounds"
+  title: "&9End Portal Sounds"
   options:
     Sound_Spawn:
       spell: sound-block-end_portal-spawn
@@ -3318,7 +3318,7 @@ sb-block-end_portal_frame:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9End_portal_frame Sounds"
+  title: "&9End Portal Frame Sounds"
   options:
     Sound_Fill:
       spell: sound-block-end_portal_frame-fill
@@ -3341,7 +3341,7 @@ sb-block-ender_chest:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Ender_chest Sounds"
+  title: "&9Ender Chest Sounds"
   options:
     Sound_Close:
       spell: sound-block-ender_chest-close
@@ -3372,7 +3372,7 @@ sb-block-fence_gate:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Fence_gate Sounds"
+  title: "&9Fence Gate Sounds"
   options:
     Sound_Close:
       spell: sound-block-fence_gate-close
@@ -3512,7 +3512,7 @@ sb-block-gilded_blackstone:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Gilded_blackstone Sounds"
+  title: "&9Gilded Blackstone Sounds"
   options:
     Sound_Break:
       spell: sound-block-gilded_blackstone-break
@@ -3755,7 +3755,7 @@ sb-block-honey_block:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Honey_block Sounds"
+  title: "&9Honey Block Sounds"
   options:
     Sound_Break:
       spell: sound-block-honey_block-break
@@ -3818,7 +3818,7 @@ sb-block-iron_door:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Iron_door Sounds"
+  title: "&9Iron Door Sounds"
   options:
     Sound_Close:
       spell: sound-block-iron_door-close
@@ -3849,7 +3849,7 @@ sb-block-iron_trapdoor:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Iron_trapdoor Sounds"
+  title: "&9Iron Trapdoor Sounds"
   options:
     Sound_Close:
       spell: sound-block-iron_trapdoor-close
@@ -4052,7 +4052,7 @@ sb-block-lily_pad:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Lily_pad Sounds"
+  title: "&9Lily Pad Sounds"
   options:
     Sound_Place:
       spell: sound-block-lily_pad-place
@@ -4185,7 +4185,7 @@ sb-block-metal_pressure_plate:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Metal_pressure_plate Sounds"
+  title: "&9Metal Pressure Plate Sounds"
   options:
     Sound_ClickOff:
       spell: sound-block-metal_pressure_plate-click_off
@@ -4216,7 +4216,7 @@ sb-block-nether_bricks:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Nether_bricks Sounds"
+  title: "&9Nether Bricks Sounds"
   options:
     Sound_Break:
       spell: sound-block-nether_bricks-break
@@ -4271,7 +4271,7 @@ sb-block-nether_gold_ore:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Nether_gold_ore Sounds"
+  title: "&9Nether Gold Ore Sounds"
   options:
     Sound_Break:
       spell: sound-block-nether_gold_ore-break
@@ -4326,7 +4326,7 @@ sb-block-nether_ore:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Nether_ore Sounds"
+  title: "&9Nether Ore Sounds"
   options:
     Sound_Break:
       spell: sound-block-nether_ore-break
@@ -4381,7 +4381,7 @@ sb-block-nether_sprouts:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Nether_sprouts Sounds"
+  title: "&9Nether Sprouts Sounds"
   options:
     Sound_Break:
       spell: sound-block-nether_sprouts-break
@@ -4436,7 +4436,7 @@ sb-block-nether_wart:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Nether_wart Sounds"
+  title: "&9Nether Wart Sounds"
   options:
     Sound_Break:
       spell: sound-block-nether_wart-break
@@ -4459,7 +4459,7 @@ sb-block-netherite_block:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Netherite_block Sounds"
+  title: "&9Netherite Block Sounds"
   options:
     Sound_Break:
       spell: sound-block-netherite_block-break
@@ -4569,7 +4569,7 @@ sb-block-note_block:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Note_block Sounds"
+  title: "&9Note Block Sounds"
   options:
     Sound_Banjo:
       spell: sound-block-note_block-banjo
@@ -4860,7 +4860,7 @@ sb-block-redstone_torch:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Redstone_torch Sounds"
+  title: "&9Redstone Torch Sounds"
   options:
     Sound_Burnout:
       spell: sound-block-redstone_torch-burnout
@@ -4883,7 +4883,7 @@ sb-block-respawn_anchor:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Respawn_anchor Sounds"
+  title: "&9Respawn Anchor Sounds"
   options:
     Sound_Ambient:
       spell: sound-block-respawn_anchor-ambient
@@ -5150,7 +5150,7 @@ sb-block-shulker_box:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Shulker_box Sounds"
+  title: "&9Shulker Box Sounds"
   options:
     Sound_Close:
       spell: sound-block-shulker_box-close
@@ -5181,7 +5181,7 @@ sb-block-slime_block:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Slime_block Sounds"
+  title: "&9Slime Block Sounds"
   options:
     Sound_Break:
       spell: sound-block-slime_block-break
@@ -5236,7 +5236,7 @@ sb-block-smithing_table:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Smithing_table Sounds"
+  title: "&9Smithing Table Sounds"
   options:
     Sound_Use:
       spell: sound-block-smithing_table-use
@@ -5337,7 +5337,7 @@ sb-block-soul_sand:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Soul_sand Sounds"
+  title: "&9Soul Sand Sounds"
   options:
     Sound_Break:
       spell: sound-block-soul_sand-break
@@ -5392,7 +5392,7 @@ sb-block-soul_soil:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Soul_soil Sounds"
+  title: "&9Soul Soil Sounds"
   options:
     Sound_Break:
       spell: sound-block-soul_soil-break
@@ -5557,7 +5557,7 @@ sb-block-stone_button:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Stone_button Sounds"
+  title: "&9Stone Button Sounds"
   options:
     Sound_ClickOff:
       spell: sound-block-stone_button-click_off
@@ -5588,7 +5588,7 @@ sb-block-stone_pressure_plate:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Stone_pressure_plate Sounds"
+  title: "&9Stone Pressure Plate Sounds"
   options:
     Sound_ClickOff:
       spell: sound-block-stone_pressure_plate-click_off
@@ -5619,7 +5619,7 @@ sb-block-sweet_berry_bush:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Sweet_berry_bush Sounds"
+  title: "&9Sweet Berry Bush Sounds"
   options:
     Sound_Break:
       spell: sound-block-sweet_berry_bush-break
@@ -5720,7 +5720,7 @@ sb-block-wart_block:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Wart_block Sounds"
+  title: "&9Wart Block Sounds"
   options:
     Sound_Break:
       spell: sound-block-wart_block-break
@@ -5798,7 +5798,7 @@ sb-block-weeping_vines:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Weeping_vines Sounds"
+  title: "&9Weeping Vines Sounds"
   options:
     Sound_Break:
       spell: sound-block-weeping_vines-break
@@ -5853,7 +5853,7 @@ sb-block-wet_grass:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Wet_grass Sounds"
+  title: "&9Wet Grass Sounds"
   options:
     Sound_Break:
       spell: sound-block-wet_grass-break
@@ -5963,7 +5963,7 @@ sb-block-wooden_button:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Wooden_button Sounds"
+  title: "&9Wooden Button Sounds"
   options:
     Sound_ClickOff:
       spell: sound-block-wooden_button-click_off
@@ -5994,7 +5994,7 @@ sb-block-wooden_door:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Wooden_door Sounds"
+  title: "&9Wooden Door Sounds"
   options:
     Sound_Close:
       spell: sound-block-wooden_door-close
@@ -6025,7 +6025,7 @@ sb-block-wooden_pressure_plate:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Wooden_pressure_plate Sounds"
+  title: "&9Wooden Pressure Plate Sounds"
   options:
     Sound_ClickOff:
       spell: sound-block-wooden_pressure_plate-click_off
@@ -6056,7 +6056,7 @@ sb-block-wooden_trapdoor:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Wooden_trapdoor Sounds"
+  title: "&9Wooden Trapdoor Sounds"
   options:
     Sound_Close:
       spell: sound-block-wooden_trapdoor-close
@@ -6813,7 +6813,7 @@ sb-entity-armor_stand:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Armor_stand Sounds"
+  title: "&9Armor Stand Sounds"
   options:
     Sound_Break:
       spell: sound-entity-armor_stand-break
@@ -7544,7 +7544,7 @@ sb-entity-dragon_fireball:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Dragon_fireball Sounds"
+  title: "&9Dragon Fireball Sounds"
   options:
     Sound_Explode:
       spell: sound-entity-dragon_fireball-explode
@@ -7677,7 +7677,7 @@ sb-entity-elder_guardian:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Elder_guardian Sounds"
+  title: "&9Elder Guardian Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-elder_guardian-ambient
@@ -7756,7 +7756,7 @@ sb-entity-ender_dragon:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Ender_dragon Sounds"
+  title: "&9Ender Dragon Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-ender_dragon-ambient
@@ -7819,7 +7819,7 @@ sb-entity-ender_eye:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Ender_eye Sounds"
+  title: "&9Ender Eye Sounds"
   options:
     Sound_Death:
       spell: sound-entity-ender_eye-death
@@ -7850,7 +7850,7 @@ sb-entity-ender_pearl:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Ender_pearl Sounds"
+  title: "&9Ender Pearl Sounds"
   options:
     Sound_Throw:
       spell: sound-entity-ender_pearl-throw
@@ -8062,7 +8062,7 @@ sb-entity-evoker_fangs:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Evoker_fangs Sounds"
+  title: "&9Evoker Fangs Sounds"
   options:
     Sound_Attack:
       spell: sound-entity-evoker_fangs-attack
@@ -8085,7 +8085,7 @@ sb-entity-experience_bottle:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Experience_bottle Sounds"
+  title: "&9Experience Bottle Sounds"
   options:
     Sound_Throw:
       spell: sound-entity-experience_bottle-throw
@@ -8108,7 +8108,7 @@ sb-entity-experience_orb:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Experience_orb Sounds"
+  title: "&9Experience Orb Sounds"
   options:
     Sound_Pickup:
       spell: sound-entity-experience_orb-pickup
@@ -8131,7 +8131,7 @@ sb-entity-firework_rocket:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Firework_rocket Sounds"
+  title: "&9Firework Rocket Sounds"
   options:
     Sound_Blast:
       spell: sound-entity-firework_rocket-blast
@@ -8233,7 +8233,7 @@ sb-entity-fishing_bobber:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Fishing_bobber Sounds"
+  title: "&9Fishing Bobber Sounds"
   options:
     Sound_Retrieve:
       spell: sound-entity-fishing_bobber-retrieve
@@ -9007,7 +9007,7 @@ sb-entity-iron_golem:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Iron_golem Sounds"
+  title: "&9Iron Golem Sounds"
   options:
     Sound_Attack:
       spell: sound-entity-iron_golem-attack
@@ -9101,7 +9101,7 @@ sb-entity-item_frame:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Item_frame Sounds"
+  title: "&9Item Frame Sounds"
   options:
     Sound_AddItem:
       spell: sound-entity-item_frame-add_item
@@ -9156,7 +9156,7 @@ sb-entity-leash_knot:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Leash_knot Sounds"
+  title: "&9Leash Knot Sounds"
   options:
     Sound_Break:
       spell: sound-entity-leash_knot-break
@@ -9187,7 +9187,7 @@ sb-entity-lightning_bolt:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Lightning_bolt Sounds"
+  title: "&9Lightning Bolt Sounds"
   options:
     Sound_Impact:
       spell: sound-entity-lightning_bolt-impact
@@ -9218,7 +9218,7 @@ sb-entity-lingering_potion:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Lingering_potion Sounds"
+  title: "&9Lingering Potion Sounds"
   options:
     Sound_Throw:
       spell: sound-entity-lingering_potion-throw
@@ -9328,7 +9328,7 @@ sb-entity-magma_cube:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Magma_cube Sounds"
+  title: "&9Magma Cube Sounds"
   options:
     Sound_Death:
       spell: sound-entity-magma_cube-death
@@ -10522,7 +10522,7 @@ sb-entity-polar_bear:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Polar_bear Sounds"
+  title: "&9Polar Bear Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-polar_bear-ambient
@@ -10585,7 +10585,7 @@ sb-entity-puffer_fish:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Puffer_fish Sounds"
+  title: "&9Puffer Fish Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-puffer_fish-ambient
@@ -10971,7 +10971,7 @@ sb-entity-shulker_bullet:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Shulker_bullet Sounds"
+  title: "&9Shulker Bullet Sounds"
   options:
     Sound_Hit:
       spell: sound-entity-shulker_bullet-hit
@@ -11104,7 +11104,7 @@ sb-entity-skeleton_horse:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Skeleton_horse Sounds"
+  title: "&9Skeleton Horse Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-skeleton_horse-ambient
@@ -11270,7 +11270,7 @@ sb-entity-snow_golem:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Snow_golem Sounds"
+  title: "&9Snow Golem Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-snow_golem-ambient
@@ -11395,7 +11395,7 @@ sb-entity-splash_potion:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Splash_potion Sounds"
+  title: "&9Splash Potion Sounds"
   options:
     Sound_Break:
       spell: sound-entity-splash_potion-break
@@ -11630,7 +11630,7 @@ sb-entity-tropical_fish:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Tropical_fish Sounds"
+  title: "&9Tropical Fish Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-tropical_fish-ambient
@@ -12057,7 +12057,7 @@ sb-entity-wandering_trader:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Wandering_trader Sounds"
+  title: "&9Wandering Trader Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-wandering_trader-ambient
@@ -12278,7 +12278,7 @@ sb-entity-wither_skeleton:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Wither_skeleton Sounds"
+  title: "&9Wither Skeleton Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-wither_skeleton-ambient
@@ -12570,7 +12570,7 @@ sb-entity-zombie_horse:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Zombie_horse Sounds"
+  title: "&9Zombie Horse Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-zombie_horse-ambient
@@ -12609,7 +12609,7 @@ sb-entity-zombie_villager:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Zombie_villager Sounds"
+  title: "&9Zombie Villager Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-zombie_villager-ambient
@@ -12672,7 +12672,7 @@ sb-entity-zombified_piglin:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Zombified_piglin Sounds"
+  title: "&9Zombified Piglin Sounds"
   options:
     Sound_Ambient:
       spell: sound-entity-zombified_piglin-ambient
@@ -13141,7 +13141,7 @@ sb-item-chorus_fruit:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Chorus_fruit Sounds"
+  title: "&9Chorus Fruit Sounds"
   options:
     Sound_Teleport:
       spell: sound-item-chorus_fruit-teleport
@@ -13358,7 +13358,7 @@ sb-item-honey_bottle:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Honey_bottle Sounds"
+  title: "&9Honey Bottle Sounds"
   options:
     Sound_Drink:
       spell: sound-item-honey_bottle-drink
@@ -13381,7 +13381,7 @@ sb-item-lodestone_compass:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Lodestone_compass Sounds"
+  title: "&9Lodestone Compass Sounds"
   options:
     Sound_Lock:
       spell: sound-item-lodestone_compass-lock
@@ -13404,7 +13404,7 @@ sb-item-nether_wart:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Nether_wart Sounds"
+  title: "&9Nether Wart Sounds"
   options:
     Sound_Plant:
       spell: sound-item-nether_wart-plant
@@ -13481,7 +13481,7 @@ sb-item-sweet_berries:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Sweet_berries Sounds"
+  title: "&9Sweet Berries Sounds"
   options:
     Sound_PickFromBush:
       spell: sound-item-sweet_berries-pick_from_bush
@@ -13738,7 +13738,7 @@ sb-music_disc:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Music_disc Sounds"
+  title: "&9Music Disc Sounds"
   options:
     Sound_11:
       spell: sound-music_disc-11
@@ -13948,7 +13948,7 @@ sb-ui-cartography_table:
     - NotSilenceable
   delay: 1
   stay-open-non-option: true
-  title: "&9Cartography_table Sounds"
+  title: "&9Cartography Table Sounds"
   options:
     Sound_TakeResult:
       spell: sound-ui-cartography_table-take_result

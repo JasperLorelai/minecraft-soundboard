@@ -39,7 +39,7 @@ function paginateOptions(options, title, page = 0) {
     if (hasPages) spellName += page + 1;
     let titleName = spellName.substr(spellName.lastIndexOf("-") + 1);
     if (hasPages) titleName = titleName.substring(0, titleName.length - 1);
-    spells[spellName] = Util.createBaseMenu(titleName.toFormalCase(), hasPages ? " - Page " + (page + 1) : "");
+    spells[spellName] = Util.createBaseMenu(titleName.toTitleCase(), hasPages ? " - Page " + (page + 1) : "");
 
     for (let i = 0; i < Math.min(45, keys.length); i++) {
         const optionName = keys[i];
@@ -78,6 +78,7 @@ function paginateOptions(options, title, page = 0) {
 function createCategorySpells(config, title, soundName) {
     const categories = getCategories(config);
     const {icon} = config;
+    if (!icon && soundName) console.log("Missing icon configuration for key: " + soundName);
     const sounds = config.sounds || [];
 
     // Collect options.
