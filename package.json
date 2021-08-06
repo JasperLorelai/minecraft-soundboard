@@ -8,7 +8,8 @@
     "create_sooundboard": "node createSoundboard.js",
     "create_sound_config": "node createSoundConfig.js",
     "finalise_sound_config": "node finaliseSoundConfig.js",
-    "check_sound_config": "node checkSoundConfig.js"
+    "check_sound_config": "node checkSoundConfig.js",
+    "finalise_soundboard": "node finaliseSoundboard.js"
   },
   "repository": {
     "url": "https://github.com/JasperLorelai/minecraft-soundboard"
