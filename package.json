@@ -9,6 +9,7 @@
     "create_sound_config": "node createSoundConfig.js",
     "finalise_sound_config": "node finaliseSoundConfig.js",
     "check_sound_config": "node checkSoundConfig.js",
+    "clear_temp_files": "node clearTemFiles.js",
     "finalise_soundboard": "node finaliseSoundboard.js"
   },
   "repository": {
