@@ -1,0 +1,26 @@
+{
+  "name": "soundboard",
+  "version": "1.0.0",
+  "description": "Minecraft soundboard.",
+  "main": "createSoundboard.js",
+  "scripts": {
+    "reinstall": "npm i",
+    "create_sooundboard": "node createSoundboard.js",
+    "create_sound_config": "node createSoundConfig.js",
+    "finalise_sound_config": "node finaliseSoundConfig.js",
+    "check_sound_config": "node checkSoundConfig.js"
+  },
+  "repository": {
+    "url": "https://github.com/JasperLorelai/minecraft-soundboard"
+  },
+  "engines": {
+    "node": "14.17.0",
+    "npm": "6.14.13"
+  },
+  "author": "JasperLorelai",
+  "license": "ISC",
+  "dependencies": {
+    "deep-object-diff": "^1.1.0",
+    "yaml": "^1.10.2"
+  }
+}
