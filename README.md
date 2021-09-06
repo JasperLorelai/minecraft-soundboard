@@ -1,5 +1,4 @@
 # Minecraft Soundboard
-# Charon
 
 **Downloads:** 
 [![**Downloads:** ](https://img.shields.io/github/downloads/JasperLorelai/minecraft-soundboard/total.svg)](https://mhaprodigy.uk/soundboard/)
