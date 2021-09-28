@@ -30,6 +30,15 @@ sb-anchor-dummy:
     tags: [NotSilenceable]
   enabled: false
 
+sb-anchor-command:
+  <<: &command
+    spell-class: ".ExternalCommandSpell"
+    helper-spell: true
+    tags: [NotSilenceable]
+    execute-on-console-instead: true
+    do-variable-replacement: true
+  enabled: false
+
 # -------------------- { Spells } --------------------
 Dummy:
   spell-class: ".instant.DummySpell"
@@ -63,7 +72,7 @@ sb-selectsound:
   spell-class: ".MultiSpell"
   helper-spell: true
   tags: [NotSilenceable]
-  spells: [sb-configure, DELAY 1, sb-fixsound, DELAY 1, sb-showsound]
+  spells: [sb-configure, DELAY 1, sb-fixsound, DELAY 1, sb-showsound(mode=full)]
 
 sb-fixsound:
   spell-class: ".targeted.ParseSpell"
@@ -75,14 +84,7 @@ sb-fixsound:
   variable-to-parse: Sound
   parse-to-variable: SoundCache
 
-sb-showsound:
-  <<: &command
-    spell-class: ".ExternalCommandSpell"
-    helper-spell: true
-    tags: [NotSilenceable]
-    execute-on-console-instead: true
-    do-variable-replacement: true
-  command-to-execute: ['minecraft:tellraw %a [{"text":"Open for (%var:Sound%) ","color":"aqua"},{"text":"[","color":"dark_aqua"},{"text":"Click Here","color":"aqua","clickEvent":{"action":"run_command","value":"/c sound-%var:SoundCache%"}},{"text":"]","color":"dark_aqua"}]']
+sb-showsound: {<<: *dummy, str-cast-self: "<aqua>Open for (%var:Sound%) <hover:show_text:'<dark_aqua>Click'><click:run_command:/c sound-%var:SoundCache%><dark_aqua>[<aqua>Click Here</aqua>]"}
 
 sb-configure:
   <<: *menu
@@ -92,8 +94,8 @@ sb-configure:
       slot: 0
       item:
         type: lime_wool
-        name: "&6Modify Pitch by .5"
-        lore: ["&eCurrent Pitch&f: &6%var:Pitch:2%"]
+        name: "<gold>Modify Pitch by .5"
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: sb-pitch-add1
       spell-right: sb-pitch-dec1
       stay-open: true
@@ -102,8 +104,8 @@ sb-configure:
       slot: 0
       item:
         type: gray_wool
-        name: "&6Pitch is over 1.5"
-        lore: ["&eCurrent Pitch&f: &6%var:Pitch:2%"]
+        name: "<gold>Pitch is over 1.5"
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: Dummy
       spell-right: sb-pitch-dec1
       stay-open: true
@@ -112,8 +114,8 @@ sb-configure:
       slot: 0
       item:
         type: gray_wool
-        name: "&6Pitch is under 0.5"
-        lore: ["&eCurrent Pitch&f: &6%var:Pitch:2%"]
+        name: "<gold>Pitch is under 0.5"
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: sb-pitch-add1
       spell-right: Dummy
       stay-open: true
@@ -122,8 +124,8 @@ sb-configure:
       slot: 9
       item:
         type: lime_wool
-        name: "&6Modify Pitch by 0.1"
-        lore: ["&eCurrent Pitch&f: &6%var:Pitch:2%"]
+        name: "<gold>Modify Pitch by 0.1"
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: sb-pitch-add2
       spell-right: sb-pitch-dec2
       stay-open: true
@@ -132,8 +134,8 @@ sb-configure:
       slot: 9
       item:
         type: gray_wool
-        name: "&6Pitch is over 1.9"
-        lore: ["&eCurrent Pitch&f: &6%var:Pitch:2%"]
+        name: "<gold>Pitch is over 1.9"
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: Dummy
       spell-right: sb-pitch-dec2
       stay-open: true
@@ -142,8 +144,8 @@ sb-configure:
       slot: 9
       item:
         type: gray_wool
-        name: "&6Pitch is under 0.1"
-        lore: ["&eCurrent Pitch&f: &6%var:Pitch:2%"]
+        name: "<gold>Pitch is under 0.1"
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: sb-pitch-add2
       spell-right: Dummy
       stay-open: true
@@ -152,8 +154,8 @@ sb-configure:
       slot: 18
       item:
         type: lime_wool
-        name: "&6Modify Pitch by 0.05"
-        lore: ["&eCurrent Pitch&f: &6%var:Pitch:2%"]
+        name: "<gold>Modify Pitch by 0.05"
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: sb-pitch-add3
       spell-right: sb-pitch-dec3
       stay-open: true
@@ -162,8 +164,8 @@ sb-configure:
       slot: 18
       item:
         type: gray_wool
-        name: "&6Pitch is over 1.95"
-        lore: ["&eCurrent Pitch&f: &6%var:Pitch:2%"]
+        name: "<gold>Pitch is over 1.95"
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: Dummy
       spell-right: sb-pitch-dec3
       stay-open: true
@@ -172,8 +174,8 @@ sb-configure:
       slot: 18
       item:
         type: gray_wool
-        name: "&6Pitch is under 0.05"
-        lore: ["&eCurrent Pitch&f: &6%var:Pitch:2%"]
+        name: "<gold>Pitch is under 0.05"
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: sb-pitch-add3
       spell-right: Dummy
       stay-open: true
@@ -182,8 +184,8 @@ sb-configure:
       slot: 8
       item:
         type: lime_wool
-        name: "&6Modify Volume by 100"
-        lore: ["&eCurrent Volume&f: &6%var:Volume:2%"]
+        name: "<gold>Modify Volume by 100"
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
       spell: sb-volume-add1
       spell-right: sb-volume-dec1
       stay-open: true
@@ -192,8 +194,8 @@ sb-configure:
       slot: 8
       item:
         type: gray_wool
-        name: "&6Volume is under 100"
-        lore: ["&eCurrent Volume&f: &6%var:Volume:2%"]
+        name: "<gold>Volume is under 100"
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
       spell: sb-volume-add1
       spell-right: Dummy
       stay-open: true
@@ -202,8 +204,8 @@ sb-configure:
       slot: 17
       item:
         type: lime_wool
-        name: "&6Modify Volume by 1"
-        lore: ["&eCurrent Volume&f: &6%var:Volume:2%"]
+        name: "<gold>Modify Volume by 1"
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
       spell: sb-volume-add2
       spell-right: sb-volume-dec2
       stay-open: true
@@ -212,8 +214,8 @@ sb-configure:
       slot: 17
       item:
         type: gray_wool
-        name: "&6Volume is under 1"
-        lore: ["&eCurrent Volume&f: &6%var:Volume:2%"]
+        name: "<gold>Volume is under 1"
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
       spell: sb-volume-add2
       spell-right: Dummy
       stay-open: true
@@ -222,8 +224,8 @@ sb-configure:
       slot: 26
       item:
         type: lime_wool
-        name: "&6Modify Volume by 0.5"
-        lore: ["&eCurrent Volume&f: &6%var:Volume:2%"]
+        name: "<gold>Modify Volume by 0.5"
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
       spell: sb-volume-add3
       spell-right: sb-volume-dec3
       stay-open: true
@@ -232,8 +234,8 @@ sb-configure:
       slot: 26
       item:
         type: gray_wool
-        name: "&6Volume is under 0.5"
-        lore: ["&eCurrent Volume&f: &6%var:Volume:2%"]
+        name: "<gold>Volume is under 0.5"
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
       spell: sb-volume-add3
       spell-right: Dummy
       stay-open: true
@@ -242,31 +244,31 @@ sb-configure:
       slot: 3
       item:
         type: diamond
-        name: "&6Pitch Preset Remove"
-        lore: ["&eNote pitch (music semitones)", "&eNoteblock Clicks&f: %var:PitchPreset:0%"]
+        name: "<gold>Pitch Preset Remove"
+        lore: ["<yellow>Note pitch (music semitones)", "<yellow>Noteblock Clicks<white>: %var:PitchPreset:0%"]
       spell: sb-pitch-preset-remove
       stay-open: true
     PitchPreset:
       slot: 4
       item:
         type: note_block
-        name: "&6Pitch Presets"
-        lore: ["&eNote pitch (music semitones)", "&eNoteblock Clicks&f: %var:PitchPreset:0%"]
+        name: "<gold>Pitch Presets"
+        lore: ["<yellow>Note pitch (music semitones)", "<yellow>Noteblock Clicks<white>: %var:PitchPreset:0%"]
       spell: sb-pitch-presets
     PitchPresetAdd:
       slot: 5
       item:
         type: diamond
-        name: "&6Pitch Preset Add"
-        lore: ["&eNote pitch (music semitones)", "&eNoteblock Clicks&f: %var:PitchPreset:0%"]
+        name: "<gold>Pitch Preset Add"
+        lore: ["<yellow>Note pitch (music semitones)", "<yellow>Noteblock Clicks<white>: %var:PitchPreset:0%"]
       spell: sb-pitch-preset-add
       stay-open: true
     PlaySound:
       slot: 12
       item:
         type: enchanted_book
-        name: "&6Play"
-        lore: ["&eSound&f: &6%var:Sound%", "&ePitch&f: &6%var:Pitch:2%", "&eVolume&f: &6%var:Volume:1%"]
+        name: "<gold>Play"
+        lore: ["<yellow>Sound<white>: <gold>%var:Sound%", "<yellow>Pitch<white>: <gold>%var:Pitch:2%", "<yellow>Volume<white>: <gold>%var:Volume:1%"]
       spell: sb-play
       stay-open: true
       modifiers: [variablestringequals PitchIsPreset:false require]
@@ -274,23 +276,23 @@ sb-configure:
       slot: 12
       item:
         type: enchanted_book
-        name: "&6Play"
-        lore: ["&eSound&f: &6%var:Sound%", "&ePitch&f: &6%var:Pitch:5%", "&eVolume&f: &6%var:Volume:1%"]
+        name: "<gold>Play"
+        lore: ["<yellow>Sound<white>: <gold>%var:Sound%", "<yellow>Pitch<white>: <gold>%var:Pitch:5%", "<yellow>Volume<white>: <gold>%var:Volume:1%"]
       spell: sb-play
       stay-open: true
       modifiers: [variablestringequals PitchIsPreset:true require]
     StopSound:
       slot: 13
-      item: 'barrier{name: "&6Stop Sound"}'
+      item: 'barrier{name: "<gold>Stop Sound"}'
       spell: sb-stop
       stay-open: true
     Show:
       slot: 14
-      item: 'paper{name: "&6Show Configuration In Chat"}'
-      spell: sb-show-check
+      item: 'paper{name: "<gold>Show Configuration In Chat"}'
+      spell: sb-show-check(mode=full)
     Back:
       slot: 22
-      item: 'book{name: "&6Back"}'
+      item: 'book{name: "<gold>Back"}'
       spell: sb-back-edit
 
 sb-back-edit:
@@ -313,44 +315,35 @@ sb-volume-dec2: {<<: *dummy, variable-mods-cast: [Volume -1]}
 sb-volume-dec3: {<<: *dummy, variable-mods-cast: [Volume -0.5]}
 
 sb-show-check:
-  <<: *command
+  <<: *dummy
   modifiers:
-    - variable Pitch=1.0 castinstead sb-show-clean-pitch
+    - variable Pitch=1.0 castinstead sb-show-clean-pitch(mode=full)
     - variable Pitch=1.0 stop
-    - variable Volume=1.0 castinstead sb-show-clean-volume
+    - variable Volume=1.0 castinstead sb-show-clean-volume(mode=full)
     - variable Volume=1.0 stop
-    - "variablestringequals PitchIsPreset:true castinstead sb-show-preset-pitch"
+    - "variablestringequals PitchIsPreset:true castinstead sb-show-preset-pitch(mode=full)"
     - "variablestringequals PitchIsPreset:true stop"
-    - variable Pitch=0.0 castinstead sb-show-whole-pitch
-    - variable Pitch=2.0 castinstead sb-show-whole-pitch
-  command-to-execute: ['minecraft:tellraw %a [{"text":"To show the sound configuration ","color":"aqua"},{"text":"[","color":"dark_aqua"},{"text":"Click Here","color":"aqua","clickEvent":{"action":"suggest_command","value":"sound: %var:Sound% pitch: %var:Pitch:2% volume: %var:Volume:2%"},"hoverEvent":{"action":"show_text","value":{"text":"Click to show","color":"aqua"}}},{"text":"]","color":"dark_aqua"}]']
+    - variable Pitch=0.0 castinstead sb-show-whole-pitch(mode=full)
+    - variable Pitch=2.0 castinstead sb-show-whole-pitch(mode=full)
+  str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:2% volume: %var:Volume:2%><dark_aqua>[<aqua>Click Here</aqua>]"
 sb-show-clean-pitch: #final
-  <<: *command
-  modifiers: [variable Volume=1.0 castinstead sb-show-clean-all]
-  command-to-execute: ['minecraft:tellraw %a [{"text":"To show the sound configuration ","color":"aqua"},{"text":"[","color":"dark_aqua"},{"text":"Click Here","color":"aqua","clickEvent":{"action":"suggest_command","value":"sound: %var:Sound% volume: %var:Volume:2%"},"hoverEvent":{"action":"show_text","value":{"text":"Click to show","color":"aqua"}}},{"text":"]","color":"dark_aqua"}]']
+  <<: *dummy
+  modifiers: [variable Volume=1.0 castinstead sb-show-clean-all(mode=full)]
+  str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% volume: %var:Volume:2%><dark_aqua>[<aqua>Click Here</aqua>]"
 sb-show-clean-volume: #clear vol, but could be whole or preset
-  <<: *command
+  <<: *dummy
   modifiers:
-    - "variablestringequals PitchIsPreset:true castinstead sb-show-clean-volume-preset-pitch"
+    - "variablestringequals PitchIsPreset:true castinstead sb-show-clean-volume-preset-pitch(mode=full)"
     - "variablestringequals PitchIsPreset:true stop"
-    - variable Pitch=0.0 castinstead sb-show-clean-volume-whole-pitch
-    - variable Pitch=2.0 castinstead sb-show-clean-volume-whole-pitch
-  command-to-execute: ['minecraft:tellraw %a [{"text":"To show the sound configuration ","color":"aqua"},{"text":"[","color":"dark_aqua"},{"text":"Click Here","color":"aqua","clickEvent":{"action":"suggest_command","value":"sound: %var:Sound% pitch: %var:Pitch:2%"},"hoverEvent":{"action":"show_text","value":{"text":"Click to show","color":"aqua"}}},{"text":"]","color":"dark_aqua"}]']
-sb-show-clean-all: #final
-  <<: *command
-  command-to-execute: ['minecraft:tellraw %a [{"text":"To show the sound configuration ","color":"aqua"},{"text":"[","color":"dark_aqua"},{"text":"Click Here","color":"aqua","clickEvent":{"action":"suggest_command","value":"sound: %var:Sound%"},"hoverEvent":{"action":"show_text","value":{"text":"Click to show","color":"aqua"}}},{"text":"]","color":"dark_aqua"}]']
-sb-show-clean-volume-preset-pitch: #final
-  <<: *command
-  command-to-execute: ['minecraft:tellraw %a [{"text":"To show the sound configuration ","color":"aqua"},{"text":"[","color":"dark_aqua"},{"text":"Click Here","color":"aqua","clickEvent":{"action":"suggest_command","value":"sound: %var:Sound% pitch: %var:Pitch:5%"},"hoverEvent":{"action":"show_text","value":{"text":"Click to show","color":"aqua"}}},{"text":"]","color":"dark_aqua"}]']
-sb-show-clean-volume-whole-pitch: #final
-  <<: *command
-  command-to-execute: ['minecraft:tellraw %a [{"text":"To show the sound configuration ","color":"aqua"},{"text":"[","color":"dark_aqua"},{"text":"Click Here","color":"aqua","clickEvent":{"action":"suggest_command","value":"sound: %var:Sound% pitch: %var:Pitch:0%"},"hoverEvent":{"action":"show_text","value":{"text":"Click to show","color":"aqua"}}},{"text":"]","color":"dark_aqua"}]']
-sb-show-preset-pitch: #final
-  <<: *command
-  command-to-execute: ['minecraft:tellraw %a [{"text":"To show the sound configuration ","color":"aqua"},{"text":"[","color":"dark_aqua"},{"text":"Click Here","color":"aqua","clickEvent":{"action":"suggest_command","value":"sound: %var:Sound% pitch: %var:Pitch:5% volume: %var:Volume:2%"},"hoverEvent":{"action":"show_text","value":{"text":"Click to show","color":"aqua"}}},{"text":"]","color":"dark_aqua"}]']
-sb-show-whole-pitch: #final
-  <<: *command
-  command-to-execute: ['minecraft:tellraw %a [{"text":"To show the sound configuration ","color":"aqua"},{"text":"[","color":"dark_aqua"},{"text":"Click Here","color":"aqua","clickEvent":{"action":"suggest_command","value":"sound: %var:Sound% pitch: %var:Pitch:0% volume: %var:Volume:2%"},"hoverEvent":{"action":"show_text","value":{"text":"Click to show","color":"aqua"}}},{"text":"]","color":"dark_aqua"}]']
+    - variable Pitch=0.0 castinstead sb-show-clean-volume-whole-pitch(mode=full)
+    - variable Pitch=2.0 castinstead sb-show-clean-volume-whole-pitch(mode=full)
+  str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:2%><dark_aqua>[<aqua>Click Here</aqua>]"
+#final
+sb-show-clean-all: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound%><dark_aqua>[<aqua>Click Here</aqua>]"}
+sb-show-clean-volume-preset-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:5%><dark_aqua>[<aqua>Click Here</aqua>]"}
+sb-show-clean-volume-whole-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:0%><dark_aqua>[<aqua>Click Here</aqua>]"}
+sb-show-preset-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:5% volume: %var:Volume:2%><dark_aqua>[<aqua>Click Here</aqua>]"}
+sb-show-whole-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:0% volume: %var:Volume:2%><dark_aqua>[<aqua>Click Here</aqua>]"}
 
 
 
@@ -365,180 +358,180 @@ sb-pitch-presets:
       slot: 0
       item:
         type: note_block
-        name: "&6F♯/G♭"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &60", "&ePitch&f: &60.5"]
+        name: "<gold>F♯/G♭"
+        lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>0", "<yellow>Pitch<white>: <gold>0.5"]
       spell: sb-pitch-preset0
     1:
       slot: 1
       item:
         type: note_block
-        name: "&6G"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &61", "&ePitch&f: &62^(-11/12) ≈ 0.529732"]
+        name: "<gold>G"
+        lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>1", "<yellow>Pitch<white>: <gold>2^(-11/12) ≈ 0.529732"]
       spell: sb-pitch-preset1
     2:
       slot: 2
       item:
         type: note_block
-        name: "&6G♯/A♭"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &62", "&ePitch&f: &62^(-10/12) ≈ 0.561231"]
+        name: "<gold>G♯/A♭"
+        lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>2", "<yellow>Pitch<white>: <gold>2^(-10/12) ≈ 0.561231"]
       spell: sb-pitch-preset2
     3:
       slot: 3
       item:
         type: note_block
-        name: "&6A"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &63", "&ePitch&f: &62^(-9/12) ≈ 0.594604"]
+        name: "<gold>A"
+        lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>3", "<yellow>Pitch<white>: <gold>2^(-9/12) ≈ 0.594604"]
       spell: sb-pitch-preset3
     4:
       slot: 4
       item:
         type: note_block
-        name: "&6A♯/B♭"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &64", "&ePitch&f: &62^(-8/12) ≈ 0.629961"]
+        name: "<gold>A♯/B♭"
+        lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>4", "<yellow>Pitch<white>: <gold>2^(-8/12) ≈ 0.629961"]
       spell: sb-pitch-preset4
     5:
       slot: 5
       item:
         type: note_block
-        name: "&6B"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &65", "&ePitch&f: &62^(-7/12) ≈ 0.667420"]
+        name: "<gold>B"
+        lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>5", "<yellow>Pitch<white>: <gold>2^(-7/12) ≈ 0.667420"]
       spell: sb-pitch-preset5
     6:
       slot: 6
       item:
         type: note_block
-        name: "&6C"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &66", "&ePitch&f: &62^(-6/12) ≈ 0.707107"]
+        name: "<gold>C"
+        lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>6", "<yellow>Pitch<white>: <gold>2^(-6/12) ≈ 0.707107"]
       spell: sb-pitch-preset6
     7:
       slot: 7
       item:
         type: note_block
-        name: "&6C♯/D♭"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &67", "&ePitch&f: &62^(-5/12) ≈ 0.749154"]
+        name: "<gold>C♯/D♭"
+        lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>7", "<yellow>Pitch<white>: <gold>2^(-5/12) ≈ 0.749154"]
       spell: sb-pitch-preset7
     8:
       slot: 8
       item:
         type: note_block
-        name: "&6D"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &68", "&ePitch&f: &62^(-4/12) ≈ 0.793701"]
+        name: "<gold>D"
+        lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>8", "<yellow>Pitch<white>: <gold>2^(-4/12) ≈ 0.793701"]
       spell: sb-pitch-preset8
     9:
       slot: 9
       item:
         type: note_block
-        name: "&6D♯/E♭"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &69", "&ePitch&f: &62^(-3/12) ≈ 0.840896"]
+        name: "<gold>D♯/E♭"
+        lore: ["<yellow>Octave<gold>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>9", "<yellow>Pitch<white>: <gold>2^(-3/12) ≈ 0.840896"]
       spell: sb-pitch-preset9
     10:
       slot: 10
       item:
         type: note_block
-        name: "&6E"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &610", "&ePitch&f: &62^(-2/12) ≈ 0.890899"]
+        name: "<gold>E"
+        lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>10", "<yellow>Pitch<white>: <gold>2^(-2/12) ≈ 0.890899"]
       spell: sb-pitch-preset10
     11:
       slot: 11
       item:
         type: note_block
-        name: "&6F"
-        lore: ["&eOctave&f: &61", "&eNoteblock clicks&f: &611", "&ePitch&f: &62^(-1/12) ≈ 0.943874"]
+        name: "<gold>F"
+        lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>11", "<yellow>Pitch<white>: <gold>2^(-1/12) ≈ 0.943874"]
       spell: sb-pitch-preset11
     12:
       slot: 12
       item:
         type: note_block
-        name: "&6F♯/G♭"
-        lore: ["&eOctave&f: &61 &eand &62", "&eNoteblock clicks&f: &6&612", "&ePitch&e: 1"]
+        name: "<gold>F♯/G♭"
+        lore: ["<yellow>Octave<white>: <gold>1 <yellow>and</yellow> 2", "<yellow>Noteblock clicks<white>: <gold>12", "<yellow>Pitch<white>: <gold>1"]
       spell: sb-pitch-preset12
     13:
       slot: 13
       item:
         type: note_block
-        name: "&6G"
-        lore: ["&eOctave&f: &62", "&eNoteblock clicks&f: &613", "&ePitch&f: &62^(1/12) ≈ 1.059463"]
+        name: "<gold>G"
+        lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>13", "<yellow>Pitch<white>: <yellow>2^(1/12) ≈ 1.059463"]
       spell: sb-pitch-preset13
     14:
       slot: 14
       item:
         type: note_block
-        name: "&6G♯/A♭"
-        lore: ["&eOctave&f: &62", "&eNoteblock clicks&f: &614", "&ePitch&f: &62^(2/12) ≈ 1.122462"]
+        name: "<gold>G♯/A♭"
+        lore: ["<yellow>Octave<white>: <yellow>2", "<yellow>Noteblock clicks<white>: <gold>14", "<yellow>Pitch<white>: <gold>2^(2/12) ≈ 1.122462"]
       spell: sb-pitch-preset14
     15:
       slot: 15
       item:
         type: note_block
-        name: "&6A"
-        lore: ["&eOctave&f: &62", "&eNoteblock clicks&f: &615", "&ePitch&f: &62^(3/12) ≈ 1.189207"]
+        name: "<gold>A"
+        lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>15", "<yellow>Pitch<white>: <gold>2^(3/12) ≈ 1.189207"]
       spell: sb-pitch-preset15
     16:
       slot: 16
       item:
         type: note_block
-        name: "&6A♯/B♭"
-        lore: ["&eOctave&f: &62", "&eNoteblock clicks&f: &616", "&ePitch&f: &62^(4/12) ≈ 1.259921"]
+        name: "<gold>A♯/B♭"
+        lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>16", "<yellow>Pitch<white>: <gold>2^(4/12) ≈ 1.259921"]
       spell: sb-pitch-preset16
     17:
       slot: 17
       item:
         type: note_block
-        name: "&6B"
-        lore: ["&eOctave&f: &62", "&eNoteblock clicks&f: &617", "&ePitch&f: &62^(5/12) ≈ 1.334840"]
+        name: "<gold>B"
+        lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>17", "<yellow>Pitch<white>: <gold>2^(5/12) ≈ 1.334840"]
       spell: sb-pitch-preset17
     18:
       slot: 18
       item:
         type: note_block
-        name: "&6C"
-        lore: ["&eOctave&f: &62", "&eNoteblock clicks&f: &618", "&ePitch&f: &62^(6/12) ≈ 1.414214"]
+        name: "<gold>C"
+        lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>18", "<yellow>Pitch<white>: <gold>2^(6/12) ≈ 1.414214"]
       spell: sb-pitch-preset18
     19:
       slot: 19
       item:
         type: note_block
-        name: "&6C♯/D♭"
-        lore: ["&eOctave&f: &62", "eNoteblock clicks&f: &619", "&ePitch&f: &62^(7/12) ≈ 1.498307"]
+        name: "<gold>C♯/D♭"
+        lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>19", "<yellow>Pitch<white>: <gold>2^(7/12) ≈ 1.498307"]
       spell: sb-pitch-preset19
     20:
       slot: 20
       item:
         type: note_block
-        name: "&6D"
-        lore: ["&eOctave&f: &62", "eNoteblock clicks&f: &620", "&ePitch&f: &62^(8/12) ≈ 1.587401"]
+        name: "<gold>D"
+        lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks&<white>: <gol>20", "<yellow>Pitch<white>: <gold>2^(8/12) ≈ 1.587401"]
       spell: sb-pitch-preset20
     21:
       slot: 21
       item:
         type: note_block
-        name: "&6D♯/E♭"
-        lore: ["&eOctave&f: &62", "&eNoteblock clicks&f: &621", "ePitch&f: &62^(9/12) ≈ 1.68179"]
+        name: "<gold>D♯/E♭"
+        lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>21", "<yellow>Pitch<white>: <gold>2^(9/12) ≈ 1.68179"]
       spell: sb-pitch-preset21
     22:
       slot: 22
       item:
         type: note_block
-        name: "&6E"
-        lore: ["&eOctave&f: &62", "&eNoteblock clicks&f: &622", "&ePitch&f: &62^(10/12) ≈ 1.781797"]
+        name: "<gold>E"
+        lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>22", "<yellow>Pitch<white>: <gold>2^(10/12) ≈ 1.781797"]
       spell: sb-pitch-preset22
     23:
       slot: 23
       item:
         type: note_block
-        name: "&6F"
-        lore: ["&eOctave&f: &62", "&eNoteblock clicks&f: &623", "&ePitch&f: &62^(11/12) ≈ 1.887749"]
+        name: "<gold>F"
+        lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>23", "<yellow>Pitch<white>: <gold>2^(11/12) ≈ 1.887749"]
       spell: sb-pitch-preset23
     24:
       slot: 24
       item:
         type: note_block
-        name: "&6F♯/G♭"
-        lore: ["&eOctave&f: &62", "&eNoteblock clicks&f: &624", "&ePitch&f: &62"]
+        name: "<gold>F♯/G♭"
+        lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>24", "<yellow>Pitch<white>: <gold>2"]
       spell: sb-pitch-preset24
     Back:
       slot: 26
-      item: 'book{name: "&6Back"}'
+      item: 'book{name: "<gold>Back"}'
       spell: sb-configure
 
 sb-pitch-preset-add: {<<: *command,modifiers: [chance 100 variable PitchPreset;+1,"variable PitchPreset=25 variable PitchPreset;=0"],command-to-execute: [c forcecast %a sb-pitch-preset%var:PitchPreset:0%]}

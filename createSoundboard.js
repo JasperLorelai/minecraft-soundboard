@@ -54,7 +54,7 @@ function paginateOptions(options, title, page = 0) {
     const spellNamePageless = spellName.substr(0, spellName.length - 1);
 
     // Add previous page button.
-    if (page > 0) createOption(spells[spellName].options, "Button_Previous_Page", spellNamePageless + (page ? page : ""), {type: "arrow", name: "&6Previous Page"}, lastRow + 2);
+    if (page > 0) createOption(spells[spellName].options, "Button_Previous_Page", spellNamePageless + (page ? page : ""), {type: "arrow", name: "<gold>Previous Page"}, lastRow + 2);
 
     // Add back button.
     let previousSpellName = spellName.substr(0, spellName.lastIndexOf("-"));
@@ -62,16 +62,16 @@ function paginateOptions(options, title, page = 0) {
     // If the back spell has pages, look for the paged version instead.
     if (previousSpellName && !spellNames.includes(previousSpellName)) previousSpellName = spellNames.find(spell => spell.startsWith(previousSpellName));
     if (previousSpellName) {
-        if (hasNextPage) createOption(spells[spellName].options, "Button_Home", previousSpellName, {type: "book",name: "&6Home"}, lastRow + 4);
+        if (hasNextPage) createOption(spells[spellName].options, "Button_Home", previousSpellName, {type: "book",name: "<gold>Home"}, lastRow + 4);
         else {
-            createOption(spells[spellName].options, "Button_Back", previousSpellName, {type: "book", name: "&6Back"}, lastRow + 4);
+            createOption(spells[spellName].options, "Button_Back", previousSpellName, {type: "book", name: "<gold>Back"}, lastRow + 4);
             return;
         }
     }
 
     // Set up next page.
     if (!hasNextPage) return;
-    createOption(spells[spellName].options, "Button_Next_Page", spellNamePageless + (page + 2), {type: "arrow", name: "&6Next Page"}, lastRow + 6);
+    createOption(spells[spellName].options, "Button_Next_Page", spellNamePageless + (page + 2), {type: "arrow", name: "<gold>Next Page"}, lastRow + 6);
     paginateOptions(options, title, page + 1);
 }
 
@@ -89,8 +89,8 @@ function createCategorySpells(config, title, soundName) {
         const soundSpellName = "sound-" + fullSound.replace(/\./g, "-");
         createOption(options, "Sound_" + sound.toTitleCase(), soundSpellName, {
             type: icon,
-            name: "&e" + sound.toTitleCase() + " Sound",
-            lore: ["&7&o" + fullSound]
+            name: "<yellow>" + sound.toTitleCase() + " Sound",
+            lore: ["<grey><italic>" + fullSound]
         });
         soundSpells[soundSpellName] = Util.createSoundSpell(fullSound, title.substring(3, title.length - 1).replace(/-/g, "_"));
     });
@@ -99,7 +99,7 @@ function createCategorySpells(config, title, soundName) {
         const categoryConfig = config[category];
         const categoryName = category.toTitleCase();
         const optionSpellName = title + category + (getCategories(categoryConfig).length > 45 ? "1" : "");
-        createOption(options, categoryName, optionSpellName, {type: categoryConfig.icon, name: "&6" + categoryName + " Sounds"});
+        createOption(options, categoryName, optionSpellName, {type: categoryConfig.icon, name: "<gold>" + categoryName + " Sounds"});
         if (!categoryConfig.sounds) return;
         const menuName = (title + category).substr(3).replace(/-/g, "_");
         spells["sb-back-edit"].modifiers.push("variablestringequals Menu:" + menuName + " cast " + optionSpellName);
