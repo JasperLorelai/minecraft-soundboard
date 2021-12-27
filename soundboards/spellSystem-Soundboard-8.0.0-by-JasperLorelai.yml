@@ -41,7 +41,7 @@ sb-anchor-command:
     execute-on-console-instead: true
     do-variable-replacement: true
   enabled: false
-Dummy:
+sb-dummy:
   spell-class: .instant.DummySpell
   helper-spell: true
   tags:
@@ -115,7 +115,7 @@ sb-configure:
         name: <gold>Pitch is over 1.5
         lore:
           - "<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"
-      spell: Dummy
+      spell: sb-dummy
       spell-right: sb-pitch-dec1
       stay-open: true
       modifiers:
@@ -128,7 +128,7 @@ sb-configure:
         lore:
           - "<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"
       spell: sb-pitch-add1
-      spell-right: Dummy
+      spell-right: sb-dummy
       stay-open: true
       modifiers:
         - variable Pitch<0.5 require
@@ -152,7 +152,7 @@ sb-configure:
         name: <gold>Pitch is over 1.9
         lore:
           - "<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"
-      spell: Dummy
+      spell: sb-dummy
       spell-right: sb-pitch-dec2
       stay-open: true
       modifiers:
@@ -165,7 +165,7 @@ sb-configure:
         lore:
           - "<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"
       spell: sb-pitch-add2
-      spell-right: Dummy
+      spell-right: sb-dummy
       stay-open: true
       modifiers:
         - variable Pitch<0.1 require
@@ -189,7 +189,7 @@ sb-configure:
         name: <gold>Pitch is over 1.95
         lore:
           - "<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"
-      spell: Dummy
+      spell: sb-dummy
       spell-right: sb-pitch-dec3
       stay-open: true
       modifiers:
@@ -202,7 +202,7 @@ sb-configure:
         lore:
           - "<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"
       spell: sb-pitch-add3
-      spell-right: Dummy
+      spell-right: sb-dummy
       stay-open: true
       modifiers:
         - variable Pitch<0.05 require
@@ -226,7 +226,7 @@ sb-configure:
         lore:
           - "<yellow>Current Volume<white>: <gold>%var:Volume:2%"
       spell: sb-volume-add1
-      spell-right: Dummy
+      spell-right: sb-dummy
       stay-open: true
       modifiers:
         - variable Volume>99.99 deny
@@ -250,7 +250,7 @@ sb-configure:
         lore:
           - "<yellow>Current Volume<white>: <gold>%var:Volume:2%"
       spell: sb-volume-add2
-      spell-right: Dummy
+      spell-right: sb-dummy
       stay-open: true
       modifiers:
         - variable Volume>0.99 deny
@@ -274,7 +274,7 @@ sb-configure:
         lore:
           - "<yellow>Current Volume<white>: <gold>%var:Volume:2%"
       spell: sb-volume-add3
-      spell-right: Dummy
+      spell-right: sb-dummy
       stay-open: true
       modifiers:
         - variable Volume>0 deny
