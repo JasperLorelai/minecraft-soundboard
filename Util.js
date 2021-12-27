@@ -24,7 +24,7 @@ module.exports = {
             tags: ["NotSilenceable"],
             delay: 1,
             "stay-open-non-option": true,
-            title: "&9" + prefixTitle + " Sounds",
+            title: "&9" + prefixTitle + " &3Sounds",
             options: {}
         };
     },

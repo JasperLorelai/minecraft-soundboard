@@ -89,7 +89,7 @@ function createCategorySpells(config, title, soundName) {
         const soundSpellName = "sound-" + fullSound.replace(/\./g, "-");
         createOption(options, "Sound_" + sound.toTitleCase(), soundSpellName, {
             type: icon,
-            name: "<yellow>" + sound.toTitleCase() + " Sound",
+            name: "<yellow>" + sound.toTitleCase() + " <gold>Sound",
             lore: ["<grey><italic>" + fullSound]
         });
         soundSpells[soundSpellName] = Util.createSoundSpell(fullSound, title.substring(3, title.length - 1).replace(/-/g, "_"));
