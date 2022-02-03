@@ -407,7 +407,7 @@ block:
     sounds:
       - use
   growing_plant:
-    icon: "seeds"
+    icon: "wheat_seeds"
     sounds:
       - crop
   hanging_roots:

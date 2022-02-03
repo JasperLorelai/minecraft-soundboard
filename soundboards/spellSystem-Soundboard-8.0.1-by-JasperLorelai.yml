@@ -2001,7 +2001,7 @@ sb-block2:
     GrowingPlant:
       spell: sb-block-growing_plant
       item:
-        type: seeds
+        type: wheat_seeds
         name: <gold>Growing Plant Sounds
       slot: 7
     HangingRoots:
@@ -4839,7 +4839,7 @@ sb-block-growing_plant:
     Sound_Crop:
       spell: sound-block-growing_plant-crop
       item:
-        type: seeds
+        type: wheat_seeds
         name: <yellow>Crop <gold>Sound
         lore:
           - <grey><italic>block.growing_plant.crop
