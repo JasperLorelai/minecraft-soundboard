@@ -6,7 +6,7 @@
   "scripts": {
     "#0": "Steps:",
     "reinstall": "npm i",
-    "#1": "Create a new file under /sounds for your version. Edit Config to include current version info.",
+    "#1": "Create a new file under './sounds' for your version. Edit Config to include current version info.",
     "create_sound_config": "node createSoundConfig.js",
     "#2": "Add icons to sounds. If a previous config exists, edit the config to include previous config version info,",
     "/": "then run these for easier editing until #3, otherwise, skip to #3.",
@@ -26,8 +26,8 @@
     "url": "https://github.com/JasperLorelai/minecraft-soundboard"
   },
   "engines": {
-    "node": "16.6.2",
-    "npm": "7.20.3"
+    "node": "17.1.0",
+    "npm": "8.1.2"
   },
   "author": "JasperLorelai",
   "license": "ISC",

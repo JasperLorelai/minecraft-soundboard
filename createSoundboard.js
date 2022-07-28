@@ -3,7 +3,7 @@ const Config = require("./Config");
 const {version} = Config;
 
 String.prototype.toFormalCase = function() {
-    return this.length > 2 ? this.charAt(0).toUpperCase() + this.substr(1).toLowerCase() : this.toUpperCase();
+    return this.length > 2 ? this.charAt(0).toUpperCase() + this.substring(1).toLowerCase() : this.toUpperCase();
 }
 
 String.prototype.toTitleCase = function() {
@@ -37,7 +37,7 @@ function paginateOptions(options, title, page = 0) {
     let spellName = title.substring(0, title.length - 1);
     const hasPages = keys.length > 45 || page > 0;
     if (hasPages) spellName += page + 1;
-    let titleName = spellName.substr(spellName.lastIndexOf("-") + 1);
+    let titleName = spellName.substring(spellName.lastIndexOf("-") + 1);
     if (hasPages) titleName = titleName.substring(0, titleName.length - 1);
     spells[spellName] = Util.createBaseMenu(titleName.toTitleCase(), hasPages ? " - Page " + (page + 1) : "");
 
@@ -51,13 +51,13 @@ function paginateOptions(options, title, page = 0) {
 
     const hasNextPage = keys.length > 45;
     const lastRow = Math.ceil(Math.min(45, keys.length) / 9) * 9;
-    const spellNamePageless = spellName.substr(0, spellName.length - 1);
+    const spellNamePageless = spellName.substring(0, spellName.length - 1);
 
     // Add previous page button.
     if (page > 0) createOption(spells[spellName].options, "Button_Previous_Page", spellNamePageless + (page ? page : ""), {type: "arrow", name: "<gold>Previous Page"}, lastRow + 2);
 
     // Add back button.
-    let previousSpellName = spellName.substr(0, spellName.lastIndexOf("-"));
+    let previousSpellName = spellName.substring(0, spellName.lastIndexOf("-"));
     const spellNames = Object.keys(spells);
     // If the back spell has pages, look for the paged version instead.
     if (previousSpellName && !spellNames.includes(previousSpellName)) previousSpellName = spellNames.find(spell => spell.startsWith(previousSpellName));
@@ -101,7 +101,7 @@ function createCategorySpells(config, title, soundName) {
         const optionSpellName = title + category + (getCategories(categoryConfig).length > 45 ? "1" : "");
         createOption(options, categoryName, optionSpellName, {type: categoryConfig.icon, name: "<gold>" + categoryName + " Sounds"});
         if (!categoryConfig.sounds) return;
-        const menuName = (title + category).substr(3).replace(/-/g, "_");
+        const menuName = (title + category).substring(3).replace(/-/g, "_");
         spells["sb-back-edit"].modifiers.push("variablestringequals Menu:" + menuName + " cast " + optionSpellName);
     });
 
