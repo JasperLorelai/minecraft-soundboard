@@ -1,17 +1,17 @@
 const fs = require("fs");
 const Util = require("./Util");
 const Config = require("./Config");
-const {version} = Config;
+const {versionCompared} = Config;
 
 function makeName(prefix = "") {
-    return "./soundConfig/" + prefix + version + ".yml";
+    return "./soundConfig/" + prefix + versionCompared + ".yml";
 }
 
-const soundConfigFileName = makeName();
+const soundConfigFileName = makeName("final-");
 
 if (!Util.fileExists(soundConfigFileName)) {
-    console.log("Sound config for version '" + version + "' does not exit.");
+    console.log("Sound config for version '" + versionCompared + "' does not exit.");
     return;
 }
 
-fs.copyFileSync(makeName(), makeName("copy-"));
+fs.copyFileSync(soundConfigFileName, makeName("copy-"));
