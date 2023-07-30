@@ -57,6 +57,7 @@ block:
       - fall
       - hit
       - place
+      - resonate
       - step
   amethyst_cluster:
     icon: "amethyst_cluster"
@@ -266,6 +267,63 @@ block:
       - hit
       - place
       - step
+  cherry_leaves:
+    icon: "cherry_leaves"
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  cherry_sapling:
+    icon: "cherry_sapling"
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  cherry_wood:
+    icon: "cherry_wood"
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  cherry_wood_button:
+    icon: "cherry_button"
+    sounds:
+      - click_off
+      - click_on
+  cherry_wood_door:
+    icon: "cherry_door"
+    sounds:
+      - close
+      - open
+  cherry_wood_fence_gate:
+    icon: "cherry_fence_gate"
+    sounds:
+      - close
+      - open
+  cherry_wood_hanging_sign:
+    icon: "cherry_hanging_sign"
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  cherry_wood_pressure_plate:
+    icon: "cherry_pressure_plate"
+    sounds:
+      - click_off
+      - click_on
+  cherry_wood_trapdoor:
+    icon: "cherry_trapdoor"
+    sounds:
+      - close
+      - open
   chest:
     icon: "chest"
     sounds:
@@ -340,6 +398,15 @@ block:
     icon: "wheat_seeds"
     sounds:
       - break
+  decorated_pot:
+    icon: "decorated_pot"
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - shatter
+      - step
   deepslate:
     icon: "deepslate"
     sounds:
@@ -767,6 +834,14 @@ block:
       - hit
       - place
       - step
+  pink_petals:
+    icon: "pink_petals"
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
   piston:
     icon: "piston"
     sounds:
@@ -913,6 +988,10 @@ block:
     sounds:
       - close
       - open
+  sign:
+    icon: "oak_sign"
+    sounds:
+      - waxed_interact_fail
   slime_block:
     icon: "slime_block"
     sounds:
@@ -942,6 +1021,12 @@ block:
     icon: "smoker"
     sounds:
       - smoke
+  sniffer_egg:
+    icon: "sniffer_egg"
+    sounds:
+      - crack
+      - hatch
+      - plop
   snow:
     icon: "snow_block"
     sounds:
@@ -1000,6 +1085,22 @@ block:
     sounds:
       - click_off
       - click_on
+  suspicious_gravel:
+    icon: "suspicious_gravel"
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  suspicious_sand:
+    icon: "suspicious_sand"
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
   sweet_berry_bush:
     icon: "sweet_berries"
     sounds:
@@ -1840,6 +1941,21 @@ entity:
       - jump_small
       - squish
       - squish_small
+  sniffer:
+    icon: "sniffer_spawn_egg"
+    sounds:
+      - death
+      - digging
+      - digging_stop
+      - drop_seed
+      - eat
+      - happy
+      - hurt
+      - idle
+      - scenting
+      - searching
+      - sniffing
+      - step
   snow_golem:
     icon: "carved_pumpkin"
     sounds:
@@ -2118,6 +2234,22 @@ item:
       - empty
       - fill
       - fill_dragonbreath
+  brush:
+    icon: "brush"
+    brushing:
+      icon: "brush"
+      sounds:
+        - generic
+        - gravel
+        - sand
+      gravel:
+        icon: "gravel"
+        sounds:
+          - complete
+      sand:
+        icon: "sand"
+        sounds:
+          - complete
   bucket:
     icon: "bucket"
     sounds:
@@ -2267,16 +2399,23 @@ music:
   overworld:
     icon: "grass_block"
     sounds:
+      - badlands
+      - bamboo_jungle
+      - cherry_grove
       - deep_dark
+      - desert
       - dripstone_caves
+      - flower_forest
+      - forest
       - frozen_peaks
       - grove
       - jagged_peaks
-      - jungle_and_forest
+      - jungle
       - lush_caves
       - meadow
       - old_growth_taiga
       - snowy_slopes
+      - sparse_jungle
       - stony_peaks
       - swamp
 music_disc:
@@ -2293,6 +2432,7 @@ music_disc:
     - mellohi
     - otherside
     - pigstep
+    - relic
     - stal
     - strad
     - wait
