@@ -14,7 +14,7 @@
     "check_sound_config": "node checkSoundConfig.js",
     "#3": "",
     "finalise_sound_config": "node finaliseSoundConfig.js",
-    "create_sooundboard": "node createSoundboard.js",
+    "create_soundboard": "node createSoundboard.js",
     "#4": "Run this if a previous version of the soundboard exists and you wish to compare them.",
     "check_soundboard": "node checkSoundboard.js",
     "#5": "",
@@ -32,7 +32,7 @@
   "author": "JasperLorelai",
   "license": "ISC",
   "dependencies": {
-    "deep-object-diff": "^1.1.0",
-    "yaml": "^1.10.2"
+    "deep-object-diff": "1.1.9",
+    "yaml": "2.2.2"
   }
 }

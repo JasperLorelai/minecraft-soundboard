@@ -96,8 +96,8 @@ sb-configure:
         type: lime_wool
         name: "<gold>Modify Pitch by .5"
         lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
-      spell: sb-pitch-add1
-      spell-right: sb-pitch-dec1
+      spell: sb-configure-amount(args=[0.5, 0])
+      spell-right: sb-configure-amount(args=[-0.5, 0])
       stay-open: true
       modifiers: [variable Pitch>1.5 deny, variable Pitch<.5 deny]
     Pitch1Fail1:
@@ -107,7 +107,7 @@ sb-configure:
         name: "<gold>Pitch is over 1.5"
         lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: sb-dummy
-      spell-right: sb-pitch-dec1
+      spell-right: sb-configure-amount(args=[-0.5, 0])
       stay-open: true
       modifiers: [variable Pitch>1.5 require]
     Pitch1Fail2:
@@ -116,7 +116,7 @@ sb-configure:
         type: gray_wool
         name: "<gold>Pitch is under 0.5"
         lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
-      spell: sb-pitch-add1
+      spell: sb-configure-amount(args=[0.5, 0])
       spell-right: sb-dummy
       stay-open: true
       modifiers: [variable Pitch<0.5 require]
@@ -126,8 +126,8 @@ sb-configure:
         type: lime_wool
         name: "<gold>Modify Pitch by 0.1"
         lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
-      spell: sb-pitch-add2
-      spell-right: sb-pitch-dec2
+      spell: sb-configure-amount(args=[0.1, 0])
+      spell-right: sb-configure-amount(args=[-0.1, 0])
       stay-open: true
       modifiers: [variable Pitch>1.9 deny, variable Pitch<.1 deny]
     Pitch2Fail1:
@@ -137,7 +137,7 @@ sb-configure:
         name: "<gold>Pitch is over 1.9"
         lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: sb-dummy
-      spell-right: sb-pitch-dec2
+      spell-right: sb-configure-amount(args=[-0.1, 0])
       stay-open: true
       modifiers: [variable Pitch>1.9 require]
     Pitch2Fail2:
@@ -146,7 +146,7 @@ sb-configure:
         type: gray_wool
         name: "<gold>Pitch is under 0.1"
         lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
-      spell: sb-pitch-add2
+      spell: sb-configure-amount(args=[0.1, 0])
       spell-right: sb-dummy
       stay-open: true
       modifiers: [variable Pitch<0.1 require]
@@ -156,8 +156,8 @@ sb-configure:
         type: lime_wool
         name: "<gold>Modify Pitch by 0.05"
         lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
-      spell: sb-pitch-add3
-      spell-right: sb-pitch-dec3
+      spell: sb-configure-amount(args=[0.05, 0])
+      spell-right: sb-configure-amount(args=[-0.05, 0])
       stay-open: true
       modifiers: [variable Pitch>1.95 deny, variable Pitch<.05 deny]
     Pitch3Fail1:
@@ -167,7 +167,7 @@ sb-configure:
         name: "<gold>Pitch is over 1.95"
         lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
       spell: sb-dummy
-      spell-right: sb-pitch-dec3
+      spell-right: sb-configure-amount(args=[-0.05, 0])
       stay-open: true
       modifiers: [variable Pitch>1.9 require]
     Pitch3Fail2:
@@ -176,7 +176,7 @@ sb-configure:
         type: gray_wool
         name: "<gold>Pitch is under 0.05"
         lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
-      spell: sb-pitch-add3
+      spell: sb-configure-amount(args=[0.05, 0])
       spell-right: sb-dummy
       stay-open: true
       modifiers: [variable Pitch<0.05 require]
@@ -186,8 +186,8 @@ sb-configure:
         type: lime_wool
         name: "<gold>Modify Volume by 100"
         lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
-      spell: sb-volume-add1
-      spell-right: sb-volume-dec1
+      spell: sb-configure-amount(args=[0, 100])
+      spell-right: sb-configure-amount(args=[0, -100])
       stay-open: true
       modifiers: [variable Volume>99.99 require]
     Volume1Fail:
@@ -196,7 +196,7 @@ sb-configure:
         type: gray_wool
         name: "<gold>Volume is under 100"
         lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
-      spell: sb-volume-add1
+      spell: sb-configure-amount(args=[0, 100])
       spell-right: sb-dummy
       stay-open: true
       modifiers: [variable Volume>99.99 deny]
@@ -206,8 +206,8 @@ sb-configure:
         type: lime_wool
         name: "<gold>Modify Volume by 1"
         lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
-      spell: sb-volume-add2
-      spell-right: sb-volume-dec2
+      spell: sb-configure-amount(args=[0, 1])
+      spell-right: sb-configure-amount(args=[0, -1])
       stay-open: true
       modifiers: [variable Volume>0.99 require]
     Volume2Fail:
@@ -216,7 +216,7 @@ sb-configure:
         type: gray_wool
         name: "<gold>Volume is under 1"
         lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
-      spell: sb-volume-add2
+      spell: sb-configure-amount(args=[0, 1])
       spell-right: sb-dummy
       stay-open: true
       modifiers: [variable Volume>0.99 deny]
@@ -226,8 +226,8 @@ sb-configure:
         type: lime_wool
         name: "<gold>Modify Volume by 0.5"
         lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
-      spell: sb-volume-add3
-      spell-right: sb-volume-dec3
+      spell: sb-configure-amount(args=[0, 0.5])
+      spell-right: sb-configure-amount(args=[0, -0.5])
       stay-open: true
       modifiers: [variable Volume>0 require]
     Volume3Fail:
@@ -236,7 +236,7 @@ sb-configure:
         type: gray_wool
         name: "<gold>Volume is under 0.5"
         lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
-      spell: sb-volume-add3
+      spell: sb-configure-amount(args=[0, 0.5])
       spell-right: sb-dummy
       stay-open: true
       modifiers: [variable Volume>0 deny]
@@ -295,24 +295,16 @@ sb-configure:
       item: 'book{name: "<gold>Back"}'
       spell: sb-back-edit
 
+sb-configure-amount:
+  <<: *dummy
+  variable-mods-cast:
+    - PitchIsPreset =false
+    - Pitch +%arg:1:0%
+    - Volume +%arg:2:0%
+
 sb-back-edit:
   <<: *dummy
   modifiers: []
-
-
-
-sb-pitch-add1: {<<: *dummy, variable-mods-cast: [Pitch +0.5, PitchIsPreset =false]}
-sb-pitch-add2: {<<: *dummy, variable-mods-cast: [Pitch +0.1, PitchIsPreset =false]}
-sb-pitch-add3: {<<: *dummy, variable-mods-cast: [Pitch +0.05, PitchIsPreset =false]}
-sb-pitch-dec1: {<<: *dummy, variable-mods-cast: [Pitch -0.5, PitchIsPreset =false]}
-sb-pitch-dec2: {<<: *dummy, variable-mods-cast: [Pitch -0.1, PitchIsPreset =false]}
-sb-pitch-dec3: {<<: *dummy, variable-mods-cast: [Pitch -0.05, PitchIsPreset =false]}
-sb-volume-add1: {<<: *dummy, variable-mods-cast: [Volume +100]}
-sb-volume-add2: {<<: *dummy, variable-mods-cast: [Volume +1]}
-sb-volume-add3: {<<: *dummy, variable-mods-cast: [Volume +0.5]}
-sb-volume-dec1: {<<: *dummy, variable-mods-cast: [Volume -100]}
-sb-volume-dec2: {<<: *dummy, variable-mods-cast: [Volume -1]}
-sb-volume-dec3: {<<: *dummy, variable-mods-cast: [Volume -0.5]}
 
 sb-show-check:
   <<: *dummy
@@ -360,175 +352,175 @@ sb-pitch-presets:
         type: note_block
         name: "<gold>F♯/G♭"
         lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>0", "<yellow>Pitch<white>: <gold>0.5"]
-      spell: sb-pitch-preset0
+      spell: sb-pitch-preset(args=[0.5, 0])
     1:
       slot: 1
       item:
         type: note_block
         name: "<gold>G"
         lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>1", "<yellow>Pitch<white>: <gold>2^(-11/12) ≈ 0.529732"]
-      spell: sb-pitch-preset1
+      spell: sb-pitch-preset(args=[0.529732, 1])
     2:
       slot: 2
       item:
         type: note_block
         name: "<gold>G♯/A♭"
         lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>2", "<yellow>Pitch<white>: <gold>2^(-10/12) ≈ 0.561231"]
-      spell: sb-pitch-preset2
+      spell: sb-pitch-preset(args=[0.561231, 2])
     3:
       slot: 3
       item:
         type: note_block
         name: "<gold>A"
         lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>3", "<yellow>Pitch<white>: <gold>2^(-9/12) ≈ 0.594604"]
-      spell: sb-pitch-preset3
+      spell: sb-pitch-preset(args=[0.594604, 3])
     4:
       slot: 4
       item:
         type: note_block
         name: "<gold>A♯/B♭"
         lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>4", "<yellow>Pitch<white>: <gold>2^(-8/12) ≈ 0.629961"]
-      spell: sb-pitch-preset4
+      spell: sb-pitch-preset(args=[0.629961, 4])
     5:
       slot: 5
       item:
         type: note_block
         name: "<gold>B"
         lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>5", "<yellow>Pitch<white>: <gold>2^(-7/12) ≈ 0.667420"]
-      spell: sb-pitch-preset5
+      spell: sb-pitch-preset(args=[0.667420, 5])
     6:
       slot: 6
       item:
         type: note_block
         name: "<gold>C"
         lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>6", "<yellow>Pitch<white>: <gold>2^(-6/12) ≈ 0.707107"]
-      spell: sb-pitch-preset6
+      spell: sb-pitch-preset(args=[0.707107, 6])
     7:
       slot: 7
       item:
         type: note_block
         name: "<gold>C♯/D♭"
         lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>7", "<yellow>Pitch<white>: <gold>2^(-5/12) ≈ 0.749154"]
-      spell: sb-pitch-preset7
+      spell: sb-pitch-preset(args=[0.749154, 7])
     8:
       slot: 8
       item:
         type: note_block
         name: "<gold>D"
         lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>8", "<yellow>Pitch<white>: <gold>2^(-4/12) ≈ 0.793701"]
-      spell: sb-pitch-preset8
+      spell: sb-pitch-preset(args=[0.793701, 8])
     9:
       slot: 9
       item:
         type: note_block
         name: "<gold>D♯/E♭"
         lore: ["<yellow>Octave<gold>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>9", "<yellow>Pitch<white>: <gold>2^(-3/12) ≈ 0.840896"]
-      spell: sb-pitch-preset9
+      spell: sb-pitch-preset(args=[0.840896, 9])
     10:
       slot: 10
       item:
         type: note_block
         name: "<gold>E"
         lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>10", "<yellow>Pitch<white>: <gold>2^(-2/12) ≈ 0.890899"]
-      spell: sb-pitch-preset10
+      spell: sb-pitch-preset(args=[0.890899, 10])
     11:
       slot: 11
       item:
         type: note_block
         name: "<gold>F"
         lore: ["<yellow>Octave<white>: <gold>1", "<yellow>Noteblock clicks<white>: <gold>11", "<yellow>Pitch<white>: <gold>2^(-1/12) ≈ 0.943874"]
-      spell: sb-pitch-preset11
+      spell: sb-pitch-preset(args=[0.943874, 11])
     12:
       slot: 12
       item:
         type: note_block
         name: "<gold>F♯/G♭"
         lore: ["<yellow>Octave<white>: <gold>1 <yellow>and</yellow> 2", "<yellow>Noteblock clicks<white>: <gold>12", "<yellow>Pitch<white>: <gold>1"]
-      spell: sb-pitch-preset12
+      spell: sb-pitch-preset(args=[1, 12])
     13:
       slot: 13
       item:
         type: note_block
         name: "<gold>G"
         lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>13", "<yellow>Pitch<white>: <yellow>2^(1/12) ≈ 1.059463"]
-      spell: sb-pitch-preset13
+      spell: sb-pitch-preset(args=[1.059463, 13])
     14:
       slot: 14
       item:
         type: note_block
         name: "<gold>G♯/A♭"
         lore: ["<yellow>Octave<white>: <yellow>2", "<yellow>Noteblock clicks<white>: <gold>14", "<yellow>Pitch<white>: <gold>2^(2/12) ≈ 1.122462"]
-      spell: sb-pitch-preset14
+      spell: sb-pitch-preset(args=[1.189207, 15])
     15:
       slot: 15
       item:
         type: note_block
         name: "<gold>A"
         lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>15", "<yellow>Pitch<white>: <gold>2^(3/12) ≈ 1.189207"]
-      spell: sb-pitch-preset15
+      spell: sb-pitch-preset(args=[1.189207, 15])
     16:
       slot: 16
       item:
         type: note_block
         name: "<gold>A♯/B♭"
         lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>16", "<yellow>Pitch<white>: <gold>2^(4/12) ≈ 1.259921"]
-      spell: sb-pitch-preset16
+      spell: sb-pitch-preset(args=[1.259921, 16])
     17:
       slot: 17
       item:
         type: note_block
         name: "<gold>B"
         lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>17", "<yellow>Pitch<white>: <gold>2^(5/12) ≈ 1.334840"]
-      spell: sb-pitch-preset17
+      spell: sb-pitch-preset(args=[1.334840, 17])
     18:
       slot: 18
       item:
         type: note_block
         name: "<gold>C"
         lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>18", "<yellow>Pitch<white>: <gold>2^(6/12) ≈ 1.414214"]
-      spell: sb-pitch-preset18
+      spell: sb-pitch-preset(args=[1.414214, 18])
     19:
       slot: 19
       item:
         type: note_block
         name: "<gold>C♯/D♭"
         lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>19", "<yellow>Pitch<white>: <gold>2^(7/12) ≈ 1.498307"]
-      spell: sb-pitch-preset19
+      spell: sb-pitch-preset(args=[1.498307, 19])
     20:
       slot: 20
       item:
         type: note_block
         name: "<gold>D"
         lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks&<white>: <gol>20", "<yellow>Pitch<white>: <gold>2^(8/12) ≈ 1.587401"]
-      spell: sb-pitch-preset20
+      spell: sb-pitch-preset(args=[1.587401, 20])
     21:
       slot: 21
       item:
         type: note_block
         name: "<gold>D♯/E♭"
         lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>21", "<yellow>Pitch<white>: <gold>2^(9/12) ≈ 1.68179"]
-      spell: sb-pitch-preset21
+      spell: sb-pitch-preset(args=[1.681793, 21])
     22:
       slot: 22
       item:
         type: note_block
         name: "<gold>E"
         lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>22", "<yellow>Pitch<white>: <gold>2^(10/12) ≈ 1.781797"]
-      spell: sb-pitch-preset22
+      spell: sb-pitch-preset(args=[1.781797, 22])
     23:
       slot: 23
       item:
         type: note_block
         name: "<gold>F"
         lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>23", "<yellow>Pitch<white>: <gold>2^(11/12) ≈ 1.887749"]
-      spell: sb-pitch-preset23
+      spell: sb-pitch-preset(args=[1.887749, 23])
     24:
       slot: 24
       item:
         type: note_block
         name: "<gold>F♯/G♭"
         lore: ["<yellow>Octave<white>: <gold>2", "<yellow>Noteblock clicks<white>: <gold>24", "<yellow>Pitch<white>: <gold>2"]
-      spell: sb-pitch-preset24
+      spell: sb-pitch-preset(args=[2, 24])
     Back:
       slot: 26
       item: 'book{name: "<gold>Back"}'
@@ -537,33 +529,18 @@ sb-pitch-presets:
 sb-pitch-preset-add: {<<: *command,modifiers: [chance 100 variable PitchPreset;+1,"variable PitchPreset=25 variable PitchPreset;=0"],command-to-execute: [c forcecast %a sb-pitch-preset%var:PitchPreset:0%]}
 sb-pitch-preset-remove: {<<: *command,modifiers: ["variable PitchPreset=0 variable PitchPreset;=25",chance 100 variable PitchPreset;-1],command-to-execute: [c forcecast %a sb-pitch-preset%var:PitchPreset:0%]}
 
-sb-pitch-preset0: &preset
+sb-pitch-preset:
   spell-class: ".MultiSpell"
   helper-spell: true
   tags: [NotSilenceable]
-  variable-mods-cast: [Pitch =0.5, PitchPreset =0, &pr PitchIsPreset =true]
+  variable-mods-cast: [PitchIsPreset =true, "Pitch =%arg:1:0%", "PitchPreset =%arg:2:0%"]
   spells: [sb-configure]
-sb-pitch-preset1: {<<: *preset, variable-mods-cast: [*pr, Pitch =0.529732, PitchPreset =1]}
-sb-pitch-preset2: {<<: *preset, variable-mods-cast: [*pr, Pitch =0.561231, PitchPreset =2]}
-sb-pitch-preset3: {<<: *preset, variable-mods-cast: [*pr, Pitch =0.594604, PitchPreset =3]}
-sb-pitch-preset4: {<<: *preset, variable-mods-cast: [*pr, Pitch =0.629961, PitchPreset =4]}
-sb-pitch-preset5: {<<: *preset, variable-mods-cast: [*pr, Pitch =0.667420, PitchPreset =5]}
-sb-pitch-preset6: {<<: *preset, variable-mods-cast: [*pr, Pitch =0.707107, PitchPreset =6]}
-sb-pitch-preset7: {<<: *preset, variable-mods-cast: [*pr, Pitch =0.749154, PitchPreset =7]}
-sb-pitch-preset8: {<<: *preset, variable-mods-cast: [*pr, Pitch =0.793701, PitchPreset =8]}
-sb-pitch-preset9: {<<: *preset, variable-mods-cast: [*pr, Pitch =0.840896, PitchPreset =9]}
-sb-pitch-preset10: {<<: *preset, variable-mods-cast: [*pr, Pitch =0.890899, PitchPreset =10]}
-sb-pitch-preset11: {<<: *preset, variable-mods-cast: [*pr, Pitch =0.943874, PitchPreset =11]}
-sb-pitch-preset12: {<<: *preset, variable-mods-cast: [*pr, Pitch =1, PitchPreset =12]}
-sb-pitch-preset13: {<<: *preset, variable-mods-cast: [*pr, Pitch =1.059463, PitchPreset =13]}
-sb-pitch-preset14: {<<: *preset, variable-mods-cast: [*pr, Pitch =1.122462, PitchPreset =14]}
-sb-pitch-preset15: {<<: *preset, variable-mods-cast: [*pr, Pitch =1.189207, PitchPreset =15]}
-sb-pitch-preset16: {<<: *preset, variable-mods-cast: [*pr, Pitch =1.259921, PitchPreset =16]}
-sb-pitch-preset17: {<<: *preset, variable-mods-cast: [*pr, Pitch =1.334840, PitchPreset =17]}
-sb-pitch-preset18: {<<: *preset, variable-mods-cast: [*pr, Pitch =1.414214, PitchPreset =18]}
-sb-pitch-preset19: {<<: *preset, variable-mods-cast: [*pr, Pitch =1.498307, PitchPreset =19]}
-sb-pitch-preset20: {<<: *preset, variable-mods-cast: [*pr, Pitch =1.587401, PitchPreset =20]}
-sb-pitch-preset21: {<<: *preset, variable-mods-cast: [*pr, Pitch =1.681793, PitchPreset =21]}
-sb-pitch-preset22: {<<: *preset, variable-mods-cast: [*pr, Pitch =1.781797, PitchPreset =22]}
-sb-pitch-preset23: {<<: *preset, variable-mods-cast: [*pr, Pitch =1.887749, PitchPreset =23]}
-sb-pitch-preset24: {<<: *preset, variable-mods-cast: [*pr, Pitch =2, PitchPreset =24]}
+
+sb-prepare-sound:
+  spell-class: ".instant.DummySpell"
+  helper-spell: true
+  tags: ["NotSilenceable"]
+  variable-mods-cast:
+    - Sound =%arg:1:0%
+    - Menu =%arg:2:0%
+  modifiers: ["chance 100 cast sb-selectsound"]

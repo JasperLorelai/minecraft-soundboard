@@ -27,7 +27,7 @@ function getCategories(config) {
 
 
 function createOption(options, categoryName, spell, item, slot) {
-    const option = {spell: spell, item: item};
+    const option = {spell, item};
     if (slot) option.slot = slot;
     options[categoryName.replace(/\s/g, "")] = option;
 }
@@ -54,7 +54,7 @@ function paginateOptions(options, title, page = 0) {
     const spellNamePageless = spellName.substring(0, spellName.length - 1);
 
     // Add previous page button.
-    if (page > 0) createOption(spells[spellName].options, "Button_Previous_Page", spellNamePageless + (page ? page : ""), {type: "arrow", name: "<gold>Previous Page"}, lastRow + 2);
+    if (page > 0) createOption(spells[spellName].options, "Button_Previous_Page", spellNamePageless + (page ? page : ""), `arrow{name: "<gold>Previous Page"}`, lastRow + 2);
 
     // Add back button.
     let previousSpellName = spellName.substring(0, spellName.lastIndexOf("-"));
@@ -62,9 +62,9 @@ function paginateOptions(options, title, page = 0) {
     // If the back spell has pages, look for the paged version instead.
     if (previousSpellName && !spellNames.includes(previousSpellName)) previousSpellName = spellNames.find(spell => spell.startsWith(previousSpellName));
     if (previousSpellName) {
-        if (hasNextPage) createOption(spells[spellName].options, "Button_Home", previousSpellName, {type: "book",name: "<gold>Home"}, lastRow + 4);
+        if (hasNextPage) createOption(spells[spellName].options, "Button_Home", previousSpellName, `book{name: "<gold>Home"}`, lastRow + 4);
         else {
-            createOption(spells[spellName].options, "Button_Back", previousSpellName, {type: "book", name: "<gold>Back"}, lastRow + 4);
+            createOption(spells[spellName].options, "Button_Back", previousSpellName, `book{name: "<gold>Back"}`, lastRow + 4);
             return;
         }
     }
@@ -86,20 +86,16 @@ function createCategorySpells(config, title, soundName) {
 
     sounds.forEach(sound => {
         const fullSound = (soundName ? soundName + "." : "") + sound;
-        const soundSpellName = "sound-" + fullSound.replace(/\./g, "-");
-        createOption(options, "Sound_" + sound.toTitleCase(), soundSpellName, {
-            type: icon,
-            name: "<yellow>" + sound.toTitleCase() + " <gold>Sound",
-            lore: ["<grey><italic>" + fullSound]
-        });
-        soundSpells[soundSpellName] = Util.createSoundSpell(fullSound, title.substring(3, title.length - 1).replace(/-/g, "_"));
+        const categoryName = title.substring(3, title.length - 1).replace(/-/g, "_");
+        const soundSpellName = `sb-prepare-sound(args=["${fullSound}", "${categoryName}"])`;
+        createOption(options, "Sound_" + sound.toTitleCase(), soundSpellName, `${icon}{name: "<yellow>${sound.toTitleCase()} <gold>Sound", lore: ["<grey><italic>${fullSound}"]}`);
     });
 
     categories.forEach(category => {
         const categoryConfig = config[category];
         const categoryName = category.toTitleCase();
         const optionSpellName = title + category + (getCategories(categoryConfig).length > 45 ? "1" : "");
-        createOption(options, categoryName, optionSpellName, {type: categoryConfig.icon, name: "<gold>" + categoryName + " Sounds"});
+        createOption(options, categoryName, optionSpellName, `${categoryConfig.icon}{name: "<gold>${categoryName} Sounds"}`);
         if (!categoryConfig.sounds) return;
         const menuName = (title + category).substring(3).replace(/-/g, "_");
         spells["sb-back-edit"].modifiers.push("variablestringequals Menu:" + menuName + " cast " + optionSpellName);
