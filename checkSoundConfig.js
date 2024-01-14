@@ -8,7 +8,7 @@ function getFile(version) {
     const fileName = "./soundConfig/" + version + ".yml";
 
     if (!Util.fileExists(fileName)) {
-        console.log("Final sound config for version '" + version + "' does not exit.");
+        console.log("sound config '" + fileName + "' does not exit.");
         return null;
     }
 
@@ -17,7 +17,7 @@ function getFile(version) {
 
 const configFirst = getFile(version);
 if (!configFirst) return;
-const configSecond = getFile(versionCompared);
+const configSecond = getFile("copy-" + versionCompared);
 if (!configSecond) return;
 
 Util.saveJSONasYAML("./soundConfig/difference-" + version + "-" + versionCompared + ".yml", deepObjectDiff(configSecond, configFirst));
