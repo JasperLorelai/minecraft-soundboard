@@ -1,6 +1,6 @@
 module.exports = {
-    version: "1.20.1",
-    versionCompared: "1.19.3",
-    soundboardVersion: "11.0.0",
-    soundboardVersionCompared: "10.0.0"
+    version: "1.20.4",
+    versionCompared: "1.20.1",
+    soundboardVersion: "12.0.0",
+    soundboardVersionCompared: "11.0.0"
 }
