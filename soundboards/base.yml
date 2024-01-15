@@ -88,7 +88,7 @@ sb-showsound: {<<: *dummy, str-cast-self: "<aqua>Open for (%var:Sound%) <hover:s
 
 sb-configure:
   <<: *menu
-  title: "&9Modify Pitch or Volume & Play"
+  title: "<blue>Modify Pitch or Volume & Play"
   options:
     Pitch1:
       slot: 0
@@ -344,7 +344,7 @@ sb-stop: {<<: *command,command-to-execute: ["minecraft:stopsound %a master %var:
 
 sb-pitch-presets:
   <<: *menu
-  title: "&9Pitch Presets (Semitones)"
+  title: "<blue>Pitch Presets (Semitones)"
   options:
     0:
       slot: 0

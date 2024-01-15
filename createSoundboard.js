@@ -2,12 +2,12 @@ const Util = require("./Util");
 const Config = require("./Config");
 const {version} = Config;
 
-String.prototype.toFormalCase = function() {
-    return this.length > 2 ? this.charAt(0).toUpperCase() + this.substring(1).toLowerCase() : this.toUpperCase();
+function toFormalCase(string) {
+    return string.length > 2 ? string.charAt(0).toUpperCase() + string.substring(1).toLowerCase() : string.toUpperCase();
 }
 
-String.prototype.toTitleCase = function() {
-    return this.replace(/_/g, " ").split(" ").map(e => e.toFormalCase()).join(" ");
+function toTitleCase(string) {
+    return string.replace(/_/g, " ").split(" ").map(e => toFormalCase(e)).join(" ");
 }
 
 const soundConfigFileName = "./soundConfig/final-" + version + ".yml";
@@ -39,7 +39,7 @@ function paginateOptions(options, title, page = 0) {
     if (hasPages) spellName += page + 1;
     let titleName = spellName.substring(spellName.lastIndexOf("-") + 1);
     if (hasPages) titleName = titleName.substring(0, titleName.length - 1);
-    spells[spellName] = Util.createBaseMenu(titleName.toTitleCase(), hasPages ? " - Page " + (page + 1) : "");
+    spells[spellName] = Util.createBaseMenu(toTitleCase(titleName), hasPages ? " - Page " + (page + 1) : "");
 
     for (let i = 0; i < Math.min(45, keys.length); i++) {
         const optionName = keys[i];
@@ -88,12 +88,12 @@ function createCategorySpells(config, title, soundName) {
         const fullSound = (soundName ? soundName + "." : "") + sound;
         const categoryName = title.substring(3, title.length - 1).replace(/-/g, "_");
         const soundSpellName = `sb-prepare-sound(args=["${fullSound}", "${categoryName}"])`;
-        createOption(options, "Sound_" + sound.toTitleCase(), soundSpellName, `${icon}{name: "<yellow>${sound.toTitleCase()} <gold>Sound", lore: ["<grey><italic>${fullSound}"]}`);
+        createOption(options, "Sound_" + toTitleCase(sound), soundSpellName, `${icon}{name: "<yellow>${toTitleCase(sound)} <gold>Sound", lore: ["<grey><italic>${fullSound}"]}`);
     });
 
     categories.forEach(category => {
         const categoryConfig = config[category];
-        const categoryName = category.toTitleCase();
+        const categoryName = toTitleCase(category);
         const optionSpellName = title + category + (getCategories(categoryConfig).length > 45 ? "1" : "");
         createOption(options, categoryName, optionSpellName, `${categoryConfig.icon}{name: "<gold>${categoryName} Sounds"}`);
         if (!categoryConfig.sounds) return;
@@ -112,7 +112,7 @@ function createCategorySpells(config, title, soundName) {
 
 createCategorySpells(soundConfig, "sb-", "");
 
-spells["sb"].title = "&9Soundboard";
+spells["sb"].title = "<blue>Soundboard";
 
 // Add all the sound spells at the end.
 Object.keys(soundSpells).forEach(key => spells[key] = soundSpells[key]);
