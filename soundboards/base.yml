@@ -95,7 +95,7 @@ sb-configure:
       item:
         type: lime_wool
         name: "<gold>Modify Pitch by .5"
-        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%", &modInc "<gold>Left-click <yellow>to increase", &modDec "<gold>Right-click <yellow>to decrease"]
       spell: sb-configure-amount(args=[0.5, 0])
       spell-right: sb-configure-amount(args=[-0.5, 0])
       stay-open: true
@@ -105,7 +105,7 @@ sb-configure:
       item:
         type: gray_wool
         name: "<gold>Pitch is over 1.5"
-        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%", *modDec]
       spell: sb-dummy
       spell-right: sb-configure-amount(args=[-0.5, 0])
       stay-open: true
@@ -115,7 +115,7 @@ sb-configure:
       item:
         type: gray_wool
         name: "<gold>Pitch is under 0.5"
-        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%", *modInc]
       spell: sb-configure-amount(args=[0.5, 0])
       spell-right: sb-dummy
       stay-open: true
@@ -125,7 +125,7 @@ sb-configure:
       item:
         type: lime_wool
         name: "<gold>Modify Pitch by 0.1"
-        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%", *modInc, *modDec]
       spell: sb-configure-amount(args=[0.1, 0])
       spell-right: sb-configure-amount(args=[-0.1, 0])
       stay-open: true
@@ -135,7 +135,7 @@ sb-configure:
       item:
         type: gray_wool
         name: "<gold>Pitch is over 1.9"
-        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%", *modDec]
       spell: sb-dummy
       spell-right: sb-configure-amount(args=[-0.1, 0])
       stay-open: true
@@ -145,7 +145,7 @@ sb-configure:
       item:
         type: gray_wool
         name: "<gold>Pitch is under 0.1"
-        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%", *modInc]
       spell: sb-configure-amount(args=[0.1, 0])
       spell-right: sb-dummy
       stay-open: true
@@ -155,7 +155,7 @@ sb-configure:
       item:
         type: lime_wool
         name: "<gold>Modify Pitch by 0.05"
-        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%", *modInc, *modDec]
       spell: sb-configure-amount(args=[0.05, 0])
       spell-right: sb-configure-amount(args=[-0.05, 0])
       stay-open: true
@@ -165,7 +165,7 @@ sb-configure:
       item:
         type: gray_wool
         name: "<gold>Pitch is over 1.95"
-        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%", *modDec]
       spell: sb-dummy
       spell-right: sb-configure-amount(args=[-0.05, 0])
       stay-open: true
@@ -175,7 +175,7 @@ sb-configure:
       item:
         type: gray_wool
         name: "<gold>Pitch is under 0.05"
-        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%"]
+        lore: ["<yellow>Current Pitch<white>: <gold>%var:Pitch:2%", *modInc]
       spell: sb-configure-amount(args=[0.05, 0])
       spell-right: sb-dummy
       stay-open: true
@@ -185,7 +185,7 @@ sb-configure:
       item:
         type: lime_wool
         name: "<gold>Modify Volume by 100"
-        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%", *modInc, *modDec]
       spell: sb-configure-amount(args=[0, 100])
       spell-right: sb-configure-amount(args=[0, -100])
       stay-open: true
@@ -195,7 +195,7 @@ sb-configure:
       item:
         type: gray_wool
         name: "<gold>Volume is under 100"
-        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%", *modInc]
       spell: sb-configure-amount(args=[0, 100])
       spell-right: sb-dummy
       stay-open: true
@@ -205,7 +205,7 @@ sb-configure:
       item:
         type: lime_wool
         name: "<gold>Modify Volume by 1"
-        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%", *modInc, *modDec]
       spell: sb-configure-amount(args=[0, 1])
       spell-right: sb-configure-amount(args=[0, -1])
       stay-open: true
@@ -215,7 +215,7 @@ sb-configure:
       item:
         type: gray_wool
         name: "<gold>Volume is under 1"
-        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%", *modInc]
       spell: sb-configure-amount(args=[0, 1])
       spell-right: sb-dummy
       stay-open: true
@@ -225,7 +225,7 @@ sb-configure:
       item:
         type: lime_wool
         name: "<gold>Modify Volume by 0.5"
-        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%", *modInc, *modDec]
       spell: sb-configure-amount(args=[0, 0.5])
       spell-right: sb-configure-amount(args=[0, -0.5])
       stay-open: true
@@ -235,7 +235,7 @@ sb-configure:
       item:
         type: gray_wool
         name: "<gold>Volume is under 0.5"
-        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%"]
+        lore: ["<yellow>Current Volume<white>: <gold>%var:Volume:2%", *modInc]
       spell: sb-configure-amount(args=[0, 0.5])
       spell-right: sb-dummy
       stay-open: true
