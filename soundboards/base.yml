@@ -6,7 +6,6 @@ variables:
   Volume: {type: player}
   PitchIsPreset: {type: playerstring}
   PitchPreset: {type: player}
-  SoundCache: {type: playerstring}
 
 
 
@@ -60,7 +59,6 @@ sb-main:
     - Sound =Empty
     - Menu =Main
     - PitchIsPreset =false
-    - SoundCache =Empty
   spells: [DELAY 1, sb]
 
 
@@ -68,27 +66,12 @@ sb-main:
 
 
 # Sound Editing
-sb-selectsound:
-  spell-class: ".MultiSpell"
-  helper-spell: true
-  tags: [NotSilenceable]
-  spells: [sb-configure, DELAY 1, sb-fixsound, DELAY 1, sb-showsound(mode=full)]
-
-sb-fixsound:
-  spell-class: ".targeted.ParseSpell"
-  helper-spell: true
-  target-self: true
-  operation: regex
-  expected-value: "\\."
-  parse-to: "-"
-  variable-to-parse: Sound
-  parse-to-variable: SoundCache
-
-sb-showsound: {<<: *dummy, str-cast-self: "<aqua>Open for (%var:Sound%) <hover:show_text:'<dark_aqua>Click'><click:run_command:/c sound-%var:SoundCache%><dark_aqua>[<aqua>Click Here</aqua>]"}
+sb-showsound: {<<: *dummy, str-cast-self: "<aqua>Open for (%var:Sound%) <hover:show_text:'<dark_aqua>Click'><click:run_command:'/c sb-prepare-sound %var:Sound% %var:Menu%'><dark_aqua>[<aqua>Click Here</aqua>]"}
 
 sb-configure:
   <<: *menu
   title: "<blue>Modify Pitch or Volume & Play"
+  modifiers: [always cast sb-showsound(mode=full)]
   options:
     Pitch1:
       slot: 0
@@ -526,8 +509,8 @@ sb-pitch-presets:
       item: 'book{name: "<gold>Back"}'
       spell: sb-configure
 
-sb-pitch-preset-add: {<<: *command,modifiers: [chance 100 variable PitchPreset;+1,"variable PitchPreset=25 variable PitchPreset;=0"],command-to-execute: [c forcecast %a sb-pitch-preset%var:PitchPreset:0%]}
-sb-pitch-preset-remove: {<<: *command,modifiers: ["variable PitchPreset=0 variable PitchPreset;=25",chance 100 variable PitchPreset;-1],command-to-execute: [c forcecast %a sb-pitch-preset%var:PitchPreset:0%]}
+sb-pitch-preset-add: {<<: *command,modifiers: [always variable PitchPreset;+1,"variable PitchPreset=25 variable PitchPreset;=0"],command-to-execute: [c forcecast %a sb-pitch-preset%var:PitchPreset:0%]}
+sb-pitch-preset-remove: {<<: *command,modifiers: ["variable PitchPreset=0 variable PitchPreset;=25",always variable PitchPreset;-1],command-to-execute: [c forcecast %a sb-pitch-preset%var:PitchPreset:0%]}
 
 sb-pitch-preset:
   spell-class: ".MultiSpell"
@@ -543,4 +526,4 @@ sb-prepare-sound:
   variable-mods-cast:
     - Sound =%arg:1:0%
     - Menu =%arg:2:0%
-  modifiers: ["chance 100 cast sb-selectsound"]
+  modifiers: [always cast sb-configure(delay=1)]
