@@ -565,7 +565,7 @@ block:
       - place
       - step
   grass:
-    icon: "grass"
+    icon: "grass_block"
     sounds:
       - break
       - fall
@@ -1234,7 +1234,7 @@ block:
       - place
       - step
   wet_sponge:
-    icon: ""
+    icon: "wet_sponge"
     sounds:
       - break
       - fall
@@ -1349,7 +1349,7 @@ entity:
       - paddle_land
       - paddle_water
   breeze:
-    icon: ""
+    icon: "purple_dye"
     sounds:
       - death
       - hurt
