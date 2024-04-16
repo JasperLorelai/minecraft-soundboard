@@ -317,11 +317,11 @@ sb-show-check:
     - "variablestringequals PitchIsPreset:true stop"
     - variable Pitch=0.0 castinstead sb-show-whole-pitch(mode=full)
     - variable Pitch=2.0 castinstead sb-show-whole-pitch(mode=full)
-  str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:2% volume: %var:Volume:2%><dark_aqua>[<aqua>Click Here</aqua>]"
+  str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:'sound: %var:Sound% pitch: %var:Pitch:2% volume: %var:Volume:2%'><dark_aqua>[<aqua>Click Here</aqua>]"
 sb-show-clean-pitch: #final
   <<: *dummy
   modifiers: [variable Volume=1.0 castinstead sb-show-clean-all(mode=full)]
-  str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% volume: %var:Volume:2%><dark_aqua>[<aqua>Click Here</aqua>]"
+  str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:'sound: %var:Sound% volume: %var:Volume:2%'><dark_aqua>[<aqua>Click Here</aqua>]"
 sb-show-clean-volume: #clear vol, but could be whole or preset
   <<: *dummy
   modifiers:
@@ -329,13 +329,13 @@ sb-show-clean-volume: #clear vol, but could be whole or preset
     - "variablestringequals PitchIsPreset:true stop"
     - variable Pitch=0.0 castinstead sb-show-clean-volume-whole-pitch(mode=full)
     - variable Pitch=2.0 castinstead sb-show-clean-volume-whole-pitch(mode=full)
-  str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:2%><dark_aqua>[<aqua>Click Here</aqua>]"
+  str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:'sound: %var:Sound% pitch: %var:Pitch:2%'><dark_aqua>[<aqua>Click Here</aqua>]"
 #final
-sb-show-clean-all: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound%><dark_aqua>[<aqua>Click Here</aqua>]"}
-sb-show-clean-volume-preset-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:5%><dark_aqua>[<aqua>Click Here</aqua>]"}
-sb-show-clean-volume-whole-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:0%><dark_aqua>[<aqua>Click Here</aqua>]"}
-sb-show-preset-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:5% volume: %var:Volume:2%><dark_aqua>[<aqua>Click Here</aqua>]"}
-sb-show-whole-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:sound: %var:Sound% pitch: %var:Pitch:0% volume: %var:Volume:2%><dark_aqua>[<aqua>Click Here</aqua>]"}
+sb-show-clean-all: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:'sound: %var:Sound%'><dark_aqua>[<aqua>Click Here</aqua>]"}
+sb-show-clean-volume-preset-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:'sound: %var:Sound% pitch: %var:Pitch:5%'><dark_aqua>[<aqua>Click Here</aqua>]"}
+sb-show-clean-volume-whole-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:'sound: %var:Sound% pitch: %var:Pitch:0%'><dark_aqua>[<aqua>Click Here</aqua>]"}
+sb-show-preset-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:'sound: %var:Sound% pitch: %var:Pitch:5% volume: %var:Volume:2%'><dark_aqua>[<aqua>Click Here</aqua>]"}
+sb-show-whole-pitch: {<<: *dummy, str-cast-self: "<aqua>To show the sound configuration <hover:show_text:'<aqua>Click to show'><click:suggest_command:'sound: %var:Sound% pitch: %var:Pitch:0% volume: %var:Volume:2%'><dark_aqua>[<aqua>Click Here</aqua>]"}
 
 
 
