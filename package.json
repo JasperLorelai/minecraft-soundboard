@@ -2,25 +2,16 @@
   "name": "soundboard",
   "version": "1.0.0",
   "description": "Minecraft soundboard.",
-  "main": "clearTemFiles.js",
   "scripts": {
     "#0": "Steps:",
     "reinstall": "npm i",
-    "#1": "Create a new file under './sounds' for your version. Edit Config to include current version info.",
+    "#1": "echo Create a new file under './sounds' for your version and update Config, then run these.",
     "create_sound_config": "node createSoundConfig.js",
-    "#2": "Add icons to sounds. If a previous config exists, edit the config to include previous config version info,",
-    "/": "then run these for easier editing until #3, otherwise, skip to #3.",
-    "copy_sound_config": "node copySoundConfig.js",
-    "check_sound_config": "node checkSoundConfig.js",
-    "#3": "",
-    "finalise_sound_config": "node finaliseSoundConfig.js",
+    "#2": "echo Based on the diff, apply sound changes to the 'copy' file, then copy its contents and put it in the new version sound config.",
     "create_soundboard": "node createSoundboard.js",
-    "#4": "Run this if a previous version of the soundboard exists and you wish to compare them.",
-    "check_soundboard": "node checkSoundboard.js",
-    "#5": "",
+    "#3": "echo Finalise.",
     "finalise_soundboard": "node finaliseSoundboard.js",
-    "#6": "Run this to clear all files. The finalised Soundboard should be published.",
-    "clear_temp_files": "node clearTemFiles.js"
+    "clear_temp_files": "node clearTempFiles.js"
   },
   "repository": {
     "url": "https://github.com/JasperLorelai/minecraft-soundboard"
@@ -32,7 +23,7 @@
   "author": "JasperLorelai",
   "license": "ISC",
   "dependencies": {
-    "deep-object-diff": "1.1.9",
-    "yaml": "2.2.2"
+    "deep-object-diff": "^1.1.9",
+    "yaml": "^2.4.2"
   }
 }

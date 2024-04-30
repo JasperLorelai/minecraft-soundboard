@@ -1,6 +1,7 @@
 const Util = require("./Util");
-const Config = require("./Config");
-const {version} = Config;
+const {version, soundboardVersionCompared} = require("./Config");
+
+const deepObjectDiff = require("deep-object-diff").detailedDiff;
 
 function toFormalCase(string) {
     return string.length > 2 ? string.charAt(0).toUpperCase() + string.substring(1).toLowerCase() : string.toUpperCase();
@@ -10,15 +11,20 @@ function toTitleCase(string) {
     return string.replace(/_/g, " ").split(" ").map(e => toFormalCase(e)).join(" ");
 }
 
-const soundConfigFileName = "./soundConfig/final-" + version + ".yml";
+function configPath(prefix = "") {
+    return "./soundConfig/" + prefix + version + ".yml";
+}
 
+const soundConfigFileName = configPath();
 if (!Util.fileExists(soundConfigFileName)) {
-    console.log("Final sound config for version '" + version + "' does not exit.");
+    console.log("Sound config for version '" + version + "' does not exit.");
     return;
 }
 
 const spells = Util.loadYAMLasJSON("./soundboards/base.yml");
 const soundConfig = Util.loadYAMLasJSON(soundConfigFileName);
+Util.rename(soundConfigFileName, configPath("final-"));
+
 const soundSpells = {};
 
 function getCategories(config) {
@@ -117,4 +123,20 @@ spells["sb"].title = "<blue>Soundboard";
 // Add all the sound spells at the end.
 Object.keys(soundSpells).forEach(key => spells[key] = soundSpells[key]);
 
-Util.saveJSONasYAML("./soundboards/" + version + ".yml", spells);
+function boardPath(version, prefix = "") {
+    return "./soundboards/" + prefix + version + ".yml";
+}
+
+Util.saveJSONasYAML(boardPath(version), spells);
+
+// Compare current with previous.
+const previousConfigName = boardPath("spellSystem-Soundboard-" + soundboardVersionCompared + "-by-JasperLorelai");
+if (!Util.fileExists(previousConfigName)) {
+    console.log("Final soundboard for version '" + version + "' does not exit.");
+    return null;
+}
+
+const previousConfig = Util.loadYAMLasJSON(previousConfigName);
+if (!previousConfig) return;
+
+Util.saveJSONasYAML("./soundboards/difference-" + version + "-" + soundboardVersionCompared + ".yml", deepObjectDiff(previousConfig, soundSpells));

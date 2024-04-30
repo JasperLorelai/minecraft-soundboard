@@ -1,51 +1,45 @@
 const Util = require("./Util");
-const Config = require("./Config");
-const {version} = Config;
+const {version, versionCompared} = require("./Config");
+
+const deepObjectDiff = require("deep-object-diff").detailedDiff;
 
 const soundFileName = "./sounds/" + version + ".txt";
-
 if (!Util.fileExists(soundFileName)) {
     console.log("Sound list for version '" + version + "' does not exit.");
     return;
 }
 
-function createObject(sound) {
-    let obj = {icon: ""};
-    if (!sound.includes(".")) {
-        // Store the singleton sound deep.
-        if (sound) obj.sounds = [sound];
-        return obj;
-    }
-    const index = sound.indexOf(".");
-    const key = sound.substring(0, index);
-    const value = sound.substr(index + 1);
-    obj[key] = createObject(value);
-    return obj;
+function configPath(version, prefix = "") {
+    return "./soundConfig/" + prefix + version + ".yml";
 }
 
-const sounds = {};
-
-const soundsTemp = Util.loadYAML(soundFileName)
+const previousFileName = configPath(versionCompared, "final-");
+if (!Util.fileExists(previousFileName)) {
+    console.log("Sound config for version '" + versionCompared + "' does not exit.");
+    return;
+}
+const previous = Util.loadYAMLasJSON(previousFileName);
+const sounds = Util.loadYAML(soundFileName)
     .split("\n")
     .sort()
-    .map(sound => createObject(sound.trim()));
+    .reduce((config, sound) => {
+        if (!sound) return config;
+        const paths = sound.trim().split(".");
+        const lastIndex = paths.length - 1;
+        paths.reduce(({config, previous}, path, index) => {
+            if (index === lastIndex) {
+                if (path !== "intentionally_empty") {
+                    config.sounds ??= [];
+                    config.sounds.push(path);
+                }
+            } else {
+                config[path] ??= {};
+                config[path].icon = previous?.[path]?.icon || "";
+            }
+            return {config: config[path], previous: previous?.[path]};
+        }, {config, previous});
+        return config;
+    }, {});
 
-function mergeConfig(config, sound) {
-    // We don't need to merge icons.
-    const key = Object.keys(sound).find(key => key !== "icon");
-    if (!key) return config;
-    // Array merging - for sounds.
-    if (key === "sounds" && config.sounds) config.sounds.push(sound.sounds[0]);
-    // Object merging.
-    else config[key] = config.hasOwnProperty(key) ? mergeConfig(config[key], sound[key]) : sound[key];
-    return config;
-}
-
-soundsTemp.filter((sound, index) => {
-        sound = JSON.stringify(sound);
-        // noinspection JSIncompatibleTypesComparison
-        return index === soundsTemp.findIndex(otherSound => JSON.stringify(otherSound) === sound);
-    })
-    .forEach(sound => mergeConfig(sounds, sound));
-
-Util.saveJSONasYAML("./soundConfig/" + version + ".yml", sounds);
+Util.saveJSONasYAML(configPath(version), sounds);
+Util.saveJSONasYAML(configPath(version + "-" + versionCompared, "difference-"), deepObjectDiff(previous, sounds));
