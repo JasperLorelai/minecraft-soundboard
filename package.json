@@ -7,7 +7,7 @@
     "reinstall": "npm i",
     "#1": "echo Create a new file under './sounds' for your version and update Config, then run these.",
     "create_sound_config": "node createSoundConfig.js",
-    "#2": "echo Based on the diff, apply sound changes to the 'copy' file, then copy its contents and put it in the new version sound config.",
+    "#2": "echo Based on the diff, apply sound changes to the new version config",
     "create_soundboard": "node createSoundboard.js",
     "#3": "echo Finalise.",
     "finalise_soundboard": "node finaliseSoundboard.js",
