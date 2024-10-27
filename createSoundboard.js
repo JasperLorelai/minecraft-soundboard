@@ -1,7 +1,5 @@
 const Util = require("./Util");
-const {version, soundboardVersionCompared} = require("./Config");
-
-const deepObjectDiff = require("deep-object-diff").detailedDiff;
+const {version} = require("./Config");
 
 function toFormalCase(string) {
     return string.length > 2 ? string.charAt(0).toUpperCase() + string.substring(1).toLowerCase() : string.toUpperCase();
@@ -128,15 +126,3 @@ function boardPath(version, prefix = "") {
 }
 
 Util.saveJSONasYAML(boardPath(version), spells);
-
-// Compare current with previous.
-const previousConfigName = boardPath("spellSystem-Soundboard-" + soundboardVersionCompared + "-by-JasperLorelai");
-if (!Util.fileExists(previousConfigName)) {
-    console.log("Final soundboard for version '" + version + "' does not exit.");
-    return null;
-}
-
-const previousConfig = Util.loadYAMLasJSON(previousConfigName);
-if (!previousConfig) return;
-
-Util.saveJSONasYAML("./soundboards/difference-" + version + "-" + soundboardVersionCompared + ".yml", deepObjectDiff(previousConfig, soundSpells));

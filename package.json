@@ -23,7 +23,6 @@
   "author": "JasperLorelai",
   "license": "ISC",
   "dependencies": {
-    "deep-object-diff": "^1.1.9",
     "yaml": "^2.4.2"
   }
 }
