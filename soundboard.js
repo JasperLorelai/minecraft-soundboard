@@ -46,7 +46,7 @@ function toTitleCase(string) {
                 } else {
                     config[path] ??= {};
                     let icon = previous?.[path]?.icon;
-                    if (icon) config[path].icon = icon;
+                    if (icon && icon !== "purple_dye") config[path].icon = icon;
                     else unset.add(paths.slice(0, -1).join("."));
                 }
                 return {config: config[path], previous: previous?.[path]};
