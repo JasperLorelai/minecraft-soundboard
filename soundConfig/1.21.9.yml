@@ -1,0 +1,2942 @@
+ambient:
+  icon: coal_ore
+  basalt_deltas:
+    icon: basalt
+    sounds:
+      - additions
+      - loop
+      - mood
+  sounds:
+    - cave
+  crimson_forest:
+    icon: crimson_nylium
+    sounds:
+      - additions
+      - loop
+      - mood
+  nether_wastes:
+    icon: netherrack
+    sounds:
+      - additions
+      - loop
+      - mood
+  soul_sand_valley:
+    icon: soul_sand
+    sounds:
+      - additions
+      - loop
+      - mood
+  underwater:
+    icon: water_bucket
+    sounds:
+      - enter
+      - exit
+      - loop
+    loop:
+      icon: water_bucket
+      sounds:
+        - additions
+      additions:
+        icon: water_bucket
+        sounds:
+          - rare
+          - ultra_rare
+  warped_forest:
+    icon: warped_nylium
+    sounds:
+      - additions
+      - loop
+      - mood
+block:
+  icon: stone
+  amethyst_block:
+    icon: amethyst_block
+    sounds:
+      - break
+      - chime
+      - fall
+      - hit
+      - place
+      - resonate
+      - step
+  amethyst_cluster:
+    icon: amethyst_cluster
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  ancient_debris:
+    icon: ancient_debris
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  anvil:
+    icon: anvil
+    sounds:
+      - break
+      - destroy
+      - fall
+      - hit
+      - land
+      - place
+      - step
+      - use
+  azalea:
+    icon: azalea
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  azalea_leaves:
+    icon: azalea_leaves
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  bamboo:
+    icon: bamboo
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  bamboo_sapling:
+    icon: bamboo
+    sounds:
+      - break
+      - hit
+      - place
+  bamboo_wood:
+    icon: bamboo_planks
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  bamboo_wood_button:
+    icon: bamboo_button
+    sounds:
+      - click_off
+      - click_on
+  bamboo_wood_door:
+    icon: bamboo_door
+    sounds:
+      - close
+      - open
+  bamboo_wood_fence_gate:
+    icon: bamboo_fence_gate
+    sounds:
+      - close
+      - open
+  bamboo_wood_hanging_sign:
+    icon: bamboo_hanging_sign
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  bamboo_wood_pressure_plate:
+    icon: bamboo_pressure_plate
+    sounds:
+      - click_off
+      - click_on
+  bamboo_wood_trapdoor:
+    icon: bamboo_trapdoor
+    sounds:
+      - close
+      - open
+  barrel:
+    icon: barrel
+    sounds:
+      - close
+      - open
+  basalt:
+    icon: basalt
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  beacon:
+    icon: beacon
+    sounds:
+      - activate
+      - ambient
+      - deactivate
+      - power_select
+  beehive:
+    icon: beehive
+    sounds:
+      - drip
+      - enter
+      - exit
+      - shear
+      - work
+  bell:
+    icon: bell
+    sounds:
+      - resonate
+      - use
+  big_dripleaf:
+    icon: big_dripleaf
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+      - tilt_down
+      - tilt_up
+  blastfurnace:
+    icon: blast_furnace
+    sounds:
+      - fire_crackle
+  bone_block:
+    icon: bone_block
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  brewing_stand:
+    icon: brewing_stand
+    sounds:
+      - brew
+  bubble_column:
+    icon: light_blue_stained_glass
+    sounds:
+      - bubble_pop
+      - upwards_ambient
+      - upwards_inside
+      - whirlpool_ambient
+      - whirlpool_inside
+  cactus_flower:
+    icon: cactus_flower
+    sounds:
+      - break
+      - place
+  cake:
+    icon: cake
+    sounds:
+      - add_candle
+  calcite:
+    icon: calcite
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  campfire:
+    icon: campfire
+    sounds:
+      - crackle
+  candle:
+    icon: candle
+    sounds:
+      - ambient
+      - break
+      - extinguish
+      - fall
+      - hit
+      - place
+      - step
+  cave_vines:
+    icon: glow_lichen
+    sounds:
+      - break
+      - fall
+      - hit
+      - pick_berries
+      - place
+      - step
+  chain:
+    icon: chain
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  cherry_leaves:
+    icon: cherry_leaves
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  cherry_sapling:
+    icon: cherry_sapling
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  cherry_wood:
+    icon: cherry_wood
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  cherry_wood_button:
+    icon: cherry_button
+    sounds:
+      - click_off
+      - click_on
+  cherry_wood_door:
+    icon: cherry_door
+    sounds:
+      - close
+      - open
+  cherry_wood_fence_gate:
+    icon: cherry_fence_gate
+    sounds:
+      - close
+      - open
+  cherry_wood_hanging_sign:
+    icon: cherry_hanging_sign
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  cherry_wood_pressure_plate:
+    icon: cherry_pressure_plate
+    sounds:
+      - click_off
+      - click_on
+  cherry_wood_trapdoor:
+    icon: cherry_trapdoor
+    sounds:
+      - close
+      - open
+  chest:
+    icon: chest
+    sounds:
+      - close
+      - locked
+      - open
+  chiseled_bookshelf:
+    icon: chiseled_bookshelf
+    sounds:
+      - break
+      - fall
+      - hit
+      - insert
+      - pickup
+      - place
+      - step
+    insert:
+      icon: bookshelf
+      sounds:
+        - enchanted
+    pickup:
+      icon: bookshelf
+      sounds:
+        - enchanted
+  chorus_flower:
+    icon: chorus_flower
+    sounds:
+      - death
+      - grow
+  cobweb:
+    icon: cobweb
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  comparator:
+    icon: comparator
+    sounds:
+      - click
+  composter:
+    icon: composter
+    sounds:
+      - empty
+      - fill
+      - fill_success
+      - ready
+  conduit:
+    icon: conduit
+    sounds:
+      - activate
+      - ambient
+      - deactivate
+    ambient:
+      icon: conduit
+      sounds:
+        - short
+    attack:
+      icon: conduit
+      sounds:
+        - target
+  copper:
+    icon: copper_block
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  copper_bulb:
+    icon: copper_bulb
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+      - turn_off
+      - turn_on
+  copper_chest:
+    sounds:
+      - close
+      - open
+    icon: copper_chest
+  copper_chest_oxidized:
+    sounds:
+      - close
+      - open
+    icon: oxidized_copper_chest
+  copper_chest_weathered:
+    sounds:
+      - close
+      - open
+    icon: weathered_copper_chest
+  copper_door:
+    icon: copper_door
+    sounds:
+      - close
+      - open
+  copper_golem_statue:
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+    icon: copper_golem_statue
+  copper_grate:
+    icon: copper_grate
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  copper_trapdoor:
+    icon: copper_trapdoor
+    sounds:
+      - close
+      - open
+  coral_block:
+    icon: horn_coral
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  crafter:
+    icon: crafter
+    sounds:
+      - craft
+      - fail
+  creaking_heart:
+    icon: creaking_heart
+    sounds:
+      - break
+      - fall
+      - hit
+      - hurt
+      - idle
+      - place
+      - spawn
+      - step
+  crop:
+    icon: wheat_seeds
+    sounds:
+      - break
+  deadbush:
+    icon: dead_bush
+    sounds:
+      - idle
+  decorated_pot:
+    icon: decorated_pot
+    sounds:
+      - break
+      - fall
+      - hit
+      - insert
+      - insert_fail
+      - place
+      - shatter
+      - step
+  deepslate:
+    icon: deepslate
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  deepslate_bricks:
+    icon: deepslate_bricks
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  deepslate_tiles:
+    icon: deepslate_tiles
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  dispenser:
+    icon: dispenser
+    sounds:
+      - dispense
+      - fail
+      - launch
+  dried_ghast:
+    icon: dried_ghast
+    sounds:
+      - ambient
+      - ambient_water
+      - break
+      - fall
+      - place
+      - place_in_water
+      - step
+      - transition
+  dripstone_block:
+    icon: dripstone_block
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  dry_grass:
+    icon: tall_dry_grass
+    sounds:
+      - ambient
+  enchantment_table:
+    icon: enchanting_table
+    sounds:
+      - use
+  end_gateway:
+    icon: end_crystal
+    sounds:
+      - spawn
+  end_portal:
+    icon: ender_eye
+    sounds:
+      - spawn
+  end_portal_frame:
+    icon: end_portal_frame
+    sounds:
+      - fill
+  ender_chest:
+    icon: ender_chest
+    sounds:
+      - close
+      - open
+  eyeblossom:
+    icon: open_eyeblossom
+    sounds:
+      - close
+      - close_long
+      - idle
+      - open
+      - open_long
+  fence_gate:
+    icon: oak_fence_gate
+    sounds:
+      - close
+      - open
+  fire:
+    icon: blaze_powder
+    sounds:
+      - ambient
+      - extinguish
+  firefly_bush:
+    icon: firefly_bush
+    sounds:
+      - idle
+  flowering_azalea:
+    icon: flowering_azalea
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  froglight:
+    icon: verdant_froglight
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  frogspawn:
+    icon: frogspawn
+    sounds:
+      - break
+      - fall
+      - hatch
+      - hit
+      - place
+      - step
+  fungus:
+    icon: crimson_fungus
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  furnace:
+    icon: furnace
+    sounds:
+      - fire_crackle
+  gilded_blackstone:
+    icon: gilded_blackstone
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  glass:
+    icon: glass
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  grass:
+    icon: short_grass
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  gravel:
+    icon: gravel
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  grindstone:
+    icon: grindstone
+    sounds:
+      - use
+  growing_plant:
+    icon: wheat_seeds
+    sounds:
+      - crop
+  hanging_roots:
+    icon: hanging_roots
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  hanging_sign:
+    icon: oak_hanging_sign
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+      - waxed_interact_fail
+  heavy_core:
+    icon: heavy_core
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  honey_block:
+    icon: honey_block
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - slide
+      - step
+  iron:
+    icon: iron_block
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  iron_door:
+    icon: iron_door
+    sounds:
+      - close
+      - open
+  iron_trapdoor:
+    icon: iron_trapdoor
+    sounds:
+      - close
+      - open
+  ladder:
+    icon: ladder
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  lantern:
+    icon: lantern
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  large_amethyst_bud:
+    icon: large_amethyst_bud
+    sounds:
+      - break
+      - place
+  lava:
+    icon: lava_bucket
+    sounds:
+      - ambient
+      - extinguish
+      - pop
+  leaf_litter:
+    icon: leaf_litter
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  lever:
+    icon: lever
+    sounds:
+      - click
+  lily_pad:
+    icon: lily_pad
+    sounds:
+      - place
+  lodestone:
+    icon: lodestone
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  mangrove_roots:
+    icon: mangrove_roots
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  medium_amethyst_bud:
+    icon: medium_amethyst_bud
+    sounds:
+      - break
+      - place
+  metal:
+    icon: iron_block
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  metal_pressure_plate:
+    icon: heavy_weighted_pressure_plate
+    sounds:
+      - click_off
+      - click_on
+  moss:
+    icon: moss_block
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  moss_carpet:
+    icon: moss_carpet
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  mud:
+    icon: mud
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  mud_bricks:
+    icon: mud_bricks
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  muddy_mangrove_roots:
+    icon: muddy_mangrove_roots
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  nether_bricks:
+    icon: nether_bricks
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  nether_gold_ore:
+    icon: nether_gold_ore
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  nether_ore:
+    icon: nether_quartz_ore
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  nether_sprouts:
+    icon: nether_sprouts
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  nether_wart:
+    icon: nether_wart
+    sounds:
+      - break
+  nether_wood:
+    icon: warped_hyphae
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  nether_wood_button:
+    icon: warped_button
+    sounds:
+      - click_off
+      - click_on
+  nether_wood_door:
+    icon: warped_door
+    sounds:
+      - close
+      - open
+  nether_wood_fence_gate:
+    icon: warped_fence_gate
+    sounds:
+      - close
+      - open
+  nether_wood_hanging_sign:
+    icon: warped_hanging_sign
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  nether_wood_pressure_plate:
+    icon: warped_pressure_plate
+    sounds:
+      - click_off
+      - click_on
+  nether_wood_trapdoor:
+    icon: warped_trapdoor
+    sounds:
+      - close
+      - open
+  netherite_block:
+    icon: netherite_block
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  netherrack:
+    icon: netherrack
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  note_block:
+    icon: note_block
+    sounds:
+      - banjo
+      - basedrum
+      - bass
+      - bell
+      - bit
+      - chime
+      - cow_bell
+      - didgeridoo
+      - flute
+      - guitar
+      - harp
+      - hat
+      - iron_xylophone
+      - pling
+      - snare
+      - xylophone
+    imitate:
+      icon: note_block
+      sounds:
+        - creeper
+        - ender_dragon
+        - piglin
+        - skeleton
+        - wither_skeleton
+        - zombie
+  nylium:
+    icon: crimson_nylium
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  packed_mud:
+    icon: packed_mud
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  pale_hanging_moss:
+    icon: pale_hanging_moss
+    sounds:
+      - idle
+  pink_petals:
+    icon: pink_petals
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  piston:
+    icon: piston
+    sounds:
+      - contract
+      - extend
+  pointed_dripstone:
+    icon: pointed_dripstone
+    sounds:
+      - break
+      - drip_lava
+      - drip_lava_into_cauldron
+      - drip_water
+      - drip_water_into_cauldron
+      - fall
+      - hit
+      - land
+      - place
+      - step
+  polished_deepslate:
+    icon: polished_deepslate
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  polished_tuff:
+    icon: polished_tuff
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  portal:
+    icon: obsidian
+    sounds:
+      - ambient
+      - travel
+      - trigger
+  powder_snow:
+    icon: powder_snow_bucket
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  pumpkin:
+    icon: pumpkin
+    sounds:
+      - carve
+  redstone_torch:
+    icon: redstone_torch
+    sounds:
+      - burnout
+  resin:
+    icon: resin_clump
+    sounds:
+      - break
+      - fall
+      - place
+      - step
+  resin_bricks:
+    icon: resin_bricks
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  respawn_anchor:
+    icon: respawn_anchor
+    sounds:
+      - ambient
+      - charge
+      - deplete
+      - set_spawn
+  rooted_dirt:
+    icon: rooted_dirt
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  roots:
+    icon: crimson_roots
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  sand:
+    icon: sand
+    sounds:
+      - break
+      - fall
+      - hit
+      - idle
+      - place
+      - step
+  scaffolding:
+    icon: scaffolding
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  sculk:
+    icon: sculk
+    sounds:
+      - break
+      - charge
+      - fall
+      - hit
+      - place
+      - spread
+      - step
+  sculk_catalyst:
+    icon: sculk_catalyst
+    sounds:
+      - bloom
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  sculk_sensor:
+    icon: sculk_sensor
+    sounds:
+      - break
+      - clicking
+      - clicking_stop
+      - fall
+      - hit
+      - place
+      - step
+  sculk_shrieker:
+    icon: sculk_shrieker
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - shriek
+      - step
+  sculk_vein:
+    icon: sculk_vein
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  shelf:
+    sounds:
+      - activate
+      - break
+      - deactivate
+      - fall
+      - hit
+      - multi_swap
+      - place
+      - place_item
+      - single_swap
+      - step
+      - take_item
+    icon: oak_shelf
+  shroomlight:
+    icon: shroomlight
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  shulker_box:
+    icon: shulker_box
+    sounds:
+      - close
+      - open
+  sign:
+    icon: oak_sign
+    sounds:
+      - waxed_interact_fail
+  slime_block:
+    icon: slime_block
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  small_amethyst_bud:
+    icon: small_amethyst_bud
+    sounds:
+      - break
+      - place
+  small_dripleaf:
+    icon: small_dripleaf
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  smithing_table:
+    icon: smithing_table
+    sounds:
+      - use
+  smoker:
+    icon: smoker
+    sounds:
+      - smoke
+  sniffer_egg:
+    icon: sniffer_egg
+    sounds:
+      - crack
+      - hatch
+      - plop
+  snow:
+    icon: snow
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  soul_sand:
+    icon: soul_sand
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  soul_soil:
+    icon: soul_soil
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  spawner:
+    icon: spawner
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  sponge:
+    icon: sponge
+    sounds:
+      - absorb
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  spore_blossom:
+    icon: spore_blossom
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  stem:
+    icon: crimson_stem
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  stone:
+    icon: stone
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  stone_button:
+    icon: stone_button
+    sounds:
+      - click_off
+      - click_on
+  stone_pressure_plate:
+    icon: stone_pressure_plate
+    sounds:
+      - click_off
+      - click_on
+  suspicious_gravel:
+    icon: suspicious_gravel
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  suspicious_sand:
+    icon: suspicious_sand
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  sweet_berry_bush:
+    icon: sweet_berries
+    sounds:
+      - break
+      - pick_berries
+      - place
+  trial_spawner:
+    icon: trial_spawner
+    sounds:
+      - about_to_spawn_item
+      - ambient
+      - ambient_ominous
+      - break
+      - close_shutter
+      - detect_player
+      - eject_item
+      - fall
+      - hit
+      - ominous_activate
+      - open_shutter
+      - place
+      - spawn_item
+      - spawn_item_begin
+      - spawn_mob
+      - step
+  tripwire:
+    icon: tripwire_hook
+    sounds:
+      - attach
+      - click_off
+      - click_on
+      - detach
+  tuff:
+    icon: tuff
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  tuff_bricks:
+    icon: tuff_bricks
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  vault:
+    icon: vault
+    sounds:
+      - activate
+      - ambient
+      - break
+      - close_shutter
+      - deactivate
+      - eject_item
+      - fall
+      - hit
+      - insert_item
+      - insert_item_fail
+      - open_shutter
+      - place
+      - reject_rewarded_player
+      - step
+  vine:
+    icon: vine
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  wart_block:
+    icon: warped_wart_block
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  water:
+    icon: water_bucket
+    sounds:
+      - ambient
+  weeping_vines:
+    icon: weeping_vines
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  wet_grass:
+    icon: kelp
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  wet_sponge:
+    icon: wet_sponge
+    sounds:
+      - break
+      - dries
+      - fall
+      - hit
+      - place
+      - step
+  wood:
+    icon: oak_log
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+  wooden_button:
+    icon: oak_button
+    sounds:
+      - click_off
+      - click_on
+  wooden_door:
+    icon: oak_door
+    sounds:
+      - close
+      - open
+  wooden_pressure_plate:
+    icon: oak_pressure_plate
+    sounds:
+      - click_off
+      - click_on
+  wooden_trapdoor:
+    icon: oak_trapdoor
+    sounds:
+      - close
+      - open
+  wool:
+    icon: white_wool
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+      - step
+enchant:
+  icon: enchanted_book
+  thorns:
+    icon: enchanted_book
+    sounds:
+      - hit
+entity:
+  icon: ghast_spawn_egg
+  allay:
+    icon: allay_spawn_egg
+    sounds:
+      - ambient_with_item
+      - ambient_without_item
+      - death
+      - hurt
+      - item_given
+      - item_taken
+      - item_thrown
+  armadillo:
+    icon: armadillo_spawn_egg
+    sounds:
+      - ambient
+      - brush
+      - death
+      - eat
+      - hurt
+      - hurt_reduced
+      - land
+      - peek
+      - roll
+      - scute_drop
+      - step
+      - unroll_finish
+      - unroll_start
+  armor_stand:
+    icon: armor_stand
+    sounds:
+      - break
+      - fall
+      - hit
+      - place
+  arrow:
+    icon: arrow
+    sounds:
+      - hit
+      - hit_player
+      - shoot
+  axolotl:
+    icon: axolotl_bucket
+    sounds:
+      - attack
+      - death
+      - hurt
+      - idle_air
+      - idle_water
+      - splash
+      - swim
+  bat:
+    icon: bat_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - loop
+      - takeoff
+  bee:
+    icon: bee_spawn_egg
+    sounds:
+      - death
+      - hurt
+      - loop
+      - loop_aggressive
+      - pollinate
+      - sting
+  blaze:
+    icon: blaze_spawn_egg
+    sounds:
+      - ambient
+      - burn
+      - death
+      - hurt
+      - shoot
+  boat:
+    icon: oak_boat
+    sounds:
+      - paddle_land
+      - paddle_water
+  bogged:
+    icon: bogged_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - shear
+      - step
+  breeze:
+    icon: breeze_spawn_egg
+    sounds:
+      - charge
+      - death
+      - deflect
+      - hurt
+      - idle_air
+      - idle_ground
+      - inhale
+      - jump
+      - land
+      - shoot
+      - slide
+      - whirl
+      - wind_burst
+  camel:
+    icon: camel_spawn_egg
+    sounds:
+      - ambient
+      - dash
+      - dash_ready
+      - death
+      - eat
+      - hurt
+      - saddle
+      - sit
+      - stand
+      - step
+      - step_sand
+  cat:
+    icon: cat_spawn_egg
+    sounds:
+      - ambient
+      - beg_for_food
+      - death
+      - eat
+      - hiss
+      - hurt
+      - purr
+      - purreow
+      - stray_ambient
+  chicken:
+    icon: chicken_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - egg
+      - hurt
+      - step
+  cod:
+    icon: cod_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - flop
+      - hurt
+  copper_golem:
+    sounds:
+      - death
+      - hurt
+      - item_drop
+      - item_no_drop
+      - no_item_get
+      - no_item_no_get
+      - shear
+      - spawn
+      - spin
+      - step
+    icon: copper_golem_statue
+  sounds:
+    - copper_golem_become_statue
+  copper_golem_oxidized:
+    sounds:
+      - death
+      - hurt
+      - spin
+      - step
+    icon: oxidized_copper_golem_statue
+  copper_golem_weathered:
+    sounds:
+      - death
+      - hurt
+      - spin
+      - step
+    icon: weathered_copper_golem_statue
+  cow:
+    icon: cow_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - milk
+      - step
+  creaking:
+    icon: creaking_spawn_egg
+    sounds:
+      - activate
+      - ambient
+      - attack
+      - deactivate
+      - death
+      - freeze
+      - spawn
+      - step
+      - sway
+      - twitch
+      - unfreeze
+  creeper:
+    icon: creeper_spawn_egg
+    sounds:
+      - death
+      - hurt
+      - primed
+  dolphin:
+    icon: dolphin_spawn_egg
+    sounds:
+      - ambient
+      - ambient_water
+      - attack
+      - death
+      - eat
+      - hurt
+      - jump
+      - play
+      - splash
+      - swim
+  donkey:
+    icon: donkey_spawn_egg
+    sounds:
+      - ambient
+      - angry
+      - chest
+      - death
+      - eat
+      - hurt
+      - jump
+  dragon_fireball:
+    icon: fire_charge
+    sounds:
+      - explode
+  drowned:
+    icon: drowned_spawn_egg
+    sounds:
+      - ambient
+      - ambient_water
+      - death
+      - death_water
+      - hurt
+      - hurt_water
+      - shoot
+      - step
+      - swim
+  egg:
+    icon: egg
+    sounds:
+      - throw
+  elder_guardian:
+    icon: elder_guardian_spawn_egg
+    sounds:
+      - ambient
+      - ambient_land
+      - curse
+      - death
+      - death_land
+      - flop
+      - hurt
+      - hurt_land
+  ender_dragon:
+    icon: dragon_head
+    sounds:
+      - ambient
+      - death
+      - flap
+      - growl
+      - hurt
+      - shoot
+  ender_eye:
+    icon: ender_eye
+    sounds:
+      - death
+      - launch
+  ender_pearl:
+    icon: ender_pearl
+    sounds:
+      - throw
+  enderman:
+    icon: enderman_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - scream
+      - stare
+      - teleport
+  endermite:
+    icon: endermite_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - step
+  evoker:
+    icon: evoker_spawn_egg
+    sounds:
+      - ambient
+      - cast_spell
+      - celebrate
+      - death
+      - hurt
+      - prepare_attack
+      - prepare_summon
+      - prepare_wololo
+  evoker_fangs:
+    icon: totem_of_undying
+    sounds:
+      - attack
+  experience_bottle:
+    icon: experience_bottle
+    sounds:
+      - throw
+  experience_orb:
+    icon: experience_bottle
+    sounds:
+      - pickup
+  firework_rocket:
+    icon: firework_rocket
+    sounds:
+      - blast
+      - blast_far
+      - large_blast
+      - large_blast_far
+      - launch
+      - shoot
+      - twinkle
+      - twinkle_far
+  fish:
+    icon: tropical_fish_bucket
+    sounds:
+      - swim
+  fishing_bobber:
+    icon: fishing_rod
+    sounds:
+      - retrieve
+      - splash
+      - throw
+  fox:
+    icon: fox_spawn_egg
+    sounds:
+      - aggro
+      - ambient
+      - bite
+      - death
+      - eat
+      - hurt
+      - screech
+      - sleep
+      - sniff
+      - spit
+      - teleport
+  frog:
+    icon: frog_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - eat
+      - hurt
+      - lay_spawn
+      - long_jump
+      - step
+      - tongue
+  generic:
+    icon: bookshelf
+    sounds:
+      - big_fall
+      - burn
+      - death
+      - drink
+      - eat
+      - explode
+      - extinguish_fire
+      - hurt
+      - small_fall
+      - splash
+      - swim
+  ghast:
+    icon: ghast_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - scream
+      - shoot
+      - warn
+  ghastling:
+    icon: happy_ghast_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - spawn
+  glow_item_frame:
+    icon: glow_item_frame
+    sounds:
+      - add_item
+      - break
+      - place
+      - remove_item
+      - rotate_item
+  glow_squid:
+    icon: glow_squid_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - squirt
+  goat:
+    icon: goat_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - eat
+      - horn_break
+      - hurt
+      - long_jump
+      - milk
+      - prepare_ram
+      - ram_impact
+      - step
+    screaming:
+      icon: goat_spawn_egg
+      sounds:
+        - ambient
+        - death
+        - eat
+        - hurt
+        - long_jump
+        - milk
+        - prepare_ram
+        - ram_impact
+  guardian:
+    icon: guardian_spawn_egg
+    sounds:
+      - ambient
+      - ambient_land
+      - attack
+      - death
+      - death_land
+      - flop
+      - hurt
+      - hurt_land
+  happy_ghast:
+    icon: happy_ghast_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - equip
+      - harness_goggles_down
+      - harness_goggles_up
+      - hurt
+      - riding
+      - unequip
+  hoglin:
+    icon: hoglin_spawn_egg
+    sounds:
+      - ambient
+      - angry
+      - attack
+      - converted_to_zombified
+      - death
+      - hurt
+      - retreat
+      - step
+  horse:
+    icon: horse_spawn_egg
+    sounds:
+      - ambient
+      - angry
+      - armor
+      - breathe
+      - death
+      - eat
+      - gallop
+      - hurt
+      - jump
+      - land
+      - saddle
+      - step
+      - step_wood
+  hostile:
+    icon: wooden_sword
+    sounds:
+      - big_fall
+      - death
+      - hurt
+      - small_fall
+      - splash
+      - swim
+  husk:
+    icon: husk_spawn_egg
+    sounds:
+      - ambient
+      - converted_to_zombie
+      - death
+      - hurt
+      - step
+  illusioner:
+    icon: lapis_lazuli
+    sounds:
+      - ambient
+      - cast_spell
+      - death
+      - hurt
+      - mirror_move
+      - prepare_blindness
+      - prepare_mirror
+  iron_golem:
+    icon: ghast_spawn_egg
+    sounds:
+      - attack
+      - damage
+      - death
+      - hurt
+      - repair
+      - step
+  item:
+    icon: paper
+    sounds:
+      - break
+      - pickup
+  item_frame:
+    icon: item_frame
+    sounds:
+      - add_item
+      - break
+      - place
+      - remove_item
+      - rotate_item
+  lightning_bolt:
+    icon: lightning_rod
+    sounds:
+      - impact
+      - thunder
+  lingering_potion:
+    icon: lingering_potion
+    sounds:
+      - throw
+  llama:
+    icon: llama_spawn_egg
+    sounds:
+      - ambient
+      - angry
+      - chest
+      - death
+      - eat
+      - hurt
+      - spit
+      - step
+      - swag
+  magma_cube:
+    icon: magma_cube_spawn_egg
+    sounds:
+      - death
+      - death_small
+      - hurt
+      - hurt_small
+      - jump
+      - squish
+      - squish_small
+  minecart:
+    icon: minecart
+    sounds:
+      - inside
+      - riding
+    inside:
+      icon: minecart
+      sounds:
+        - underwater
+  mooshroom:
+    icon: mooshroom_spawn_egg
+    sounds:
+      - convert
+      - eat
+      - milk
+      - shear
+      - suspicious_milk
+  mule:
+    icon: mule_spawn_egg
+    sounds:
+      - ambient
+      - angry
+      - chest
+      - death
+      - eat
+      - hurt
+      - jump
+  ocelot:
+    icon: ocelot_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+  painting:
+    icon: painting
+    sounds:
+      - break
+      - place
+  panda:
+    icon: panda_spawn_egg
+    sounds:
+      - aggressive_ambient
+      - ambient
+      - bite
+      - cant_breed
+      - death
+      - eat
+      - hurt
+      - pre_sneeze
+      - sneeze
+      - step
+      - worried_ambient
+  parrot:
+    icon: parrot_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - eat
+      - fly
+      - hurt
+      - step
+    imitate:
+      icon: parrot_spawn_egg
+      sounds:
+        - blaze
+        - bogged
+        - breeze
+        - creaking
+        - creeper
+        - drowned
+        - elder_guardian
+        - ender_dragon
+        - endermite
+        - evoker
+        - ghast
+        - guardian
+        - hoglin
+        - husk
+        - illusioner
+        - magma_cube
+        - phantom
+        - piglin
+        - piglin_brute
+        - pillager
+        - ravager
+        - shulker
+        - silverfish
+        - skeleton
+        - slime
+        - spider
+        - stray
+        - vex
+        - vindicator
+        - warden
+        - witch
+        - wither
+        - wither_skeleton
+        - zoglin
+        - zombie
+        - zombie_villager
+  phantom:
+    icon: phantom_spawn_egg
+    sounds:
+      - ambient
+      - bite
+      - death
+      - flap
+      - hurt
+      - swoop
+  pig:
+    icon: pig_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - saddle
+      - step
+  piglin:
+    icon: piglin_spawn_egg
+    sounds:
+      - admiring_item
+      - ambient
+      - angry
+      - celebrate
+      - converted_to_zombified
+      - death
+      - hurt
+      - jealous
+      - retreat
+      - step
+  piglin_brute:
+    icon: piglin_brute_spawn_egg
+    sounds:
+      - ambient
+      - angry
+      - converted_to_zombified
+      - death
+      - hurt
+      - step
+  pillager:
+    icon: pillager_spawn_egg
+    sounds:
+      - ambient
+      - celebrate
+      - death
+      - hurt
+  player:
+    icon: player_head
+    attack:
+      icon: iron_sword
+      sounds:
+        - crit
+        - knockback
+        - nodamage
+        - strong
+        - sweep
+        - weak
+    sounds:
+      - big_fall
+      - breath
+      - burp
+      - death
+      - hurt
+      - hurt_drown
+      - hurt_freeze
+      - hurt_on_fire
+      - hurt_sweet_berry_bush
+      - levelup
+      - small_fall
+      - splash
+      - swim
+      - teleport
+    splash:
+      icon: water_bucket
+      sounds:
+        - high_speed
+  polar_bear:
+    icon: polar_bear_spawn_egg
+    sounds:
+      - ambient
+      - ambient_baby
+      - death
+      - hurt
+      - step
+      - warning
+  puffer_fish:
+    icon: pufferfish_spawn_egg
+    sounds:
+      - blow_out
+      - blow_up
+      - death
+      - flop
+      - hurt
+      - sting
+  rabbit:
+    icon: rabbit_spawn_egg
+    sounds:
+      - ambient
+      - attack
+      - death
+      - hurt
+      - jump
+  ravager:
+    icon: ravager_spawn_egg
+    sounds:
+      - ambient
+      - attack
+      - celebrate
+      - death
+      - hurt
+      - roar
+      - step
+      - stunned
+  salmon:
+    icon: salmon_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - flop
+      - hurt
+  sheep:
+    icon: sheep_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - shear
+      - step
+  shulker:
+    icon: shulker_spawn_egg
+    sounds:
+      - ambient
+      - close
+      - death
+      - hurt
+      - hurt_closed
+      - open
+      - shoot
+      - teleport
+  shulker_bullet:
+    icon: shulker_shell
+    sounds:
+      - hit
+      - hurt
+  silverfish:
+    icon: silverfish_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - step
+  skeleton:
+    icon: skeleton_spawn_egg
+    sounds:
+      - ambient
+      - converted_to_stray
+      - death
+      - hurt
+      - shoot
+      - step
+  skeleton_horse:
+    icon: skeleton_horse_spawn_egg
+    sounds:
+      - ambient
+      - ambient_water
+      - death
+      - gallop_water
+      - hurt
+      - jump_water
+      - step_water
+      - swim
+  slime:
+    icon: slime_spawn_egg
+    sounds:
+      - attack
+      - death
+      - death_small
+      - hurt
+      - hurt_small
+      - jump
+      - jump_small
+      - squish
+      - squish_small
+  sniffer:
+    icon: sniffer_spawn_egg
+    sounds:
+      - death
+      - digging
+      - digging_stop
+      - drop_seed
+      - eat
+      - happy
+      - hurt
+      - idle
+      - scenting
+      - searching
+      - sniffing
+      - step
+  snow_golem:
+    icon: snow_golem_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - shear
+      - shoot
+  snowball:
+    icon: snowball
+    sounds:
+      - throw
+  spider:
+    icon: spider_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - step
+  splash_potion:
+    icon: splash_potion
+    sounds:
+      - break
+      - throw
+  squid:
+    icon: squid_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - squirt
+  stray:
+    icon: stray_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - step
+  strider:
+    icon: strider_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - eat
+      - happy
+      - hurt
+      - retreat
+      - saddle
+      - step
+      - step_lava
+  tadpole:
+    icon: tadpole_spawn_egg
+    sounds:
+      - death
+      - flop
+      - grow_up
+      - hurt
+  tnt:
+    icon: tnt
+    sounds:
+      - primed
+  tropical_fish:
+    icon: tropical_fish_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - flop
+      - hurt
+  turtle:
+    icon: turtle_spawn_egg
+    sounds:
+      - ambient_land
+      - death
+      - death_baby
+      - egg_break
+      - egg_crack
+      - egg_hatch
+      - hurt
+      - hurt_baby
+      - lay_egg
+      - shamble
+      - shamble_baby
+      - swim
+  vex:
+    icon: vex_spawn_egg
+    sounds:
+      - ambient
+      - charge
+      - death
+      - hurt
+  villager:
+    icon: villager_spawn_egg
+    sounds:
+      - ambient
+      - celebrate
+      - death
+      - hurt
+      - no
+      - trade
+      - work_armorer
+      - work_butcher
+      - work_cartographer
+      - work_cleric
+      - work_farmer
+      - work_fisherman
+      - work_fletcher
+      - work_leatherworker
+      - work_librarian
+      - work_mason
+      - work_shepherd
+      - work_toolsmith
+      - work_weaponsmith
+      - yes
+  vindicator:
+    icon: vindicator_spawn_egg
+    sounds:
+      - ambient
+      - celebrate
+      - death
+      - hurt
+  wandering_trader:
+    icon: wandering_trader_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - disappeared
+      - drink_milk
+      - drink_potion
+      - hurt
+      - no
+      - reappeared
+      - trade
+      - yes
+  warden:
+    icon: warden_spawn_egg
+    sounds:
+      - agitated
+      - ambient
+      - angry
+      - attack_impact
+      - death
+      - dig
+      - emerge
+      - heartbeat
+      - hurt
+      - listening
+      - listening_angry
+      - nearby_close
+      - nearby_closer
+      - nearby_closest
+      - roar
+      - sniff
+      - sonic_boom
+      - sonic_charge
+      - step
+      - tendril_clicks
+  wind_charge:
+    icon: wind_charge
+    sounds:
+      - throw
+      - wind_burst
+  witch:
+    icon: witch_spawn_egg
+    sounds:
+      - ambient
+      - celebrate
+      - death
+      - drink
+      - hurt
+      - throw
+  wither:
+    icon: nether_star
+    sounds:
+      - ambient
+      - break_block
+      - death
+      - hurt
+      - shoot
+      - spawn
+  wither_skeleton:
+    icon: wither_skeleton_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+      - step
+  wolf:
+    icon: wolf_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - growl
+      - hurt
+      - pant
+      - shake
+      - step
+      - whine
+  wolf_angry:
+    icon: wolf_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - growl
+      - hurt
+      - pant
+      - whine
+  wolf_big:
+    icon: wolf_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - growl
+      - hurt
+      - pant
+      - whine
+  wolf_cute:
+    icon: wolf_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - growl
+      - hurt
+      - pant
+      - whine
+  wolf_grumpy:
+    icon: wolf_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - growl
+      - hurt
+      - pant
+      - whine
+  wolf_puglin:
+    icon: wolf_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - growl
+      - hurt
+      - pant
+      - whine
+  wolf_sad:
+    icon: wolf_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - growl
+      - hurt
+      - pant
+      - whine
+  zoglin:
+    icon: zoglin_spawn_egg
+    sounds:
+      - ambient
+      - angry
+      - attack
+      - death
+      - hurt
+      - step
+  zombie:
+    icon: zombie_spawn_egg
+    sounds:
+      - ambient
+      - attack_iron_door
+      - attack_wooden_door
+      - break_wooden_door
+      - converted_to_drowned
+      - death
+      - destroy_egg
+      - hurt
+      - infect
+      - step
+  zombie_horse:
+    icon: zombie_horse_spawn_egg
+    sounds:
+      - ambient
+      - death
+      - hurt
+  zombie_villager:
+    icon: zombie_villager_spawn_egg
+    sounds:
+      - ambient
+      - converted
+      - cure
+      - death
+      - hurt
+      - step
+  zombified_piglin:
+    icon: zombified_piglin_spawn_egg
+    sounds:
+      - ambient
+      - angry
+      - death
+      - hurt
+event:
+  icon: bell
+  mob_effect:
+    icon: potion
+    sounds:
+      - bad_omen
+      - raid_omen
+      - trial_omen
+  raid:
+    icon: bell
+    sounds:
+      - horn
+item:
+  icon: diamond_axe
+  armor:
+    icon: iron_chestplate
+    sounds:
+      - equip_chain
+      - equip_copper
+      - equip_diamond
+      - equip_elytra
+      - equip_generic
+      - equip_gold
+      - equip_iron
+      - equip_leather
+      - equip_netherite
+      - equip_turtle
+      - equip_wolf
+      - unequip_wolf
+  axe:
+    icon: iron_axe
+    sounds:
+      - scrape
+      - strip
+      - wax_off
+  bone_meal:
+    icon: bone_meal
+    sounds:
+      - use
+  book:
+    icon: book
+    sounds:
+      - page_turn
+      - put
+  bottle:
+    icon: glass_bottle
+    sounds:
+      - empty
+      - fill
+      - fill_dragonbreath
+  brush:
+    icon: brush
+    brushing:
+      icon: brush
+      sounds:
+        - generic
+        - gravel
+        - sand
+      gravel:
+        icon: gravel
+        sounds:
+          - complete
+      sand:
+        icon: sand
+        sounds:
+          - complete
+  bucket:
+    icon: bucket
+    sounds:
+      - empty
+      - empty_axolotl
+      - empty_fish
+      - empty_lava
+      - empty_powder_snow
+      - empty_tadpole
+      - fill
+      - fill_axolotl
+      - fill_fish
+      - fill_lava
+      - fill_powder_snow
+      - fill_tadpole
+  bundle:
+    icon: bundle
+    sounds:
+      - drop_contents
+      - insert
+      - insert_fail
+      - remove_one
+  chorus_fruit:
+    icon: chorus_fruit
+    sounds:
+      - teleport
+  crop:
+    icon: wheat_seeds
+    sounds:
+      - plant
+  crossbow:
+    icon: crossbow
+    sounds:
+      - hit
+      - loading_end
+      - loading_middle
+      - loading_start
+      - quick_charge_1
+      - quick_charge_2
+      - quick_charge_3
+      - shoot
+  dye:
+    icon: cyan_dye
+    sounds:
+      - use
+  elytra:
+    icon: elytra
+    sounds:
+      - flying
+  firecharge:
+    icon: fire_charge
+    sounds:
+      - use
+  flintandsteel:
+    icon: flint_and_steel
+    sounds:
+      - use
+  glow_ink_sac:
+    icon: glow_ink_sac
+    sounds:
+      - use
+  goat_horn:
+    icon: goat_horn
+    sound:
+      icon: goat_horn
+      sounds:
+        - "0"
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+        - "6"
+        - "7"
+  hoe:
+    icon: wooden_hoe
+    sounds:
+      - till
+  honey_bottle:
+    icon: honey_bottle
+    sounds:
+      - drink
+  honeycomb:
+    icon: honeycomb
+    sounds:
+      - wax_on
+  horse_armor:
+    icon: leather_horse_armor
+    sounds:
+      - unequip
+  ink_sac:
+    icon: ink_sac
+    sounds:
+      - use
+  lead:
+    icon: lead
+    sounds:
+      - break
+      - tied
+      - untied
+  llama_carpet:
+    icon: white_carpet
+    sounds:
+      - unequip
+  lodestone_compass:
+    icon: compass
+    sounds:
+      - lock
+  mace:
+    icon: stone_axe
+    sounds:
+      - smash_air
+      - smash_ground
+      - smash_ground_heavy
+  nether_wart:
+    icon: nether_wart
+    sounds:
+      - plant
+  ominous_bottle:
+    icon: honey_bottle
+    sounds:
+      - dispose
+  saddle:
+    icon: saddle
+    sounds:
+      - unequip
+  shears:
+    icon: shears
+    sounds:
+      - snip
+  shield:
+    icon: shield
+    sounds:
+      - block
+      - break
+  shovel:
+    icon: wooden_shovel
+    sounds:
+      - flatten
+  spyglass:
+    icon: spyglass
+    sounds:
+      - stop_using
+      - use
+  totem:
+    icon: totem_of_undying
+    sounds:
+      - use
+  trident:
+    icon: trident
+    sounds:
+      - hit
+      - hit_ground
+      - return
+      - riptide_1
+      - riptide_2
+      - riptide_3
+      - throw
+      - thunder
+  wolf_armor:
+    icon: leather_horse_armor
+    sounds:
+      - break
+      - crack
+      - damage
+      - repair
+music:
+  icon: jukebox
+  sounds:
+    - creative
+    - credits
+    - dragon
+    - end
+    - game
+    - menu
+    - under_water
+  nether:
+    icon: music_disc_pigstep
+    sounds:
+      - basalt_deltas
+      - crimson_forest
+      - nether_wastes
+      - soul_sand_valley
+      - warped_forest
+  overworld:
+    icon: grass_block
+    sounds:
+      - badlands
+      - bamboo_jungle
+      - cherry_grove
+      - deep_dark
+      - desert
+      - dripstone_caves
+      - flower_forest
+      - forest
+      - frozen_peaks
+      - grove
+      - jagged_peaks
+      - jungle
+      - lush_caves
+      - meadow
+      - old_growth_taiga
+      - snowy_slopes
+      - sparse_jungle
+      - stony_peaks
+      - swamp
+music_disc:
+  icon: music_disc_pigstep
+  sounds:
+    - "11"
+    - "13"
+    - "5"
+    - blocks
+    - cat
+    - chirp
+    - creator
+    - creator_music_box
+    - far
+    - lava_chicken
+    - mall
+    - mellohi
+    - otherside
+    - pigstep
+    - precipice
+    - relic
+    - stal
+    - strad
+    - tears
+    - wait
+    - ward
+particle:
+  icon: blaze_powder
+  sounds:
+    - soul_escape
+ui:
+  icon: name_tag
+  button:
+    icon: stone_button
+    sounds:
+      - click
+  cartography_table:
+    icon: cartography_table
+    sounds:
+      - take_result
+  hud:
+    icon: oak_hanging_sign
+    sounds:
+      - bubble_pop
+  loom:
+    icon: loom
+    sounds:
+      - select_pattern
+      - take_result
+  stonecutter:
+    icon: stonecutter
+    sounds:
+      - select_recipe
+      - take_result
+  toast:
+    icon: name_tag
+    sounds:
+      - challenge_complete
+      - in
+      - out
+weather:
+  icon: snowball
+  sounds:
+    - end_flash
+    - rain
+  rain:
+    icon: water_bucket
+    sounds:
+      - above

@@ -4,7 +4,7 @@
   "description": "Minecraft soundboard.",
   "scripts": {
     "reinstall": "npm i",
-    "#1": "echo Create a new file under './sounds' for your version and update Config, then run these.",
+    "#1": "echo Create a new file under './sounds' for your version and update Config, then run.",
     "create_soundboard": "node soundboard.js"
   },
   "repository": {
