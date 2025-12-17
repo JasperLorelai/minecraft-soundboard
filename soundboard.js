@@ -40,11 +40,10 @@ function toTitleCase(string) {
             paths.reduce(({config, previous}, path, index) => {
                 if (index === lastIndex) {
                     if (path !== "intentionally_empty") {
-                        config.sounds ??= [];
                         config.sounds.push(path);
                     }
                 } else {
-                    config[path] ??= {};
+                    config[path] ??= {icon: null, sounds: []};
                     let icon = previous?.[path]?.icon;
                     if (icon && icon !== "purple_dye") config[path].icon = icon;
                     else unset.add(paths.slice(0, -1).join("."));
