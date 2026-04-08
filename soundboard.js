@@ -31,7 +31,7 @@ function toTitleCase(string) {
     const previous = Util.loadYAMLasJSON(previousFileName);
     const unset = new Set();
     const soundConfig = fs.readFileSync(soundFileName).toString()
-        .split("\r\n")
+        .split(/\r?\n/)
         .sort()
         .reduce((config, sound) => {
             if (!sound) return config;
